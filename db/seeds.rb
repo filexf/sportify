@@ -1,52 +1,127 @@
+require 'open-uri'
+
 # 1. Clean the database 🗑️
 puts "Cleaning database..."
 
 UserSport.destroy_all
+Participation.destroy_all
+Event.destroy_all
 User.destroy_all
+Playground.destroy_all
 Sport.destroy_all
 Location.destroy_all
-Event.destroy_all
-Playground.destroy_all
-Participation.destroy_all
 
 # 2. Create the users
 puts "Creating users ..."
 
-User.create!(
-  first_name: "Caroline",
-  last_name: "Cerbelaud",
-  username: "Caro CBD",
-  email: "caroline.cerbelaud@gmail.com",
-  password: "123456",
-  address: "60 Mail Francois Mitterrand 35000 RENNES"
-)
+users_photos = [
+  'Mouette_boxeuse_snsbx5',
+  'Groupe_Niquetamouette_wil8gj',
+  'Categorie_Factrice_hbhzxn',
+  'Categorie_Sprinteuse_cv2kr8'
+]
 
-User.create!(
-  first_name: "Marion",
-  last_name: "Vives",
-  username: "Mouettion",
-  email: "mvives.dev@gmail.com",
-  password: "123456",
-  address: "35220 Chateaubourg"
-)
+# User.create!(
+#   first_name: "Caroline",
+#   last_name: "Cerbelaud",
+#   username: "Caro CBD",
+#   email: "caroline.cerbelaud@gmail.com",
+#   password: "123456",
+#   address: "60 Mail Francois Mitterrand 35000 RENNES",
+#   photo: ""
+# )
 
-User.create!(
-  first_name: "Felix",
-  last_name: "Orain",
-  username: "Filex",
-  email: "felix.orain@gmail.com",
-  password: "123456",
-  address: "Boulevard Marbeuf 35000 Rennes"
-)
+# User.create!(
+#   first_name: "Marion",
+#   last_name: "Vives",
+#   username: "Mouettion",
+#   email: "mvives.dev@gmail.com",
+#   password: "123456",
+#   address: "35220 Chateaubourg",
+#   photo: ""
+# )
 
-User.create!(
-  first_name: "Leo",
-  last_name: "Tremoureux",
-  username: "La Gouelle",
-  email: "ltremoureux@hotmail.fr",
-  password: "123456",
-  address: "92 Rue de Lorient 35000 Rennes"
-)
+# User.create!(
+#   first_name: "Felix",
+#   last_name: "Orain",
+#   username: "Filex",
+#   email: "felix.orain@gmail.com",
+#   password: "123456",
+#   address: "Boulevard Marbeuf 35000 Rennes",
+#   photo: ""
+# )
+
+# User.create!(
+#   first_name: "Leo",
+#   last_name: "Tremoureux",
+#   username: "La Gouelle",
+#   email: "ltremoureux@hotmail.fr",
+#   password: "123456",
+#   address: "92 Rue de Lorient 35000 Rennes",
+#   photo: ""
+# )
+
+users_array = [
+  {
+    first_name: "Leo",
+    last_name: "Tremoureux",
+    username: "LaGouelle",
+    email: "ltremoureux@hotmail.fr",
+    password: "123456",
+    address: "92 Rue de Lorient 35000 Rennes",
+    photo: ""
+  },
+  {
+    first_name: "Caroline",
+    last_name: "Cerbelaud",
+    username: "Caro CBD",
+    email: "caroline.cerbelaud@gmail.com",
+    password: "123456",
+    address: "60 Mail Francois Mitterrand 35000 RENNES",
+    photo: ""
+  },
+  {
+    first_name: "Marion",
+    last_name: "Vives",
+    username: "Mouettion",
+    email: "mvives.dev@gmail.com",
+    password: "123456",
+    address: "35220 Chateaubourg",
+    photo: ""
+  },
+  {
+    first_name: "Felix",
+    last_name: "Orain",
+    username: "Filex",
+    email: "felix.orain@gmail.com",
+    password: "123456",
+    address: "Boulevard Marbeuf 35000 Rennes",
+    photo: ""
+  }
+]
+
+users_array.each_with_index do |user, index|
+  new_user = User.new(
+    first_name: user[:name],
+    last_name: user[:last_name],
+    username: user[:username],
+    email: user[:email],
+    password: user[:password],
+    address: user[:address],
+  )
+  if user[:photo].blank?
+    cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{users_photos[index]}.jpg"
+    puts cloudinary_url
+    file = URI.parse(cloudinary_url).open
+    puts file
+    new_user.photo.attach(io: file, filename: "#{new_user.username}.png", content_type: "image/png")
+  else
+    cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{user[:photo]}.jpg"
+    file = URI.parse(cloudinary_url).open
+    new_user.photo.attach(io: file, filename: "#{new_user.username}.png", content_type: "image/png")
+  end
+  new_user.save!
+end
 
 puts "#{User.count} created"
 
