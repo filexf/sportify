@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  has_many :user_sports
+  has_many :favorite_sports, through: :user_sports, source: :sport
+  has_many :participations
+  has_many :games_as_player, through: :participations, source: :event
+  has_many :events_as_organisator, class_name: "Event", foreign_key: :organisator_id
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
