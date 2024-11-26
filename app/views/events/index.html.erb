@@ -1,0 +1,11 @@
+<h1> Page d'accueil des évènements </h1>
+
+<h2> Liste des évènements </h2>
+<div>
+  <% @events.each do |event| %>
+    <%= render "event", event:event  %>
+  <% end %>
+</div>
+
+<h2> Carte des évènements </h2>
+<%= render "map", markers:@markers %>
