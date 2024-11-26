@@ -1,9 +1,154 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# 1. Clean the database 🗑️
+puts "Cleaning database..."
+
+UserSport.destroy_all
+User.destroy_all
+Sport.destroy_all
+Location.destroy_all
+Event.destroy_all
+Playground.destroy_all
+Participation.destroy_all
+
+# 2. Create the users
+puts "Creating users ..."
+
+User.create!(
+  first_name: "Caroline",
+  last_name: "Cerbelaud",
+  username: "Caro CBD",
+  email: "caroline.cerbelaud@gmail.com",
+  password: "123456",
+  address: "60 Mail Francois Mitterrand 35000 RENNES"
+)
+
+User.create!(
+  first_name: "Marion",
+  last_name: "Vives",
+  username: "Mouettion",
+  email: "mvives.dev@gmail.com",
+  password: "123456",
+  address: "35220 Chateaubourg"
+)
+
+User.create!(
+  first_name: "Felix",
+  last_name: "Orain",
+  username: "Filex",
+  email: "felix.orain@gmail.com",
+  password: "123456",
+  address: "Boulevard Marbeuf 35000 Rennes"
+)
+
+User.create!(
+  first_name: "Leo",
+  last_name: "Tremoureux",
+  username: "La Gouelle",
+  email: "ltremoureux@hotmail.fr",
+  password: "123456",
+  address: "92 Rue de Lorient 35000 Rennes"
+)
+
+puts "#{User.count} created"
+
+# 3. Create the sports
+puts "Creating sport ..."
+Sport.create!(
+  name: "Palet",
+  number_of_players_min: 1,
+  number_of_players_max: 4
+)
+
+Sport.create!(
+  name: "Padel",
+  number_of_players_min: 1,
+  number_of_players_max: 4
+)
+
+Sport.create!(
+  name: "Fléchettes",
+  number_of_players_min: 1,
+  number_of_players_max: 4
+)
+
+Sport.create!(
+  name: "Basketball",
+  number_of_players_max: 10
+  )
+
+puts "#{Sport.count} created"
+
+# 3. Create the UserSport
+puts "Creating UserSport ..."
+UserSport.create!(
+  user: User.first,
+  sport: Sport.first
+)
+
+UserSport.create!(
+  user: User.first,
+  sport: Sport.last
+)
+
+UserSport.create!(
+  user: User.last,
+  sport: Sport.first
+)
+
+puts "#{UserSport.count} created"
+# 4. Create the Locations
+puts "Creating Locations ..."
+
+Location.create!(
+  name: "La Piste",
+  address: "68 Mail Francois Mitterrand 35000 Rennes",
+  category: :bar
+)
+
+Location.create!(
+  name: "La Paillette",
+  address: "2 Rue du Pré de Bris 35000 Rennes",
+  category: :public_park
+)
+
+
+# 5. Create the Playgrounds
+puts "Creating Playgrounds ..."
+Playground.create!(
+  location: Location.first,
+  sport: Sport.first
+)
+
+Playground.create!(
+  location: Location.last,
+  sport: Sport.last
+)
+
+# 5. Create the Events
+puts "Creating Events ..."
+
+Event.create!(
+  name: "Pas de Palais ?",
+  description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
+  start_at: "28/11/2024 14h00",
+  end_at: "28/11/2024 23h30",
+  playground: Playground.first,
+  organisator: User.last
+)
+
+Event.create!(
+  name: "Space Jam",
+  description: "Match avec MJ!",
+  start_at: "29/11/2024 11h00",
+  end_at: "29/11/2024 15h30",
+  playground: Playground.last,
+  organisator: User.first
+)
+
+# 6. Create the Participations
+puts "Creating Participations ..."
+
+Participation.create!(
+  user: User.first,
+  event: Event.first,
+  status: :pending
+)
