@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  
   has_many :user_sports
   has_many :favorite_sports, through: :user_sports, source: :sport
   has_many :participations
