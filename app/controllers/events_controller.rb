@@ -28,4 +28,9 @@ class EventsController < ApplicationController
 
       # Faire un near "me" à "x" km près sur les events
   end
+
+  def show
+    @event = Event.find(params[:id])
+    
+  end
 end
