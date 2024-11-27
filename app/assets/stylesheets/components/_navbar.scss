@@ -1,12 +1,58 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.navbar-sportify {
+  width: 100vw;
+  height: 107px;
+  background-color: $sportify-darkblue;
+
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.position-relative{
+   position: relative;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.icon-plus-sign{
+  position: absolute;
+  top: 0px;
+  left: 140px;
+}
+
+.white-circle{
+  // background-color: rgba(255, 255, 255, 0.5);
+  // background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  background-color: #ffffff;
+  border: none;
+  -moz-border-radius: 0px 0px 100px 100px / 0px 0px 100px 100px;
+  -webkit-border-radius: 0px 0px 100px 100px / 0px 0px 100px 100px;
+  -webkit-border-top-left-radius: 0px 0px;
+  -webkit-border-top-right-radius: 0px 0px;
+  -webkit-border-bottom-right-radius: 100px 100px;
+  -webkit-border-bottom-left-radius: 100px 100px;
+  border-radius: 0px 0px 100px 100px / 0px 0px 100px 100px;
+  // behavior: url(/css/PIE.htc);
+  width: 80px;
+  height: 40px;
+  // border-radius: 50%;
+  position: relative;
+  // clip-path: ellipse(4rem 50% at top center);
+  z-index: 1;
+
+}
+
+.plus-sign{
+  position: absolute;
+  top: -30px;
+  left:10px ;
+  z-index: 3;
 }
