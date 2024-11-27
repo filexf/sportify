@@ -1,0 +1,19 @@
+
+<div>
+  <div>
+    <%= cl_image_tag event.sport.photo.key, height: 300, width: 300, crop: :thumb %>
+    <span>
+      <%= event.organisator == current_user ? "organisateur" : "participant" %>
+    </span>
+  <div>
+    <%= event.name %>
+    <%= event.participations.count %> joueurs / <%= event.sport.number_of_players_max %>
+    <% event.participations.each do |participation| %>
+      <span>
+         <%= participation.user.username %>
+      </span>
+    <% end %>
+  </div>
+    <%= link_to "Détails", event_path(event) %>
+  </div>
+</div>

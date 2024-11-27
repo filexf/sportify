@@ -1,14 +1,23 @@
-<h1> Page d'accueil des évènements </h1>
-
-<h2> Liste des évènements </h2>
 <div>
-  <% @events.each do |event| %>
-    <%= render "event", event:event  %>
+  Barre de rechercher à remplacer
+</div>
+<div>
+  Liste de pills de sport à remplacer
+</div>
+
+<h2> Carte des évènements - Titre à enlever </h2>
+<%= render "map", markers: @near_event_markers, user: @current_user %>
+
+<h2>Près de chez vous</h2>
+<div>
+  <% @near_events.each do |event| %>
+    <%= render "event_card", event:event  %>
   <% end %>
 </div>
 
-<h2> Carte des évènements </h2>
-
-<%= render "map", markers:@near_events, user:@current_user %>
-
-<button class="btn btn-primary">Bouton test</button>
+<h2>Vos évènements</h2>
+<div>
+  <% @my_events.each do |event| %>
+    <%= render "event_card_light", event: event  %>
+  <% end %>
+</div>
