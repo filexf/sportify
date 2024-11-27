@@ -13,9 +13,10 @@
 
 .navbar-sportify {
   width: 100vw;
-  height: 107px;
+  height: 75px;
   background-color: $sportify-darkblue;
-
+  position: sticky;
+  bottom: -50px;
 }
 
 .position-relative{
