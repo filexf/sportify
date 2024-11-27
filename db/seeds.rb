@@ -21,46 +21,6 @@ users_photos = [
   'Categorie_Sprinteuse_cv2kr8'
 ]
 
-# User.create!(
-#   first_name: "Caroline",
-#   last_name: "Cerbelaud",
-#   username: "Caro CBD",
-#   email: "caroline.cerbelaud@gmail.com",
-#   password: "123456",
-#   address: "60 Mail Francois Mitterrand 35000 RENNES",
-#   photo: ""
-# )
-
-# User.create!(
-#   first_name: "Marion",
-#   last_name: "Vives",
-#   username: "Mouettion",
-#   email: "mvives.dev@gmail.com",
-#   password: "123456",
-#   address: "35220 Chateaubourg",
-#   photo: ""
-# )
-
-# User.create!(
-#   first_name: "Felix",
-#   last_name: "Orain",
-#   username: "Filex",
-#   email: "felix.orain@gmail.com",
-#   password: "123456",
-#   address: "Boulevard Marbeuf 35000 Rennes",
-#   photo: ""
-# )
-
-# User.create!(
-#   first_name: "Leo",
-#   last_name: "Tremoureux",
-#   username: "La Gouelle",
-#   email: "ltremoureux@hotmail.fr",
-#   password: "123456",
-#   address: "92 Rue de Lorient 35000 Rennes",
-#   photo: ""
-# )
-
 users_array = [
   {
     first_name: "Leo",
@@ -126,29 +86,88 @@ end
 puts "#{User.count} created"
 
 # 3. Create the sports
+
+sports_photos = [
+  'Palets_usny3s',
+  'th_utmxc6',
+  'th_jtlasg',
+  'th_lzz6hw'
+]
+
+sports_array = [
+  {
+    name: "Palet",
+    number_of_players_min: 1,
+    number_of_players_max: 4,
+    photo: ""
+  },
+  {
+    name: "Padel",
+    number_of_players_min: 1,
+    number_of_players_max: 4,
+    photo: ""
+  },
+  {
+    name: "Fléchettes",
+    number_of_players_min: 1,
+    number_of_players_max: 4,
+    photo: ""
+  },
+  {
+    name: "Basketball",
+    number_of_players_max: 10,
+    photo: ""
+  }
+]
+
 puts "Creating sport ..."
-Sport.create!(
-  name: "Palet",
-  number_of_players_min: 1,
-  number_of_players_max: 4
-)
 
-Sport.create!(
-  name: "Padel",
-  number_of_players_min: 1,
-  number_of_players_max: 4
-)
-
-Sport.create!(
-  name: "Fléchettes",
-  number_of_players_min: 1,
-  number_of_players_max: 4
-)
-
-Sport.create!(
-  name: "Basketball",
-  number_of_players_max: 10
+sports_array.each_with_index do |sport, index|
+  new_sport = Sport.new(
+    name: sport[:name],
+    number_of_players_min: sport[:number_of_players_min],
+    number_of_players_max: sport[:number_of_players_max]
   )
+  if sport[:photo].blank?
+    cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{sports_photos[index]}.jpg"
+    puts cloudinary_url
+    file = URI.parse(cloudinary_url).open
+    puts file
+    new_sport.photo.attach(io: file, filename: "#{new_sport.name}.png", content_type: "image/png")
+  else
+    cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{sport[:photo]}.jpg"
+    file = URI.parse(cloudinary_url).open
+    new_user.photo.attach(io: file, filename: "#{new_sport.name}.png", content_type: "image/png")
+  end
+  new_sport.save!
+end
+
+# Sport.create!(
+#   name: "Palet",
+#   number_of_players_min: 1,
+#   number_of_players_max: 4,
+#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709340/Palets_usny3s.jpg"
+# )
+
+# Sport.create!(
+#   name: "Padel",
+#   number_of_players_min: 1,
+#   number_of_players_max: 4,
+#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709351/th_utmxc6.jpg"
+# )
+
+# Sport.create!(
+#   name: "Fléchettes",
+#   number_of_players_min: 1,
+#   number_of_players_max: 4,
+#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709737/th_jtlasg.jpg"
+# )
+
+# Sport.create!(
+#   name: "Basketball",
+#   number_of_players_max: 10,
+#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg"
+#   )
 
 puts "#{Sport.count} created"
 
