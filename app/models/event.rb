@@ -7,5 +7,5 @@ class Event < ApplicationRecord
   has_one :sport, through: :playgrounds
   #  has_many :sports, through: :playgrounds
   has_many :participations
-  has_many :players, through: :participations
+  has_many :players, through: :participations, source: :user
 end
