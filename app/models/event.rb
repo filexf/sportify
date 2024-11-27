@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   has_one :sport, through: :playground
   has_one :location, through: :playground
   has_many :participations
-  has_many :players, through: :participations
+  has_many :players, through: :participations, source: :user
 
   def coordinates
     {
@@ -17,4 +17,5 @@ class Event < ApplicationRecord
   def address
     location.address
   end
+
 end

@@ -126,28 +126,33 @@ end
 puts "#{User.count} created"
 
 # 3. Create the sports
+
 puts "Creating sport ..."
 Sport.create!(
   name: "Palet",
   number_of_players_min: 1,
-  number_of_players_max: 4
+  number_of_players_max: 4,
+  # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709340/Palets_usny3s.jpg"
 )
 
 Sport.create!(
   name: "Padel",
   number_of_players_min: 1,
-  number_of_players_max: 4
+  number_of_players_max: 4,
+  # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709351/th_utmxc6.jpg"
 )
 
 Sport.create!(
   name: "Fléchettes",
   number_of_players_min: 1,
-  number_of_players_max: 4
+  number_of_players_max: 4,
+  # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709737/th_jtlasg.jpg"
 )
 
 Sport.create!(
   name: "Basketball",
-  number_of_players_max: 10
+  number_of_players_max: 10,
+  # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg"
   )
 
 puts "#{Sport.count} created"
