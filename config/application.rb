@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Sportify
   class Application < Rails::Application
     config.action_controller.raise_on_missing_callback_actions = false if Rails.version >= "7.1.0"
@@ -14,6 +15,11 @@ module Sportify
       generate.helper false
       generate.test_framework :test_unit, fixture: false
     end
+
+    # Set up locale par défaut en français
+    config.i18n.default_locale = :fr
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -29,5 +35,6 @@ module Sportify
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
   end
 end
