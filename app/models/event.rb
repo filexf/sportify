@@ -18,4 +18,14 @@ class Event < ApplicationRecord
     location.address
   end
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name ],
+  associated_against: {
+    sport: [ :name ],
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end

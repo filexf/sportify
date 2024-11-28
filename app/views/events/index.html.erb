@@ -1,9 +1,29 @@
 <div>
-  Barre de rechercher à remplacer
+  <%= render "search_bar" %>
 </div>
-<div>
-  Liste de pills de sport à remplacer
-</div>
+
+  <% if @search_message %>
+    <p>
+      <%= @search_message %>
+      </p>
+    <h2>
+      Nos évènements
+    </h2>
+    <div>
+        <% @events.each do |event| %>
+          <%= render "event_card", event:event  %>
+        <% end %>
+      </div>
+  <% else %>
+    <h2>
+      Pour vous
+      <div>
+        <% @events.each do |event| %>
+          <%= render "event_card", event:event  %>
+        <% end %>
+      </div>
+    </h2>
+  <% end %>
 
 <h2> Carte des évènements - Titre à enlever </h2>
 <%= render "map", markers: @near_event_markers, user: @current_user %>
