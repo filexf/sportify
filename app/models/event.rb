@@ -7,6 +7,8 @@ class Event < ApplicationRecord
   has_many :participations
   has_many :players, through: :participations, source: :user
 
+
+  SPORT = ["padel", "palet"]
   def coordinates
     {
       lat: location.latitude,

@@ -32,4 +32,35 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
+
+  def new
+    @event = Event.new
+    @playgrounds = Playground.all
+  end
+
+  def create
+    # @sport = Sport.find(params[:sport_id])
+    # @location = Location.find(params[:location_id])
+    @event = Event.new(event_params)
+    @event.organisator = current_user
+    if @event.save
+      flash[:notice] = "Événement créé avec succès!"
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(
+      :name,
+      :start_at,
+      :end_at,
+      :description,
+      :playground_id
+    )
+  end
+
 end

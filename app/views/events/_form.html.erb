@@ -1,0 +1,41 @@
+<%= simple_form_for [@event] do |f| %>
+  <div>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <%= f.input :name,
+      label: 'Le nom de votre event',
+      error: 'Merci de nommer votre event',
+      required: true %>
+
+      <%= f.input :description,
+      label: "Description de l'événement",
+      error: 'Décrivez votre événement'
+      %>
+
+      <%= f.input :playground_id,
+      label: "Description de l'événement",
+      error: 'Décrivez votre événement',
+      collection: @playgrounds.map { |playground| [playground.name, playground.id]}
+      %>
+
+
+      <%= f.input :start_at, as: :datetime, class: "form_date" %>
+      <%= f.input :end_at, as: :datetime %>
+
+
+      <%# <form action="" class="d-flex justify-content-around mb-5">
+      <div>
+        <label for="start" class="text-center"><strong>Date de début:</strong></label>
+        <input type="date" id="start-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
+      </div>
+      <div>
+        <label for="start" class="text-center"><strong>Date de fin:</strong></label>
+        <input type="date" id="end-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
+      </div>
+      </form> %>
+
+
+      <%= f.button :submit, "Publier", class: "mt-1 btn btn-outline-dark text-dark d-flex justify-content-center col-2" %>
+  </div>
+<% end %>
