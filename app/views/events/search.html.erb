@@ -7,7 +7,7 @@
   <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% @near_events.each do |event| %>
-        <div class="carousel-item active">
+        <div class="carousel-item active ">
           <%= render "event_card", event:event  %>
         </div>
       <% end %>
