@@ -11,7 +11,7 @@
     <div class="pills-card">Tir à la mouette</div>
   </div>
 
-calendrier dates
+<%# calendrier dates %>
 
   <% if @search_message %>
     <p>
@@ -20,33 +20,18 @@ calendrier dates
     <h2>
       Nos évènements
     </h2>
-    <div>
-        <% @events.each do |event| %>
-          <%= render "event_card", event:event  %>
-        <% end %>
-      </div>
+    <div class="horizontal-scroll-wrapper card-grid my-3">
+      <% @events.each do |event| %>
+        <%= render "event_card", event:event  %>
+      <% end %>
+    </div>
   <% else %>
     <h2>
       Pour vous
-      <div>
+    </h2>
+      <div class="horizontal-scroll-wrapper card-grid my-3">
         <% @events.each do |event| %>
           <%= render "event_card", event:event  %>
         <% end %>
       </div>
-    </h2>
   <% end %>
-
-
-<h2>Près de chez vous</h2>
-<div>
-  <% @near_events.each do |event| %>
-    <%= render "event_card", event:event  %>
-  <% end %>
-</div>
-
-<h2>Vos évènements</h2>
-<div class="card_light_grid">
-  <% @my_events.each do |event| %>
-    <%= render "event_card_light", event: event  %>
-  <% end %>
-</div>
