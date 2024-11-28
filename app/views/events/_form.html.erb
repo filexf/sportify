@@ -20,8 +20,9 @@
       %>
 
 
-      <%= f.input :start_at %>
-      <%= f.input :end_at %>
+      <%= f.input :start_at, as: :datetime, class: "form_date" %>
+      <%= f.input :end_at, as: :datetime %>
+
 
       <%# <form action="" class="d-flex justify-content-around mb-5">
       <div>
