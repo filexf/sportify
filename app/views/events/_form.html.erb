@@ -1,27 +1,31 @@
 <%= simple_form_for [@event] do |f| %>
-  <div>
+  <div class="d-flex flex-column justify-content-center ">
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <%= f.input :name,
-      label: 'Le nom de votre event',
+      label: 'Le nom de votre événement:',
       error: 'Merci de nommer votre event',
       required: true %>
 
       <%= f.input :description,
-      label: "Description de l'événement",
-      error: 'Décrivez votre événement'
+      label: "Description de votre événement",
+      error: 'Décrivez votre événement:'
       %>
 
-      <%= f.input :playground_id,
-      label: "Description de l'événement",
+      <%=
+      # playgrounds_names_and_ids = []
+      # @playgrounds.each do |pg|
+      #   playgrounds_names_and_ids << [playground.name, playground.id]
+      # end
+
+      f.input :playground_id,
+      label: "Description de votre événement:",
       error: 'Décrivez votre événement',
-      collection: @playgrounds.map { |playground| [playground.name, playground.id]}
+      collection: @playgrounds.map { |playground| [playground.name, playground.id] }
       %>
 
 
-      <%= f.input :start_at, as: :datetime, class: "form_date" %>
-      <%= f.input :end_at, as: :datetime %>
 
 
       <%# <form action="" class="d-flex justify-content-around mb-5">
@@ -34,8 +38,27 @@
         <input type="date" id="end-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
       </div>
       </form> %>
+      <div class="d-flex flex-column justify-content-center mb-3">
 
 
-      <%= f.button :submit, "Publier", class: "mt-1 btn btn-outline-dark text-dark d-flex justify-content-center col-2" %>
+        <label for="event_start_at" class="my-3">Début de l'event:</label>
+        <input
+          id="event_start_at"
+          type="datetime-local"
+          name="event[start_at]"/>
+
+        <label for="event_end_at" class="my-3">Début de l'event:</label>
+        <input
+          id="event_end_at"
+          type="datetime-local"
+          name="event[end_at]"/>
+
+      </div>
+      <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
+      <%# <%= f.input :end_at, as: :datetime %>
+      <div class="d-flex justify-content-center mt-2">
+        <%= f.button :submit, "Publier", class: "btn btn-outline-dark text-dark d-flex justify-content-center text-center" %>
+      </div>
+
   </div>
 <% end %>
