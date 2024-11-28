@@ -34,7 +34,7 @@ users_array = [
   {
     first_name: "Caroline",
     last_name: "Cerbelaud",
-    username: "Caro CBD",
+    username: "CaroCBD",
     email: "caroline.cerbelaud@gmail.com",
     password: "123456",
     address: "60 Mail Francois Mitterrand 35000 RENNES",
@@ -46,7 +46,7 @@ users_array = [
     username: "Mouettion",
     email: "mvives.dev@gmail.com",
     password: "123456",
-    address: "35220 Chateaubourg",
+    address: "5 Boulevard Magenta 35000 Rennes",
     photo: ""
   },
   {
@@ -71,9 +71,9 @@ users_array.each_with_index do |user, index|
   )
   if user[:photo].blank?
     cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{users_photos[index]}.jpg"
-    puts cloudinary_url
+    # puts cloudinary_url
     file = URI.parse(cloudinary_url).open
-    puts file
+    # puts file
     new_user.photo.attach(io: file, filename: "#{new_user.username}.png", content_type: "image/png")
   else
     cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{user[:photo]}.jpg"
@@ -91,7 +91,10 @@ sports_photos = [
   'Palets_usny3s',
   'th_utmxc6',
   'th_jtlasg',
-  'th_lzz6hw'
+  'th_lzz6hw',
+  'th_nlomcn',
+  'th_vxxxwl',
+  'th_fnfj1l'
 ]
 
 sports_array = [
@@ -117,6 +120,24 @@ sports_array = [
     name: "Basketball",
     number_of_players_max: 10,
     photo: ""
+  },
+  {
+    name: "Lancer de mouettes",
+    number_of_players_min: 1,
+    number_of_players_max: 4,
+    photo: ""
+  },
+  {
+    name: "Tir à la mouette",
+    number_of_players_min: 1,
+    number_of_players_max: 6,
+    photo: ""
+  },
+  {
+    name: "Tennis",
+    number_of_players_min: 1,
+    number_of_players_max: 2,
+    photo: ""
   }
 ]
 
@@ -130,9 +151,9 @@ sports_array.each_with_index do |sport, index|
   )
   if sport[:photo].blank?
     cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{sports_photos[index]}.jpg"
-    puts cloudinary_url
+    # puts cloudinary_url
     file = URI.parse(cloudinary_url).open
-    puts file
+    # puts file
     new_sport.photo.attach(io: file, filename: "#{new_sport.name}.png", content_type: "image/png")
   else
     cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{sport[:photo]}.jpg"
@@ -141,33 +162,6 @@ sports_array.each_with_index do |sport, index|
   end
   new_sport.save!
 end
-
-# Sport.create!(
-#   name: "Palet",
-#   number_of_players_min: 1,
-#   number_of_players_max: 4,
-#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709340/Palets_usny3s.jpg"
-# )
-
-# Sport.create!(
-#   name: "Padel",
-#   number_of_players_min: 1,
-#   number_of_players_max: 4,
-#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709351/th_utmxc6.jpg"
-# )
-
-# Sport.create!(
-#   name: "Fléchettes",
-#   number_of_players_min: 1,
-#   number_of_players_max: 4,
-#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709737/th_jtlasg.jpg"
-# )
-
-# Sport.create!(
-#   name: "Basketball",
-#   number_of_players_max: 10,
-#   # photo_url: "https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg"
-#   )
 
 puts "#{Sport.count} created"
 
@@ -188,33 +182,91 @@ UserSport.create!(
   sport: Sport.first
 )
 
+UserSport.create!(
+  user: User.first,
+  sport: Sport.first
+)
+
+UserSport.create!(
+  user: User.find_by(username: "CaroCBD"),
+  sport: Sport.find_by(name: "Tir à la mouette")
+)
+
+UserSport.create!(
+  user: User.find_by(username: "Filex"),
+  sport: Sport.find_by(name: "Padel")
+)
+
+UserSport.create!(
+  user: User.find_by(username: "CaroCBD"),
+  sport: Sport.find_by(name: "Padel")
+)
+
+UserSport.create!(
+  user: User.find_by(username: "Mouettion"),
+  sport: Sport.find_by(name: "Padel")
+)
+
 puts "#{UserSport.count} created"
 # 4. Create the Locations
 puts "Creating Locations ..."
 
-Location.create!(
+piste = Location.create!(
   name: "La Piste",
   address: "68 Mail Francois Mitterrand 35000 Rennes",
   category: :bar
 )
 
-Location.create!(
+paillette = Location.create!(
   name: "La Paillette",
   address: "2 Rue du Pré de Bris 35000 Rennes",
   category: :public_park
 )
 
+thabor = Location.create!(
+  name: "Parc du Thabor",
+  address: " Place Saint-Mélaine 35000 Rennes",
+  category: :public_park
+)
+
+gayeulles = Location.create!(
+  name: "Parc des Gayeulles",
+  address: "Avenue des Gayeulles 35700 Rennes",
+  category: :public_park
+)
+
+brequigny = Location.create!(
+  name: "Parc de Brequigny",
+  address: "Rue d'Angleterre, 35200 Rennes",
+  category: :public_park
+)
+
+noyal = Location.create!(
+  name: "Salle de Noyal",
+  address: "14 Rue de la Bintinais",
+  category: :club_with_licence
+)
 
 # 5. Create the Playgrounds
 puts "Creating Playgrounds ..."
-Playground.create!(
-  location: Location.first,
-  sport: Sport.first
+playground_paillette = Playground.create!(
+  location: paillette,
+  sport: Sport.find_by(name: "Basketball")
 )
 
-Playground.create!(
-  location: Location.last,
-  sport: Sport.last
+playground_gayeulles = Playground.create!(
+  location: gayeulles,
+  sport: Sport.find_by(name: "Tennis")
+)
+
+playground_thabor = Playground.create!(
+  location: thabor,
+  sport: Sport.find_by(name: "Lancer de mouettes")
+)
+
+playground_noyal = Playground.create!(
+  location: noyal,
+  sport: Sport.find_by(name: "Tennis")
 )
 
 # 5. Create the Events
@@ -225,8 +277,8 @@ Event.create!(
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
   start_at: "28/11/2024 14h00",
   end_at: "28/11/2024 23h30",
-  playground: Playground.first,
-  organisator: User.last
+  playground: playground_paillette,
+  organisator: User.find_by(username: "Filex")
 )
 
 Event.create!(
@@ -236,6 +288,15 @@ Event.create!(
   end_at: "29/11/2024 15h30",
   playground: Playground.last,
   organisator: User.first
+)
+
+Event.create!(
+  name: "Mouetting 2024",
+  description: "Partie de lancer de mouette dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
+  start_at: "08/12/2024 11h00",
+  end_at: "08/12/2024 13h00",
+  playground: playground_thabor,
+  organisator: User.find_by(username: "CaroCBD")
 )
 
 # 6. Create the Participations

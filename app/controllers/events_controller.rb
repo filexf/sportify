@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   def index
-    # Render all events without filters
-    @events = Event.all
+
+    # Mes events
+    @my_events = current_user.events_as_organiser + current_user.events_as_player
 
     # Render all events near current user
     @near_events = Location
@@ -16,8 +17,16 @@ class EventsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {event: event})
       }}
 
-    # Mes events
-    @my_events = current_user.events_as_organiser + current_user.events_as_player
+    @events = Event.all
+    return unless params[:query] # Early return
+
+    search_results = Event.global_search(params[:query])
+    if search_results.any?
+      @events = search_results
+    else
+      @search_message = "Désolé, nous n'avons pas trouvé de résultat avec #{params[:query]}"
+    end
+
   end
 
   def show
