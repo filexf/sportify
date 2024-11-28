@@ -1,3 +1,65 @@
+.horizontal-scroll-wrapper {
+  width: 100%;
+  height: fit-content;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+}
+
+// CSS for big card
+.card-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.card-big {
+  width: 19rem;
+  background-color: $sportify-neutral-light-light;
+  border-radius: 1rem;
+  scroll-snap-align: start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+
+  img {
+    border-top-left-radius:1rem;
+    border-top-right-radius:1rem;
+    height: 8rem;
+    object-fit: cover;
+  }
+
+  .pill-semidark-blue {
+    top: 1rem;
+    right: 1rem;
+    padding: 0 0.5em ;
+    border-radius: 1rem;
+    width: fit-content;
+    color: $white;
+    background-color: $sportify-semidark-blue;
+  }
+
+  .card-content {
+    height: fit-content;
+    padding: 1em;
+    gap:0;
+      .title {
+          font-size: $font-size-base;
+          font-weight: 400;
+          line-height: 1rem;
+      }
+      .details {
+        color: $sportify-neutral-dark-light;
+        font-size: 0.75 * $font-size-base;
+      }
+      .btn {
+        bottom: 1rem;
+      }
+  }
+
+}
+
 .card_light_grid {
   display: flex;
   flex-direction: column;
@@ -21,12 +83,6 @@
   img {
     width: 5rem;
     align-self: stretch;
-  }
-
-  .pill-semidark-blue {
-    border-radius: 1rem;
-    color: $white;
-    background-color: $sportify-semidark-blue;
   }
 }
 

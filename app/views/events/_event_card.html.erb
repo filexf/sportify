@@ -1,13 +1,18 @@
-<div class="card">
-  <div>
-    <%= cl_image_tag event.sport.photo.key, height: 300, width: 300, crop: :thumb %>
-    Encore <%= event.sport.number_of_players_max - event.participations.count %> joueurs
+<div class="card-big">
+  <div class="position-relative">
+    <%= cl_image_tag event.sport.photo.key, height: 300, width: 300 %>
+    <div class="pill-semidark-blue position-absolute">
+      Encore <%= event.sport.number_of_players_max - event.participations.count %> joueurs
+    </div>
   </div>
-  <div>
-    <%= event.name %>
-    <%= event.location.address %>
-    <%= event.start_at %>
-    <%= event.end_at %>
-    <%= link_to "Détails", event_path(event) %>
+  <div class="card-content position-relative">
+    <div class="title mb-1">
+      <%= event.name %>
+    </div>
+    <div class="details mb-3">
+      <p class="mb-1"><%= event.location.address %></p>
+      <p class="mb-1">Le <%= I18n.l(event.start_at, format: "%d %B %Y") %> de <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.start_at, format: "%R") %></p>
+    </div>
+    <%= link_to "Voir l'évènement", event_path(event), class:"btn btn-secondary col-1 mx-auto mt-2 mb-1"%>
   </div>
 </div>

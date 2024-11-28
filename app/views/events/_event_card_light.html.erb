@@ -1,5 +1,4 @@
-
-<div class="card_light  position-relative">
+<div class="card_light position-relative">
     <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
     <span class="pill-semidark-blue position-absolute top-0 start-0 px-2">
       <%= event.organisator == current_user ? "organisateur" : "participant" %>
