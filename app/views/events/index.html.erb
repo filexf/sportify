@@ -35,3 +35,18 @@ calendrier dates
       </div>
     </h2>
   <% end %>
+
+
+<h2>Près de chez vous</h2>
+<div>
+  <% @near_events.each do |event| %>
+    <%= render "event_card", event:event  %>
+  <% end %>
+</div>
+
+<h2>Vos évènements</h2>
+<div class="card_light_grid">
+  <% @my_events.each do |event| %>
+    <%= render "event_card_light", event: event  %>
+  <% end %>
+</div>
