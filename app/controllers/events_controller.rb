@@ -26,12 +26,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-
+    @playgrounds = Playground.all
   end
 
   def create
+    # @sport = Sport.find(params[:sport_id])
+    # @location = Location.find(params[:location_id])
     @event = Event.new(event_params)
-    @event.owner = current_user
+    @event.organisator = current_user
     if @event.save
       flash[:notice] = "Événement créé avec succès!"
       redirect_to event_path(@event)
@@ -47,7 +49,8 @@ class EventsController < ApplicationController
       :name,
       :start_at,
       :end_at,
-      :description
+      :description,
+      :playground_id
     )
   end
 
