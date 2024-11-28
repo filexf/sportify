@@ -269,6 +269,11 @@ playground_noyal = Playground.create!(
   sport: Sport.find_by(name: "Tennis")
 )
 
+playground_piste = Playground.create!(
+  location: piste,
+  sport: Sport.find_by(name: "Palet")
+)
+
 # 5. Create the Events
 puts "Creating Events ..."
 
@@ -277,7 +282,7 @@ Event.create!(
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
   start_at: "28/11/2024 14h00",
   end_at: "28/11/2024 23h30",
-  playground: playground_paillette,
+  playground: playground_piste,
   organisator: User.find_by(username: "Filex")
 )
 
@@ -286,7 +291,7 @@ Event.create!(
   description: "Match avec MJ!",
   start_at: "29/11/2024 11h00",
   end_at: "29/11/2024 15h30",
-  playground: Playground.last,
+  playground: playground_paillette,
   organisator: User.first
 )
 

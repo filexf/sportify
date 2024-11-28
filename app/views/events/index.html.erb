@@ -2,6 +2,17 @@
   <%= render "search_bar" %>
 </div>
 
+  <div class="pills">
+    <div class="pills-card">Basketball</div>
+    <div class="pills-card">Lancer de mouettes</div>
+    <div class="pills-card">Palet</div>
+    <div class="pills-card">Padel</div>
+    <div class="pills-card">Tennis</div>
+    <div class="pills-card">Tir à la mouette</div>
+  </div>
+
+calendrier dates
+
   <% if @search_message %>
     <p>
       <%= @search_message %>
@@ -24,20 +35,3 @@
       </div>
     </h2>
   <% end %>
-
-<h2> Carte des évènements - Titre à enlever </h2>
-<%= render "map", markers: @near_event_markers, user: @current_user %>
-
-<h2>Près de chez vous</h2>
-<div>
-  <% @near_events.each do |event| %>
-    <%= render "event_card", event:event  %>
-  <% end %>
-</div>
-
-<h2>Vos évènements</h2>
-<div class="card_light_grid">
-  <% @my_events.each do |event| %>
-    <%= render "event_card_light", event: event  %>
-  <% end %>
-</div>
