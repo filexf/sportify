@@ -4,13 +4,13 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <%= f.input :name,
-      label: 'Le nom de votre event',
+      label: 'Le nom de votre événement:',
       error: 'Merci de nommer votre event',
       required: true %>
 
       <%= f.input :description,
-      label: "Description de l'événement",
-      error: 'Décrivez votre événement'
+      label: "Description de votre événement",
+      error: 'Décrivez votre événement:'
       %>
 
       <%=
@@ -20,7 +20,7 @@
       # end
 
       f.input :playground_id,
-      label: "Description de l'événement",
+      label: "Description de votre événement:",
       error: 'Décrivez votre événement',
       collection: @playgrounds.map { |playground| [playground.name, playground.id] }
       %>
@@ -41,13 +41,13 @@
       <div class="d-flex flex-column justify-content-center mb-3">
 
 
-        <label for="event_start_at" class="my-3">Début de l'event</label>
+        <label for="event_start_at" class="my-3">Début de l'event:</label>
         <input
           id="event_start_at"
           type="datetime-local"
           name="event[start_at]"/>
 
-        <label for="event_end_at" class="my-3">Début de l'event</label>
+        <label for="event_end_at" class="my-3">Début de l'event:</label>
         <input
           id="event_end_at"
           type="datetime-local"
@@ -56,7 +56,7 @@
       </div>
       <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
       <%# <%= f.input :end_at, as: :datetime %>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-2">
         <%= f.button :submit, "Publier", class: "btn btn-outline-dark text-dark d-flex justify-content-center text-center" %>
       </div>
 

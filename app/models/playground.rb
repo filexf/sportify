@@ -7,4 +7,5 @@ class Playground < ApplicationRecord
   def name
     "#{self.location.name} - #{self.sport.name}"
   end
+  
 end

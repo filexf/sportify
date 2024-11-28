@@ -39,3 +39,24 @@
     color:white;
   }
 }
+
+
+// .btn-secondary {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 8px;
+//   align-self: stretch;
+//   border-radius: 12px;
+//   color: $white;
+//   // font-family: Inter;
+//   font-size: $font-size-base;
+//   font-style: normal;
+//   font-weight: 300;
+//   line-height: normal;
+// }
+
+.unset-btn{
+  width: unset;
+  height: unset;
+}
