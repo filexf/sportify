@@ -277,7 +277,7 @@ Event.create!(
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
   start_at: "28/11/2024 14h00",
   end_at: "28/11/2024 23h30",
-  playground: paillette_playground,
+  playground: playground_paillette,
   organisator: User.find_by(username: "Filex")
 )
 
