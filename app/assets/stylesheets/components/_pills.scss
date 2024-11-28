@@ -1,0 +1,49 @@
+.pills {
+  display: flex;
+  width: 360px;
+  padding: 16px 16px 16px 11px;
+  align-items: flex-start;
+  gap: 8px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+}
+
+.pills-card {
+  display: flex;
+  width: fit-content;
+  height: 21px;
+  padding: 7px 45px 7px 45px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 150px;
+  background-color: $sportify-lightblue;
+  scroll-snap-align: start;
+  text-align: center;
+  vertical-align: middle;
+  color: $white;
+  white-space: nowrap;
+  font-family: $body-font;
+}
+
+// Parent
+// .horizontal-scroll-wrapper {
+//   width: 100%;
+//   height: 15rem;
+//   overflow-x: scroll;
+//   scroll-snap-type: x mandatory;
+//   overflow-y: hidden;
+// }
+// // Parent
+// .card-grid {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 1rem;
+// }
+// Enfant
+// .card-big {
+//   height: 7.5rem;
+//   width: 19rem;
+//   scroll-snap-align: start;
+// }
