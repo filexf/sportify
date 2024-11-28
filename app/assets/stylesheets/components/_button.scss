@@ -23,3 +23,19 @@
   border-radius: 30px;
   background-color: $sportify-semidark-blue;
 }
+
+
+.plus-btn {
+  // à utiliser pour le bouton avec le plus (cf. svg "plus-btn")
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: $sportify-semidark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    color:white;
+  }
+}
