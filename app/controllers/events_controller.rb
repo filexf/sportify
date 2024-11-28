@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @events = Event.all
     return unless params[:query] # Early return
 
-    search_results = Event.global_search("params[:query]")
+    search_results = Event.global_search(params[:query])
     if search_results.any?
       @events = search_results
     else
