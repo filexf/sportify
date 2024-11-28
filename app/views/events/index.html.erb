@@ -16,7 +16,7 @@
 </div>
 
 <h2>Vos évènements</h2>
-<div>
+<div class="card_light_grid">
   <% @my_events.each do |event| %>
     <%= render "event_card_light", event: event  %>
   <% end %>

@@ -1,19 +1,26 @@
 
-<div>
-  <div>
-    <%= cl_image_tag event.sport.photo.key, height: 300, width: 300, crop: :thumb %>
-    <span>
+<div class="card_light  position-relative">
+    <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
+    <span class="pill-semidark-blue position-absolute top-0 start-0 px-2">
       <%= event.organisator == current_user ? "organisateur" : "participant" %>
     </span>
-  <div>
-    <%= event.name %>
-    <%= event.participations.count %> joueurs / <%= event.sport.number_of_players_max %>
-    <% event.participations.each do |participation| %>
-      <span>
-         <%= participation.user.username %>
-      </span>
+  <div class="card_content">
+    <div class="title">
+      <%= event.name %>
+    </div>
+    <div class="details">
+      <%= event.participations.count %> joueurs / <%= event.sport.number_of_players_max %>
+      <% event.participations.each do |participation| %>
+        <span>
+          <%= participation.user.username %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+    <%= link_to event_path(event) do %>
+    <div class="plus-btn position-absolute top-50 end-0 translate-middle-y me-3">
+      <%# <img src="/app/assets/images/icons/plus-sign.svg"> %>
+      <i class="fa-solid fa-plus"></i>
+    </div>
     <% end %>
-  </div>
-    <%= link_to "Détails", event_path(event) %>
-  </div>
 </div>
