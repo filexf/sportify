@@ -53,7 +53,7 @@
 
   <div class="btn btn-secondary col-3 mx-auto my-3 text-center text-justify">
     <div>
-      S'incrire à l'évènement
+      <%= link_to "S'incrire à l'évènement", event_participations_path(@event), data: { turbo_method: :post }%>
     </div>
     <div class="arrow-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
