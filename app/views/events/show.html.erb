@@ -1,12 +1,17 @@
 <div class="row text-center">
   <%= cl_image_tag @event.playground.sport.photo.key, height: 300, width: 300, crop: :thumb %>
-  <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
+
     <h1 class="event-title-font my-3"><%= @event.name %></h1>
+
 
     <div class="col-12">
       <% @event.players.each do |player| %>
         <div><%= cl_image_tag player.photo.key, crop: :thumb, class:"avatar"%></div>
       <% end %>
+    
+    <p class="my-3">Le <%= I18n.l(@event.start_at, format: "%d %B %Y") %> de <%= I18n.l(@event.start_at, format: "%R") %> à <%= I18n.l(@event.start_at, format: "%R") %></p>
+    <p><%= @event.playground.location.address %></p>
+
 
       <div class="d-flex flex-row">
         <div class="mx-3">
@@ -16,8 +21,6 @@
           </g>
           </svg>
         </div>
-
-        <h5><%= @event.start_at %> - <%= @event.end_at %></h5>
       </div>
 
       <div class="d-flex flex-row mt-3">
@@ -29,6 +32,7 @@
         </div>
         <p><%= @event.playground.location.address %></p>
       </div>
+
     <h4>Organisateur: <%= @event.organisator.username %></h4>
     <%= @event.description %>
   </div>

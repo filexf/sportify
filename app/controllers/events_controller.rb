@@ -30,7 +30,15 @@ class EventsController < ApplicationController
     # @location = Location.find(params[:location_id])
     @event = Event.new(event_params)
     @event.organisator = current_user
+
+    # Event.find(params[:id])
+    # @event.participation = current_user
     if @event.save
+      Participation.create!(
+        user: current_user,
+        event: @event,
+        status: :accepted
+      )
       flash[:notice] = "Événement créé avec succès!"
       redirect_to event_path(@event)
     else
