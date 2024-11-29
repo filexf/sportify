@@ -1,5 +1,13 @@
 <div class="card_light position-relative">
+  <div class="position-relative">
     <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
+    <% participants_left = (event.sport.number_of_players_max - event.participations.count).to_i %>
+    <% if participants_left <= 0 %>
+      <div class="position-absolute top-0 start-100 translate-middle">
+        <i class="fa-solid fa-check rounded-circle bg-success p-1"></i>
+      </div>
+    <% end %>
+  </div>
   <div class="card_content">
     <div class="title">
       <%= event.name %>
