@@ -24,7 +24,8 @@ class Event < ApplicationRecord
   pg_search_scope :global_search,
   against: [ :name ],
   associated_against: {
-    sport: [ :name ],
+    sport: [ :name, :description ],
+    location: [ :name]
   },
   using: {
     tsearch: { prefix: true }
