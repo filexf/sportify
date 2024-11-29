@@ -1,9 +1,16 @@
 <div class="card-big">
   <div class="position-relative">
     <%= cl_image_tag event.sport.photo.key, height: 300, width: 300 %>
+  <% participants_left = (event.sport.number_of_players_max - event.participations.count).to_i %>
+  <% if participants_left > 0 %>
     <div class="pill-semidark-blue position-absolute">
-      Encore <%= event.sport.number_of_players_max - event.participations.count %> joueurs
+      Encore <%= participants_left %> joueurs
     </div>
+  <% else %>
+    <div class="pill-semidark-blue position-absolute">
+      Evènement complet
+    </div>
+  <% end %>
   </div>
   <div class="card-content position-relative">
     <div class="title mb-1">
