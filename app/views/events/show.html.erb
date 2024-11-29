@@ -1,7 +1,11 @@
 <div class="row text-center position relative">
   <%= cl_image_tag @event.playground.sport.photo.key, height: 300, width: 300, crop: :thumb %>
   <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
-  <% if participants_left > 0 %>
+  <% if participants_left == 1 %>
+    <div class="pill-semidark-blue position-absolute">
+      Encore <%= participants_left %> joueur
+    </div>
+  <% elsif participants_left > 0 %>
     <div class="pill-semidark-blue position-absolute">
       Encore <%= participants_left %> joueurs
     </div>
