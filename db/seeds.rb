@@ -326,7 +326,7 @@ Event.create!(
   start_at: "29/11/2024 11h00",
   end_at: "29/11/2024 15h30",
   playground: playground_paillette,
-  organisator: User.first
+  organisator: User.find_by(username: "LaGouelle")
 )
 
 Event.create!(
@@ -341,8 +341,8 @@ Event.create!(
 Event.create!(
   name: "Mouetting 2024",
   description: "Partie de lancer de mouette dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
-  start_at: "08/12/2024 11h00",
-  end_at: "08/12/2024 13h00",
+  start_at: "13/12/2024 14h00",
+  end_at: "13/12/2024 16h00",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
 )
@@ -378,25 +378,61 @@ Event.create!(
 puts "Creating Participations ..."
 
 Participation.create!(
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "CaroCBD"),
   event: Event.find_by(name: "Mouetting 2024"),
   status: :accepted
 )
 
 Participation.create!(
-  user: User.first,
-  event: Event.first,
+  user: User.find_by(username: "Filex"),
+  event: Event.find_by(name: "Pas de Palais ?"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Filex"),
+  event: Event.find_by(name: "Mouetting 2024"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Filex"),
+  event: Event.find_by(name: "Partie de fléchettes pour débutants"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Filex"),
+  event: Event.find_by(name: "Ca flèche fort!"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Mouetting 2024"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Pas de Palais ?"),
   status: :pending
 )
 
 Participation.create!(
-  user: User.last,
-  event: Event.last,
-  status: :pending
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Space Jam"),
+  status: :accepted
 )
 
 Participation.create!(
   user: User.find_by(username: "CaroCBD"),
   event: Event.find_by(name: "Spécial Cupidon"),
-  status: :pending
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Open de Noyal"),
+  status: :accepted
 )
