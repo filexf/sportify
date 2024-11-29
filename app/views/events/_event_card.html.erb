@@ -1,9 +1,16 @@
 <div class="card-big">
   <div class="position-relative">
     <%= cl_image_tag event.sport.photo.key, height: 300, width: 300 %>
+  <% participants_left = (event.sport.number_of_players_max - event.participations.count).to_i %>
+  <% if participants_left > 0 %>
     <div class="pill-semidark-blue position-absolute">
-      Encore <%= event.sport.number_of_players_max - event.participations.count %> joueurs
+      Encore <%= participants_left %> joueurs
     </div>
+  <% else %>
+    <div class="pill-semidark-blue position-absolute">
+      Evènement complet
+    </div>
+  <% end %>
   </div>
   <div class="card-content position-relative">
     <div class="title mb-1">
@@ -11,7 +18,7 @@
     </div>
     <div class="details mb-3">
       <p class="mb-1"><%= event.location.address %></p>
-      <p class="mb-1">Le <%= I18n.l(event.start_at, format: "%d %B %Y") %> de <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.start_at, format: "%R") %></p>
+      <p class="mb-1">Le <%= I18n.l(event.start_at, format: "%d %B %Y") %> de <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.end_at, format: "%R") %></p>
     </div>
     <%= link_to "Voir l'évènement", event_path(event), class:"btn btn-secondary col-1 mx-auto mt-2 mb-1"%>
   </div>
