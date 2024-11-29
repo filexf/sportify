@@ -1,12 +1,14 @@
 <div class="row text-center">
   <%= cl_image_tag @event.playground.sport.photo.key, height: 300, width: 300, crop: :thumb %>
   <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
-    <h1 class="event-title-font my-3"><%= @event.name %></h1>
+    <h1 class="event-title-font"><%= @event.name %></h1>
 
     <div class="col-12">
-      <% @event.players.each do |player| %>
-        <div><%= cl_image_tag player.photo.key, crop: :thumb, class:"avatar"%></div>
-      <% end %>
+      <div class="pill-avatar">
+        <% @event.players.each do |player| %>
+          <div><%= cl_image_tag player.photo.key, crop: :thumb, class:"avatar"%></div>
+        <% end %>
+      </div>
 
       <div class="d-flex flex-row">
         <div class="mx-3">
