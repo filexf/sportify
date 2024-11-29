@@ -37,6 +37,16 @@
   backdrop-filter: blur(10.873126983642578px);
 }
 
+.pill-semidark-blue {
+  top: 1rem;
+  right: 1rem;
+  padding: 0 0.5em;
+  border-radius: 1rem;
+  width: fit-content;
+  color: $white;
+  background-color: $sportify-semidark-blue;
+}
+
 // Parent
 // .horizontal-scroll-wrapper {
 //   width: 100%;
