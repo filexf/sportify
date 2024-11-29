@@ -64,7 +64,6 @@ class EventsController < ApplicationController
     else
       @search_message = "Désolé, nous n'avons pas trouvé de résultat avec #{params[:query]}"
     end
-
   end
 
   private
