@@ -18,9 +18,16 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 .event-title-font{
   color: var(--Color-Typography-Title, #120D26);
   text-align: center;
-  font-family: Montserrat;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+h1, h2, h3 {
+  font-family: $headers-font;
+}
+
+body {
+  font-family: $body-font;
 }

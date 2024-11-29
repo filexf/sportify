@@ -16,7 +16,9 @@
   height: 75px;
   background-color: $sportify-darkblue;
   position: fixed;
+  // position: sticky;
   bottom: 0;
+  margin-bottom: 0;
   z-index: 2;
 }
 
@@ -29,6 +31,10 @@
   top: 0;
   // left: 140px;
   left: calc(50%  - 40px);
+}
+
+.icon-map {
+  color:$white;
 }
 
 .white-circle{
