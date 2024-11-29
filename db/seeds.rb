@@ -340,7 +340,7 @@ Event.create!(
 
 Event.create!(
   name: "Mouetting 2024",
-  description: "Partie de lancer de mouette dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
+  description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
   start_at: "13/12/2024 14h00",
   end_at: "13/12/2024 16h00",
   playground: playground_thabor,
