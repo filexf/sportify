@@ -247,8 +247,42 @@ noyal = Location.create!(
   category: :club_with_licence
 )
 
+tyf = Location.create!(
+  name: "Tiffany's Pub",
+  address: "19 Rue Paul Bert, 35000 Rennes",
+  category: :bar
+)
+
+beje = Location.create!(
+  name: "Bar en scène",
+  address: "2 Bd de la Tour d'Auvergne, 35000 Rennes",
+  category: :bar
+)
+
+roazhon = Location.create!(
+  name: "Roazhon Pub",
+  address: "148 bis Rue de Lorient, 35000 Rennes",
+  category: :bar
+)
+
 # 5. Create the Playgrounds
 puts "Creating Playgrounds ..."
+
+playground_tyf = Playground.create!(
+  location: tyf,
+  sport: Sport.find_by(name: "Fléchettes")
+)
+
+playground_roazhon = Playground.create!(
+  location: roazhon,
+  sport: Sport.find_by(name: "Fléchettes")
+)
+
+playground_beje = Playground.create!(
+  location: beje,
+  sport: Sport.find_by(name: "Fléchettes")
+)
+
 playground_paillette = Playground.create!(
   location: paillette,
   sport: Sport.find_by(name: "Basketball")
@@ -296,6 +330,15 @@ Event.create!(
 )
 
 Event.create!(
+  name: "Open de Noyal",
+  description: "Match pour niveau 30/1",
+  start_at: "07/12/2024 13h00",
+  end_at: "07/12/2024 15h30",
+  playground: playground_noyal,
+  organisator: User.find_by(username: "LaGouelle")
+)
+
+Event.create!(
   name: "Mouetting 2024",
   description: "Partie de lancer de mouette dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
   start_at: "08/12/2024 11h00",
@@ -304,11 +347,56 @@ Event.create!(
   organisator: User.find_by(username: "CaroCBD")
 )
 
+Event.create!(
+  name: "Partie de fléchettes pour débutants",
+  description: "Partie for fun au Tyf !",
+  start_at: "10/12/2024 19h00",
+  end_at: "10/12/2024 23h00",
+  playground: playground_tyf,
+  organisator: User.find_by(username: "Filex")
+)
+
+Event.create!(
+  name: "Ca flèche fort!",
+  description: "Celui qui perd paye sa pinte !!",
+  start_at: "07/12/2024 19h00",
+  end_at: "07/12/2024 23h00",
+  playground: playground_roazhon,
+  organisator: User.find_by(username: "Filex")
+)
+
+Event.create!(
+  name: "Spécial Cupidon",
+  description: "Pour la Saint Valentin, soirée de love !",
+  start_at: "14/02/2024 19h00",
+  end_at: "14/02/2024 23h00",
+  playground: playground_beje,
+  organisator: User.find_by(username: "Mouettion")
+)
+
 # 6. Create the Participations
 puts "Creating Participations ..."
 
 Participation.create!(
+  user: User.find_by(username: "Mouettion"),
+  event: Event.find_by(name: "Mouetting 2024"),
+  status: :accepted
+)
+
+Participation.create!(
   user: User.first,
   event: Event.first,
+  status: :pending
+)
+
+Participation.create!(
+  user: User.last,
+  event: Event.last,
+  status: :pending
+)
+
+Participation.create!(
+  user: User.find_by(username: "CaroCBD"),
+  event: Event.find_by(name: "Spécial Cupidon"),
   status: :pending
 )
