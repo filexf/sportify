@@ -13,16 +13,15 @@
       error: 'Décrivez votre événement:'
       %>
 
-      <%=
-      # playgrounds_names_and_ids = []
+      <%# # playgrounds_names_and_ids = []
       # @playgrounds.each do |pg|
       #   playgrounds_names_and_ids << [playground.name, playground.id]
-      # end
+      # end %>
 
-      f.input :playground_id,
-      label: "Description de votre événement:",
-      error: 'Décrivez votre événement',
-      collection: @playgrounds.map { |playground| [playground.name, playground.id] }
+      <%= f.input :playground_id,
+        label: "Choisissez un sport parmis la liste:",
+        error: 'Choisissez parmis les sports & lieux de la liste',
+        collection: @playgrounds.map { |playground| [playground.name, playground.id] }
       %>
 
 
