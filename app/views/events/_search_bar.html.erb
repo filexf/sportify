@@ -1,17 +1,10 @@
-<%= form_with url: root_path, class: "d-flex my-3 gap-1 d-none", method: :get do %>
-  <%= submit_tag "🔍", name: "", class: "btn btn-outline-primary text-dark unset-btn fit-content shadow-sm border" %>
-
-  <%# <div class="col-8 h-25"> %>
-
+<%= form_with url: root_path, class: "d-flex my-3 gap-1 align-items-center", method: :get do %>
+  <div class="flex-grow-1">
     <%= text_field_tag :query,
           params[:query],
           class: "form-control w-60 h-40 rounded-3 shadow-sm outline-primary",
           placeholder: "Trouver un évènement"
     %>
-
-  <%# </div> %>
-
-
-
-
+  </div>
+  <%= submit_tag "🔍", name: "", class: "btn btn-outline-primary text-dark unset-btn fit-content shadow-sm border" %>
 <% end %>
