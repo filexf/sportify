@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :events, only: %i[show new create]
 
   get "search", to: "events#search", as: :search
+  get "my_events", to: "events#my_events", as: :my_events
 
   get "up" => "rails/health#show", as: :rails_health_check
 
