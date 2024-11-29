@@ -1,3 +1,5 @@
+
+
 <div class="row text-center position relative">
   <%= cl_image_tag @event.playground.sport.photo.key, height: 300, width: 300, crop: :thumb %>
   <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
@@ -16,58 +18,62 @@
   <% end %>
   <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
 
-    <div class="col-12">
+  <div class="col-12">
 
-      <div class="d-flex justify-content-center">
 
-        <div class="pill-participants d-flex flex-row justify-content-center align-items-center mt-2 mb-4">
-          <% @event.players.each do |player| %>
-            <div class="pill-avatar mx-2"><%= cl_image_tag player.photo.key, crop: :thumb, class:"avatar"%></div>
-          <% end %>
-        </div>
+    <div class="d-flex justify-content-center">
+
+      <div class="pill-participants d-flex flex-row justify-content-center align-items-center mt-2 mb-4">
+        <% @event.players.limit(3).each do |player| %>
+          <div class="pill-avatar mx-2"><%= cl_image_tag player.photo.key, crop: :thumb, class:"avatar"%></div>
+        <% end %>
+        <div><strong>  <%= @event.players.count %> participant(s) </strong></div>
       </div>
 
+    </div>
 
-    <h1 class="event-title-font my-2"><%= @event.name %></h1>
+
+      <h1 class="event-title-font my-2"><%= @event.name %></h1>
+
 
       <div class="d-flex flex-row my-3">
 
         <div class="mx-2 d-flex align-items-center">
-          <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="Events">
-          <path id="Vector" d="M22.3036 3.1H20.9555V0.5H18.2592V3.1H7.47402V0.5H4.77772V3.1H3.42957C1.93313 3.1 0.746758 4.27 0.746758 5.7L0.733276 23.9C0.733276 25.33 1.93313 26.5 3.42957 26.5H22.3036C23.7866 26.5 24.9999 25.33 24.9999 23.9V5.7C24.9999 4.27 23.7866 3.1 22.3036 3.1ZM22.3036 23.9H3.42957V10.9H22.3036V23.9ZM8.82216 16.1H6.12587V13.5H8.82216V16.1ZM14.2148 16.1H11.5185V13.5H14.2148V16.1ZM19.6073 16.1H16.9111V13.5H19.6073V16.1ZM8.82216 21.3H6.12587V18.7H8.82216V21.3ZM14.2148 21.3H11.5185V18.7H14.2148V21.3ZM19.6073 21.3H16.9111V18.7H19.6073V21.3Z" fill="#DDDDDD"/>
-          </g>
-          </svg>
+            <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Events">
+            <path id="Vector" d="M22.3036 3.1H20.9555V0.5H18.2592V3.1H7.47402V0.5H4.77772V3.1H3.42957C1.93313 3.1 0.746758 4.27 0.746758 5.7L0.733276 23.9C0.733276 25.33 1.93313 26.5 3.42957 26.5H22.3036C23.7866 26.5 24.9999 25.33 24.9999 23.9V5.7C24.9999 4.27 23.7866 3.1 22.3036 3.1ZM22.3036 23.9H3.42957V10.9H22.3036V23.9ZM8.82216 16.1H6.12587V13.5H8.82216V16.1ZM14.2148 16.1H11.5185V13.5H14.2148V16.1ZM19.6073 16.1H16.9111V13.5H19.6073V16.1ZM8.82216 21.3H6.12587V18.7H8.82216V21.3ZM14.2148 21.3H11.5185V18.7H14.2148V21.3ZM19.6073 21.3H16.9111V18.7H19.6073V21.3Z" fill="#DDDDDD"/>
+            </g>
+            </svg>
         </div>
-        <p class="mx-1 text-align">Le <%= I18n.l(@event.start_at, format: "%d %B %Y") %> de <%= I18n.l(@event.start_at, format: "%R") %> à <%= I18n.l(@event.end_at, format: "%R") %></p>
+        <div class="mx-1 text-align">Le <%= I18n.l(@event.start_at, format: "%d %B %Y") %> de <%= I18n.l(@event.start_at, format: "%R") %> à <%= I18n.l(@event.end_at, format: "%R") %></div>
       </div>
+    </div>
 
-      <div class="d-flex flex-row mt-3">
-        <div class="mx-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6645 3.67096C13.3956 2.08409 16.7525 2.11183 19.458 3.74362C22.1368 5.40864 23.765 8.38022 23.7498 11.5768C23.6874 14.7524 21.9416 17.7375 19.7593 20.0451C18.4998 21.383 17.0908 22.566 15.5611 23.57C15.4035 23.6611 15.2309 23.7221 15.0519 23.75C14.8795 23.7427 14.7116 23.6917 14.5634 23.6018C12.228 22.0932 10.1792 20.1675 8.51541 17.9175C7.12323 16.0392 6.33229 13.77 6.25 11.418C6.24819 8.21531 7.93346 5.25784 10.6645 3.67096ZM12.2427 12.7434C12.7021 13.876 13.7865 14.6147 14.9895 14.6147C15.7776 14.6204 16.5352 14.3047 17.0935 13.738C17.6518 13.1713 17.9643 12.4007 17.9616 11.5979C17.9658 10.3725 17.2443 9.26533 16.1341 8.79341C15.0238 8.32148 13.7438 8.57788 12.8916 9.44287C12.0395 10.3079 11.7833 11.6108 12.2427 12.7434Z" fill="#35A29F"/>
-          <path opacity="0.4" d="M15 27.5C18.4518 27.5 21.25 26.9404 21.25 26.25C21.25 25.5596 18.4518 25 15 25C11.5482 25 8.75 25.5596 8.75 26.25C8.75 26.9404 11.5482 27.5 15 27.5Z" fill="#35A29F"/>
-          </svg>
-        </div>
-        <p><%= @event.playground.location.address %></p>
+    <div class="d-flex flex-row mt-3">
+      <div class="mx-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6645 3.67096C13.3956 2.08409 16.7525 2.11183 19.458 3.74362C22.1368 5.40864 23.765 8.38022 23.7498 11.5768C23.6874 14.7524 21.9416 17.7375 19.7593 20.0451C18.4998 21.383 17.0908 22.566 15.5611 23.57C15.4035 23.6611 15.2309 23.7221 15.0519 23.75C14.8795 23.7427 14.7116 23.6917 14.5634 23.6018C12.228 22.0932 10.1792 20.1675 8.51541 17.9175C7.12323 16.0392 6.33229 13.77 6.25 11.418C6.24819 8.21531 7.93346 5.25784 10.6645 3.67096ZM12.2427 12.7434C12.7021 13.876 13.7865 14.6147 14.9895 14.6147C15.7776 14.6204 16.5352 14.3047 17.0935 13.738C17.6518 13.1713 17.9643 12.4007 17.9616 11.5979C17.9658 10.3725 17.2443 9.26533 16.1341 8.79341C15.0238 8.32148 13.7438 8.57788 12.8916 9.44287C12.0395 10.3079 11.7833 11.6108 12.2427 12.7434Z" fill="#35A29F"/>
+        <path opacity="0.4" d="M15 27.5C18.4518 27.5 21.25 26.9404 21.25 26.25C21.25 25.5596 18.4518 25 15 25C11.5482 25 8.75 25.5596 8.75 26.25C8.75 26.9404 11.5482 27.5 15 27.5Z" fill="#35A29F"/>
+        </svg>
       </div>
+      <p><%= @event.playground.location.address %></p>
+    </div>
 
     <h4>Organisateur: <%= @event.organisator.username %></h4>
     <%= @event.description %>
   </div>
 
-    <% if participants_left > 0 %>
-      <div class="btn btn-secondary col-3 mx-auto my-3 text-center text-justify">
-        <div>
-          <%= link_to "S'incrire à l'évènement", event_participations_path(@event), data: { turbo_method: :post }, class: "text-decoration-none text-white"%>
-        </div>
-        <div class="arrow-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-          <circle cx="15" cy="15.5" r="15" fill="#0B666A"/>
-          <path d="M8 15C8 14.5513 8.36377 14.1875 8.8125 14.1875H17.8718L13.9109 10.2267C13.5872 9.90293 13.5919 9.37665 13.9213 9.05868C14.2425 8.74855 14.7531 8.75305 15.0688 9.0688L20.9356 14.9356C20.9712 14.9712 20.9712 15.0288 20.9356 15.0644L15.07 20.93C14.7552 21.2448 14.2448 21.2448 13.93 20.93C13.6162 20.6162 13.6151 20.1078 13.9275 19.7926L17.8718 15.8125H8.8125C8.36377 15.8125 8 15.4487 8 15Z" fill="white"/>
-          </svg>
-        </div>
 
+
+  <div class="btn btn-secondary col-3 mx-auto my-3 text-center text-justify">
+    <%= link_to event_participations_path(@event), data: { turbo_method: :post }, class: "text-decoration-none text-white d-flex justify-content-between align-items-center gap-2" do %>
+      <p class="m-0 ">S'inscrire à l'événement</p>
+      <div class="arrow-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+        <circle cx="15" cy="15.5" r="15" fill="#0B666A"/>
+        <path d="M8 15C8 14.5513 8.36377 14.1875 8.8125 14.1875H17.8718L13.9109 10.2267C13.5872 9.90293 13.5919 9.37665 13.9213 9.05868C14.2425 8.74855 14.7531 8.75305 15.0688 9.0688L20.9356 14.9356C20.9712 14.9712 20.9712 15.0288 20.9356 15.0644L15.07 20.93C14.7552 21.2448 14.2448 21.2448 13.93 20.93C13.6162 20.6162 13.6151 20.1078 13.9275 19.7926L17.8718 15.8125H8.8125C8.36377 15.8125 8 15.4487 8 15Z" fill="white"/>
+        </svg>
       </div>
     <% end %>
   </div>
+</div>

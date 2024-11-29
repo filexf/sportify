@@ -47,6 +47,10 @@
   background-color: $sportify-semidark-blue;
 }
 
+.pill-avatar{
+  flex-shrink: 0;
+}
+
 // Parent
 // .horizontal-scroll-wrapper {
 //   width: 100%;
