@@ -35,7 +35,7 @@
           </g>
           </svg>
         </div>
-        <p class="mx-1 text-align">Le <%= I18n.l(@event.start_at, format: "%d %B %Y") %> de <%= I18n.l(@event.start_at, format: "%R") %> à <%= I18n.l(@event.start_at, format: "%R") %></p>
+        <p class="mx-1 text-align">Le <%= I18n.l(@event.start_at, format: "%d %B %Y") %> de <%= I18n.l(@event.start_at, format: "%R") %> à <%= I18n.l(@event.end_at, format: "%R") %></p>
       </div>
 
       <div class="d-flex flex-row mt-3">
