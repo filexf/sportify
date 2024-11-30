@@ -1,9 +1,28 @@
+/* Remplacer le style par défaut de la popup */
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: fit-content;
+  padding: 0;
 }
 
+/* Conteneur de contenu interne */
 .mapboxgl-popup-content {
-  text-align: center;
-  // font-size: 0.5em;
-  // border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Supprime la pointe de la popup */
+.mapboxgl-popup-tip {
+  display: block;
+}
+
+/* Popup personnalisée */
+.custom-popup .mapboxgl-popup-content {
+  background-color: $sportify-neutral-light-light;
+  border-radius: 1rem;
+  max-width: none !important;
+  width: fit-content;
+  margin: 0 auto;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
