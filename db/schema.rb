@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_130234) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_142437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_130234) do
     t.bigint "user_id", null: false
     t.bigint "publication_id", null: false
     t.text "content"
-    t.date "post_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publication_id"], name: "index_comments_on_publication_id"
@@ -108,7 +107,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_130234) do
   create_table "publications", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "sport"
-    t.date "post_date"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
@@ -123,6 +121,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_130234) do
     t.integer "number_of_players_max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_sports", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_user_sports_on_sport_id"
+    t.index ["user_id"], name: "index_user_sports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,4 +163,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_130234) do
   add_foreign_key "playgrounds", "locations"
   add_foreign_key "playgrounds", "sports"
   add_foreign_key "publications", "users"
+  add_foreign_key "user_sports", "sports"
+  add_foreign_key "user_sports", "users"
 end

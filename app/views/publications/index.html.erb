@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-6 col-xs-12 col-md-offset-3">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sportify Feed</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Enter here for tweet..." rows="3"></textarea>
+          </div>
+          <a href="javascript:void(0)" class="btn btn-info btn-sm pull-right waves-effect waves-light">Kish'</a>
+          <div class="clearfix"></div>
+          <hr class="margin-bottom-10">
+          <ul class="list-group list-group-dividered list-group-full">
+          <% @publications.each do |publication| %>
+            <li class="list-group-item">
+              <div class="d-flex flex-row">
+                  <%= cl_image_tag publication.user.photo.key, class:"avatar" %>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-between">
+                      @<%= publication.user.username %>
+                      <small class="text-muted pull-right"><%= I18n.l(publication.created_at,format: "%d %B %Y %R") %></small>
+                    </div>
+                  <div class="">
+                    <%= publication.content %>
+                  </div>
+                  </div>
+              </div>
+            </li>
+            <% end %>
+            </ul>
+          <span class="text-info">1 sportif connecté</span>
+        </div>
+      </div>
+    </div>
+</div>
