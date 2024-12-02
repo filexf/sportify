@@ -1,14 +1,12 @@
-<div class="search-bar d-flex flex-row align-items-center">
-  <%= form_with url: root_path, class:"d-flex flex-row align-items-center", method: :get do %>
+  <%= form_with url: root_path, class:"search-bar", method: :get do %>
     <div class="search-input">
       <%= text_field_tag :query,
             params[:query],
             class: "",
-            placeholder: "Trouvez un évènement"
+            placeholder: "Je veux jouer ..."
       %>
     </div>
     <%= button_tag(type: "submit", class:"btn btn-primary btn-search") do %>
         <i class="fa-solid fa-magnifying-glass"></i>
     <% end %>
   <% end %>
-</div>
