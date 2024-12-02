@@ -25,18 +25,20 @@ export default class extends Controller {
   #addMarkersToMap() {
     console.log("add markers to map");
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup({
-        className: 'custom-popup',
-        closeButton: true,
-        closeOnClick: true,
-        anchor: "center",
-        maxWidth: "none"
-      }).setHTML(marker.info_event_html)
-      const customMarker = document.createElement("div")
-      customMarker.innerHTML = marker.marker_html
+      console.log(marker);
+      const customMarker = document.createElement("div");
+      customMarker.innerHTML = marker.marker_html;
+      customMarker.addEventListener('click', function(){
+          console.log(marker.event_id);
+          const event_id_clicked = document.querySelector(`[data-event-id="${marker.event_id}"]`);
+          console.log(event_id_clicked);
+          event_id_clicked.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+            inline: "center" });
+      });
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.coordinates.lng, marker.coordinates.lat])
-        .setPopup(popup)
         .addTo(this.map)
     })
   }

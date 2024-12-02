@@ -1,30 +1,27 @@
-<div class="position-relative">
+<div class="position-relative d-flex flex-column align-items-center">
+
+    <div class="title-home-map">
+      On joue à quoi ?
+    </div>
+
+    <div id="search-bar" style="margin-bottom: 115px">
+      <%= render "search_bar" %>
+    </div>
+
     <div class="map d-flex justify-content-center">
       <%= render "map", markers: @markers, user:current_user%>
     </div>
 
-
-  <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
-
-    <div class="position-absolute bottom-0 start-50 translate-middle-x" style="margin-bottom: 115px">
-      <%= render "search_bar" %>
+    <div id="toggle-map-list">
+      <span>Liste</span>
+      <span>Carte</span>
     </div>
-  <!-- <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
+</div>
 
-    <div class="carousel-inner">
+<div id="slider-map">
+    <div class="horizontal-scroll-wrapper card-grid">
       <% @near_events.each do |event| %>
-        <div class="carousel-item active ">
-          <%= render "event_card", event:event  %>
-        </div>
+        <%= render "event_card_light", event:event  %>
       <% end %>
     </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-  </div> -->
 </div>
