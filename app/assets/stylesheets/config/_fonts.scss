@@ -1,10 +1,17 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:wght@100..900&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+
+
+// La font d'avant était
+// $body-font: "Work-Sans", "Helvetica", "sans-serif";
+$body-font: "Manrope", "Helvetica", "sans-serif";
+
+
+// La font d'avant était
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: "Montserrat", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -31,16 +38,12 @@ h1, h2, h3 {
 
 body {
   font-family: $body-font;
+  // font-weight: 250;
 }
 
-
-
-.main-font{
-  font-family: "Manrope-light";
-}
-
-
-@font-face {
-  font-family: 'Manrope-light' ;
-  src: url('../../fonts/Manrope-Light.ttf');
+.description-font{
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
