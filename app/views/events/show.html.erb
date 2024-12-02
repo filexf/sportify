@@ -3,7 +3,7 @@
 
   <div class="row text-center position relative">
 
-    <%= cl_image_tag @event.playground.sport.photo.key, class: "w-100% h-25", crop: :thumb %>
+    <%= cl_image_tag @event.playground.sport.photo.key, class: "w-100 h-30 unset-padding", crop: :thumb %>
     <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
     <% if participants_left == 1 %>
       <div class="pill-semidark-blue position-absolute">
