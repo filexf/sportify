@@ -1,10 +1,12 @@
-<%= form_with url: root_path, class: "d-flex my-3 gap-1 align-items-center", method: :get do %>
-  <div class="flex-grow-1">
-    <%= text_field_tag :query,
-          params[:query],
-          class: "form-control w-60 h-40 rounded-3 shadow-sm outline-primary",
-          placeholder: "Trouvez un évènement"
-    %>
-  </div>
-  <%= submit_tag "🔍", name: "", class: "btn btn-outline-primary text-dark unset-btn fit-content shadow-sm border" %>
-<% end %>
+  <%= form_with url: root_path, class:"search-bar", method: :get do %>
+    <div class="search-input">
+      <%= text_field_tag :query,
+            params[:query],
+            class: "",
+            placeholder: "Trouver mon sport"
+      %>
+    </div>
+    <%= button_tag(type: "submit", class:"btn btn-primary btn-search") do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  <% end %>

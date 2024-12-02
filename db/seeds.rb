@@ -1,7 +1,9 @@
 require 'open-uri'
 
 # 1. Clean the database 🗑️
+puts ""
 puts "Cleaning database..."
+puts ""
 
 UserSport.destroy_all
 Participation.destroy_all
@@ -13,7 +15,8 @@ Sport.destroy_all
 Location.destroy_all
 
 # 2. Create the users
-puts "Creating users ..."
+puts "Creating users..."
+
 
 users_photos = [
   'Mouette_boxeuse_snsbx5',
@@ -84,7 +87,8 @@ users_array.each_with_index do |user, index|
   new_user.save!
 end
 
-puts "#{User.count} created"
+puts "#{User.count} users created"
+puts ""
 
 # 3. Create the sports
 
@@ -142,7 +146,7 @@ sports_array = [
   }
 ]
 
-puts "Creating sport ..."
+puts "Creating sports ..."
 
 sports_array.each_with_index do |sport, index|
   new_sport = Sport.new(
@@ -164,7 +168,8 @@ sports_array.each_with_index do |sport, index|
   new_sport.save!
 end
 
-puts "#{Sport.count} created"
+puts "#{Sport.count} sports created"
+puts ""
 
 # 3. Create the UserSport
 puts "Creating UserSport ..."
@@ -208,7 +213,9 @@ UserSport.create!(
   sport: Sport.find_by(name: "Padel")
 )
 
-puts "#{UserSport.count} created"
+puts "#{UserSport.count} usersport created"
+puts ""
+
 # 4. Create the Locations
 puts "Creating Locations ..."
 
@@ -266,6 +273,10 @@ roazhon = Location.create!(
   category: :bar
 )
 
+puts "#{Location.count} locations created"
+puts ""
+
+
 # 5. Create the Playgrounds
 puts "Creating Playgrounds ..."
 
@@ -308,6 +319,10 @@ playground_piste = Playground.create!(
   location: piste,
   sport: Sport.find_by(name: "Palet")
 )
+
+puts "#{Playground.count} playgrounds created"
+puts ""
+
 
 # 5. Create the Events
 puts "Creating Events ..."
@@ -375,6 +390,10 @@ Event.create!(
   organisator: User.find_by(username: "Mouettion")
 )
 
+puts "#{Event.count} events created"
+puts ""
+
+
 # 6. Create the Participations
 puts "Creating Participations ..."
 
@@ -437,6 +456,11 @@ Participation.create!(
   event: Event.find_by(name: "Open de Noyal"),
   status: :accepted
 )
+puts "#{Participation.count} participations created"
+puts ""
+
+puts "Done!"
+puts ""
 
 # Create publications
 puts "Create publications"
@@ -465,3 +489,5 @@ Publication.create!(
   content: "Trop de la bombe! On est okish !!!",
   sport: "Basketball"
 )
+
+puts "#{Publication.count} publications created"

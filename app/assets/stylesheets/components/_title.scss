@@ -1,0 +1,12 @@
+.title-home-map{
+  font-family: $headers-font;
+  color: var(--Color-Typography-Title, #120D26);
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  position: absolute;
+  top: 50px;
+  z-index: 10;
+}
