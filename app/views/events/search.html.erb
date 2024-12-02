@@ -1,10 +1,16 @@
-<div class="pt-4 px-2 mb-4 d-flex flex-column justify-content-center gap-2 text-center">
-  <h2>Autour de vous</h2>
+<div class="position-relative">
     <div class="map d-flex justify-content-center">
-      <%= render "map", markers: @near_event_markers, user: @current_user %>
+      <%= render "map", markers: @markers, user:current_user%>
     </div>
-  
+
+
   <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
+    <div class="position-absolute bottom-0 start-50 translate-middle-x" style="margin-bottom: 115px">
+      <%= render "search_bar" %>
+    </div>
+  <!-- <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
     <div class="carousel-inner">
       <% @near_events.each do |event| %>
         <div class="carousel-item active ">
@@ -12,7 +18,7 @@
         </div>
       <% end %>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
@@ -20,5 +26,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-  </div>
+  </div> -->
 </div>
