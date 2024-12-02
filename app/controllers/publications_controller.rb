@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  
+
 
   def index
     @publications = Publication.all
@@ -8,10 +8,23 @@ class PublicationsController < ApplicationController
   end
 
   def create
+    @publications = Publication.all
     @publication = Publication.new(publication_params)
     @publication.user = current_user
-    @publication.save
-    redirect_to publications_path
+    # @publication.save
+    # redirect_to publications_path
+    if @publication.save
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/form",
+            target: "publications",
+            locals: { publication: @publication })
+        end
+        format.html { redirect_to publications_path }
+      end
+    else
+      render "publications/index", status: :unprocessable_entity
+    end
   end
 
   private
