@@ -15,7 +15,7 @@ class PublicationsController < ApplicationController
     if @publication.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/form",
+          render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/publication",
             target: "publications",
             locals: { publication: @publication })
         end
