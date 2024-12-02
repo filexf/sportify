@@ -2,3 +2,36 @@
 body {
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8315789473684211) 16%, rgba(255, 255, 255, 0) 100%);
 }
+
+.event-title-font{
+  position: absolute;
+  top: 40px;
+  z-index: 5;
+}
+
+#toggle-map-list{
+  display: flex;
+  width: 70%;
+  height: 2.75rem;
+  padding: 0.25rem 0.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  top: 150px;
+  z-index:5;
+  border-radius: 0.5625rem;
+  background: $white;
+
+  span{
+    font-size: $font-size-base * 0.8;
+  }
+
+  .separator{
+    width: 0.125rem;
+    height: 1.9375rem;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    background: $sportify-neutral-dark-light;
+  }
+}

@@ -40,22 +40,37 @@
   }
 }
 
-// .btn-secondary {
-//   display: flex;
-//   width: 264px;
-//   padding: 12px 16px;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 8px;
-//   align-self: stretch;
-//   border-radius: 12px;
-//   color: $white;
-//   // font-family: Inter;
-//   font-size: $font-size-base;
-//   font-style: normal;
-//   font-weight: 300;
-//   line-height: normal;
-// }
+.icon-btn {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: $sportify-semidark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+
+  i {
+    color: white;
+  }
+}
+
+.inactive {
+  background-color: #DDD;
+  color:$white;
+  border: unset;
+  box-shadow: unset;
+
+  .icon-btn {
+    background-color: #DDD;
+  }
+
+  svg {
+    color:$white
+  }
+
+}
 
 .unset-btn{
   width: unset;
