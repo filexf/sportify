@@ -1,12 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://tse3.mm.bing.net/th?id=OIG2.3z.GO7uv5JPbCn1d15on&pid=ImgGn);">
+  <h1 class="my-3 d-flex justify-content-center "> Sportify</h1>
+  <h3 class="d-flex justify-content-center text-white text-center">Trouver un partenaire de sport depuis votre téléphone!</h3>
+</div>
+
 <div class="container">
 
 
-  <h2 class="my-4">Sign up</h2>
+  <h2 class="my-4 ">S'inscrire</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
+    <div class="form-inputs col-10 justify-content-start">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
@@ -21,10 +26,11 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <div class="gap-3 my-3">
+    <%= render "devise/shared/links" %>
+  </div>
 
 </div>
