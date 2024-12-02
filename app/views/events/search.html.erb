@@ -2,10 +2,15 @@
     <div class="map d-flex justify-content-center">
       <%= render "map", markers: @markers, user:current_user%>
     </div>
+
+
+  <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
     <div class="position-absolute bottom-0 start-50 translate-middle-x" style="margin-bottom: 115px">
       <%= render "search_bar" %>
     </div>
   <!-- <div id="carousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
     <div class="carousel-inner">
       <% @near_events.each do |event| %>
         <div class="carousel-item active ">
