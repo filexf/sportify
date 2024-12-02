@@ -60,7 +60,8 @@ class EventsController < ApplicationController
         name: event.name,
         coordinates: event.coordinates,
         info_event_html: render_to_string(partial: "info_event", locals: {event: event}),
-        marker_html: render_to_string(partial: "marker", locals: {event: event})
+        marker_html: render_to_string(partial: "marker", locals: {event: event}),
+        event_id: event.id
       }}
 
       @me_marker = {
