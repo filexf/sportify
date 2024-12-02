@@ -15,11 +15,12 @@
           <% @publications.each do |publication| %>
             <li class="list-group-item">
               <div class="d-flex flex-row">
-                  <%= cl_image_tag publication.user.photo.key, class:"avatar" %>
-                  <div class="d-flex flex-column">
+                  <%= cl_image_tag publication.user.photo.key, class:"avatar m-2" %>
+                  <div class="d-flex flex-column gap-2">
                     <div class="d-flex flex-row justify-content-between">
                       @<%= publication.user.username %>
-                      <small class="text-muted pull-right"><%= I18n.l(publication.created_at,format: "%d %B %Y %R") %></small>
+                      <small>Il y a <%= time_ago_in_words(publication.created_at) %></small>
+                        <%# <%= I18n.l(publication.created_at,format: "%d %B %Y %R") %>
                     </div>
                   <div class="">
                     <%= publication.content %>
