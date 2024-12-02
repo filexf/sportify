@@ -6,9 +6,20 @@
         </div>
         <div class="panel-body">
           <div class="form-group">
-            <textarea class="form-control" placeholder="Enter here for tweet..." rows="3"></textarea>
+
+            <%= simple_form_for [@publication] do |f| %>
+            <%= f.input :content, class:"form-control",
+                label: 'Contenu',
+                placeholder: "C'est ici que tu publies...",
+                error: "Ecrivez votre publication"
+            %>
+            <%= f.input :sport,
+                label: "Choisissez un sport",
+                collection: Publication::SPORTS
+             %>
+             <%= f.button :submit, "Kish'", class:"btn btn-primary btn-sm mt-2 text-center" %>
+             <% end %>
           </div>
-          <a href="javascript:void(0)" class="btn btn-info btn-sm pull-right waves-effect waves-light">Kish'</a>
           <div class="clearfix"></div>
           <hr class="margin-bottom-10">
           <ul class="list-group list-group-dividered list-group-full">
