@@ -1,40 +1,34 @@
 <div class="position-relative d-flex flex-column align-items-center">
 
-    <div class="event-title-font">
-      On joue à quoi ?
+    <div>
+      <p class="event-title-font">
+        On joue à quoi ?
+      </p>
     </div>
 
-    <div id="search-bar" style="margin-bottom: 115px">
+    <div id="search-bar">
       <%= render "search_bar" %>
     </div>
 
-    <div id="toggle-map-list">
-      <div class="btn btn-secondary">
-        <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/></svg>
-        <span>
-            Liste
-        </span>
-      </div>
-      <div class="separator"></div>
-      <div class="btn btn-secondary">
-        <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg>
-        <span>
-          Carte
-        </span>
-      </div>
+    <div data-controller="toggle">
+        <%= render "toggle_map_list", state:params[:state] %>
     </div>
 
-
-    <div class="map d-flex justify-content-center">
-      <%= render "map", markers: @markers, user:current_user%>
-    </div>
-
-</div>
-
-<div id="slider-map">
-    <div class="horizontal-scroll-wrapper card-grid">
-      <% @near_events.each do |event| %>
-        <%= render "event_card_light", event:event  %>
+    <%= turbo_frame_tag :results do %>
+      <% if params[:mode] == "map" %>
+        <div id="map-view">
+          <%= render "map_with_slider", markers: @markers, user:current_user, near_events:@near_events %>
+        </div>
+      <% else %>
+        <div id="list-view">
+          <%= render "index_with_pills_and_cards", search_message:@search_message, events:@events %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
+
 </div>
+
+
+<!--
+
+-->

@@ -24,7 +24,6 @@
   background-color: $sportify-semidark-blue;
 }
 
-
 .plus-btn {
   // à utiliser pour le bouton avec le plus (cf. svg "plus-btn")
   width: 30px;
@@ -56,20 +55,22 @@
   }
 }
 
-.inactive {
+.btn-toggle {
+  display: flex;
   background-color: #DDD;
-  color:$white;
+  color: $white;
   border: unset;
   box-shadow: unset;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: $font-size-base;
 
-  .icon-btn {
-    background-color: #DDD;
+  :checked{
+    background-color: $sportify-lightblue;
+    color: $white;
   }
-
-  svg {
-    color:$white
-  }
-
 }
 
 .unset-btn{
