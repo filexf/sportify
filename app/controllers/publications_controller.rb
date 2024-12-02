@@ -8,7 +8,6 @@ class PublicationsController < ApplicationController
   end
 
   def create
-    @publications = Publication.all
     @publication = Publication.new(publication_params)
     @publication.user = current_user
     # @publication.save
