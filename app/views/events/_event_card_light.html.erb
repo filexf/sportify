@@ -1,29 +1,29 @@
-<div class="card_light position-relative" data-event-id="<%= event.id %>">
+<div class="card_light position-relative">
+  <div class="position-relative">
+    <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
+  </div>
+  <div class="card_content">
     <div class="title">
       <%= event.name %>
     </div>
-
-    <div class="card_content">
-      <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
-      <div class="details">
-        <div>
-          <i class="fa-solid fa-child-reaching" style="color:#35A29F"></i>
-          <span>
-            Déjà <%= event.participations.count %> <%= "player".pluralize(event.participations.count.to_i, :fr) %> sur <%= event.sport.number_of_players_max %>
-          </span>
-        </div>
-        <div>
-            <i class="fa-solid fa-calendar"></i>
-            <p>
-              <%= I18n.l(event.start_at, format: "%d %B") %>
-            </p>
-            <p>
-              de <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.end_at, format: "%R") %>
-            </p>
-        </div>
+    <div class="details">
+      <div class="d-flex flex-row gap-1">
+        <i class="fa-solid fa-people-group" style="color:#35A29F"></i>
+        <p class="mb-1">
+          Déjà <%= event.participations.count %> <%= "joueur".pluralize(event.participations.count, :fr)%> /<%= event.sport.number_of_players_max %>
+        </p>
+      </div>
+      <div class="d-flex flex-row gap-1">
+        <i class="fa-solid fa-calendar" style="color:#35A29F"></i>
+        <p class="mb-1">
+          <%= I18n.l(event.start_at, format: "%d %B") %> - <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.end_at, format: "%R") %>
+        </p>
       </div>
     </div>
-    <%= link_to event_path(event) do %>
-      <div class="plus-btn position-absolute top-50 end-0 translate-middle-y me-3"> </div>
-    <% end %>
+  </div>
+  <%= link_to event_path(event) do %>
+    <div class="plus-btn">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  <% end %>
 </div>
