@@ -37,6 +37,17 @@
   color:$white;
 }
 
+.text-icons{
+  color : $white;
+  font-size: small;
+}
+
+.icon{
+  color : $white;
+  display:flex;
+  justify-content: center;
+}
+
 .white-circle{
   // background-color: rgba(255, 255, 255, 0.5);
   // background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));

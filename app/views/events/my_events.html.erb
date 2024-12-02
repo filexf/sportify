@@ -1,17 +1,19 @@
-<div class="pt-4 px-2">
-<h1> Les évènements </h1>
+<div class="pt-4 px-2 d-flex flex-column gap-4">
+  <h1 class="d-flex justify-content-center"> Les évènements </h1>
 
-<h2> En tant qu'organisateur </h2>
-<div class="card_light_grid">
-      <% @my_events.each do |event| %>
-        <%= render "event_card_light", event:event  %>
-      <% end %>
-</div>
+  <h2> En tant qu'organisateur </h2>
 
-<h2> En tant que participant </h2>
-<div class="card_light_grid">
-      <% @events_i_join.each do |event| %>
-        <%= render "event_card_light", event:event  %>
-      <% end %>
-</div>
+  <div class="card_light_grid gap-3">
+        <% @my_events.each do |event| %>
+          <%= render "event_card_light", event:event  %>
+        <% end %>
+  </div>
+
+  <h2> En tant que participant </h2>
+
+  <div class="card_light_grid">
+        <% @events_i_join.each do |event| %>
+          <%= render "event_card_light", event:event  %>
+        <% end %>
+  </div>
 </div>
