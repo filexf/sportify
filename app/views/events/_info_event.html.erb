@@ -1,3 +1,1 @@
-<%= link_to event_path(event), class: "text-decoration-none text-reset border-none fs-6" do %>
-  <%= event.name %></h2>
-<% end  %>
+<%= render "event_card", event:event  %>
