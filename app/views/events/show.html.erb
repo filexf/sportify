@@ -1,24 +1,24 @@
 
 <div class="col-12">
 
+  <div class="row text-center position relative">
 
-<div class="row text-center position relative">
-  <%= cl_image_tag @event.playground.sport.photo.key, class: "w-100 h-25", crop: :thumb %>
-  <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
-  <% if participants_left == 1 %>
-    <div class="pill-semidark-blue position-absolute">
-      Encore <%= participants_left %> joueur
-    </div>
-  <% elsif participants_left > 0 %>
-    <div class="pill-semidark-blue position-absolute">
-      Encore <%= participants_left %> joueurs
-    </div>
-  <% else %>
-    <div class="pill-semidark-blue position-absolute">
-      Evènement complet
-    </div>
-  <% end %>
-  <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
+    <%= cl_image_tag @event.playground.sport.photo.key, class: "w-100 h-30 unset-padding", crop: :thumb %>
+    <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
+    <% if participants_left == 1 %>
+      <div class="pill-semidark-blue position-absolute">
+        Encore <%= participants_left %> joueur
+      </div>
+    <% elsif participants_left > 0 %>
+      <div class="pill-semidark-blue position-absolute">
+        Encore <%= participants_left %> joueurs
+      </div>
+    <% else %>
+      <div class="pill-semidark-blue position-absolute">
+        Evènement complet
+      </div>
+    <% end %>
+    <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
 
     <div class="col-12 px-4">
 
