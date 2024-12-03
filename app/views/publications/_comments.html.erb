@@ -1,5 +1,3 @@
-<div class="d-none" data-display-comments-target="comment">
-  <% publication.comments.each do |c| %>
-    <%= c.content %>
-  <% end %>
-</div>
+<% publication.comments.each do |c| %>
+  <%= c.content %>
+<% end %>

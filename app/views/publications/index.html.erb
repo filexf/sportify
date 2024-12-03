@@ -13,9 +13,11 @@
               <% @publications.order(created_at: :desc).each do |publication| %>
                 <div data-controller="display-comments">
                   <%= render "publication", publication: publication %>
-                  <%= render "comments", publication: publication %>
+                  <div class="d-none" data-display-comments-target="comment">
+                    <%= render "comments", publication: publication %>
+                    <%= render "form_comment", comment: @comment %>
+                  </div>
                 </div>
-                <%# <%= render "form_comment", comment: @comment %>
               <% end %>
             </ul>
             <span class="text-info">1 sportif connecté</span>
