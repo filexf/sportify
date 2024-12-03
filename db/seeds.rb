@@ -17,7 +17,6 @@ Location.destroy_all
 # 2. Create the users
 puts "Creating users..."
 
-
 users_photos = [
   'Mouette_boxeuse_snsbx5',
   'Groupe_Niquetamouette_wil8gj',
@@ -328,6 +327,15 @@ puts ""
 puts "Creating Events ..."
 
 Event.create!(
+  name: "Shooter tireur d'élite",
+  description: "Amoureux du tir à la mouette, je souhaite vous réunir pour tirer de la mouette",
+  start_at: "15/12/2024 14h00",
+  end_at: "15/12/2024 16h30",
+  playground: playground_gayeulles,
+  organisator: User.find_by(username: "Mouettion")
+)
+
+Event.create!(
   name: "Pas de Palais ?",
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
   start_at: "28/11/2024 14h00",
@@ -448,6 +456,18 @@ Participation.create!(
 Participation.create!(
   user: User.find_by(username: "CaroCBD"),
   event: Event.find_by(name: "Spécial Cupidon"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Mouettion"),
+  event: Event.find_by(name: "Spécial Cupidon"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Mouettion"),
+  event: Event.find_by(name: "Shooter tireur d'élite"),
   status: :accepted
 )
 
