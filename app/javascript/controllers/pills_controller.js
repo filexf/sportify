@@ -10,7 +10,7 @@ export default class extends Controller {
   filter(event){
 
 // tous les params
-const params = 
+// const params =
 // fetch index
 // json
 
