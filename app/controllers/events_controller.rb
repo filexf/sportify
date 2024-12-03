@@ -18,8 +18,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.event_date = params[:event][:event_date]
+    @event.start_time = params[:event][:start_time]
+    @event.end_time = params[:event][:end_time]
+    
     @event.organisator = current_user
-
+    raise
     if @event.save
       Participation.create!(
         user: current_user,
@@ -77,9 +81,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :name,
-      :event_date,
-      :start_time,
-      :end_time,
       :description,
       :playground_id
     )

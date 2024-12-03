@@ -13,10 +13,7 @@ class Event < ApplicationRecord
 
   attr_accessor :event_date, :start_time, :end_time
 
-  before_save lambda {
-    self.start_at = construct_datetime(:start_time)
-    self.end_at = construct_datetime(:end_time)
-  }
+  before_save :reconstruct_dates
 
   pg_search_scope :global_search,
     against: [ :name ],
@@ -41,22 +38,12 @@ class Event < ApplicationRecord
 
   private
 
-  def construct_datetime(time)
-    # {"event"=>{"name"=>"",
-    #  "description"=>"",
-    #  "playground_id"=>"",
-    #  "event_date"=>"2024-12-04",
-    #  "start_time"=>"12:00",
-    #  "end_time"=>"13:00"},
-    #  "commit"=>"C'est parti!"}
-    hour = time.split[0]
-    minutes = time.split[1]
-    day = event_date.split("-")[2]
-    month = event_date.split("-")[1]
-    year = event_date.split("-")[0]
+  def reconstruct_dates
+    return unless @start_time.present? && @end_time.present? && @event_date.present?
 
-  return "#{year}/#{month}/#{day}, #{hour}:#{minutes}"
-
+    start_hours, start_minutes = @start_time.split(":")
+    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.hours + start_minutes.minutes
+    start_hours, start_minutes = @start_time.split(":")
+    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.hours + start_minutes.minutes
   end
-
 end
