@@ -304,6 +304,11 @@ playground_gayeulles = Playground.create!(
   sport: Sport.find_by(name: "Tennis")
 )
 
+tir_gayeulles = Playground.create!(
+  location: gayeulles,
+  sport: Sport.find_by(name: "Tir à la mouette")
+)
+
 playground_thabor = Playground.create!(
   location: thabor,
   sport: Sport.find_by(name: "Lancer de mouettes")
@@ -331,7 +336,7 @@ Event.create!(
   description: "Amoureux du tir à la mouette, je souhaite vous réunir pour tirer de la mouette",
   start_at: "15/12/2024 14h00",
   end_at: "15/12/2024 16h30",
-  playground: playground_gayeulles,
+  playground: tir_gayeulles,
   organisator: User.find_by(username: "Mouettion")
 )
 
