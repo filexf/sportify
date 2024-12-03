@@ -8,6 +8,7 @@ puts ""
 UserSport.destroy_all
 Participation.destroy_all
 Event.destroy_all
+Publication.destroy_all
 User.destroy_all
 Playground.destroy_all
 Sport.destroy_all
@@ -70,7 +71,7 @@ users_array.each_with_index do |user, index|
     username: user[:username],
     email: user[:email],
     password: user[:password],
-    address: user[:address],
+    address: user[:address]
   )
   if user[:photo].blank?
     cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/#{users_photos[index]}.jpg"
@@ -455,9 +456,38 @@ Participation.create!(
   event: Event.find_by(name: "Open de Noyal"),
   status: :accepted
 )
-
 puts "#{Participation.count} participations created"
 puts ""
 
 puts "Done!"
 puts ""
+
+# Create publications
+puts "Create publications"
+
+Publication.create!(
+  user: User.find_by(username: "Mouettion"),
+  title: "OKISH",
+  content: "Trop de la bombe! On est okish !!!",
+  sport: "Basketball"
+)
+Publication.create!(
+  user: User.find_by(username: "Mouettion"),
+  title: "OKISH",
+  content: "Trop de la bombe! On est okish !!!",
+  sport: "Basketball"
+)
+Publication.create!(
+  user: User.find_by(username: "Mouettion"),
+  title: "OKISH",
+  content: "Trop de la bombe! On est okish !!!",
+  sport: "Basketball"
+)
+Publication.create!(
+  user: User.find_by(username: "Mouettion"),
+  title: "OKISH",
+  content: "Trop de la bombe! On est okish !!!",
+  sport: "Basketball"
+)
+
+puts "#{Publication.count} publications created"

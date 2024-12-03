@@ -1,0 +1,21 @@
+<div class="container mt-3">
+  <div class="row">
+      <div class="col-md-6 col-xs-12 col-md-offset-3">
+        <div class="panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sportify Feed</h3>
+          </div>
+          <div class="panel-body">
+            <%= render "form", publication: @publication %>
+            <hr class="margin-bottom-10">
+            <ul id="publications" class="list-group list-group-dividered list-group-full">
+            <% @publications.order(created_at: :desc).each do |publication| %>
+              <%= render "publication", publication: publication %>
+            <% end %>
+              </ul>
+            <span class="text-info">1 sportif connecté</span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
