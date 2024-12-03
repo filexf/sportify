@@ -9,6 +9,7 @@
   height: 2.5em;
   width: 300px;
   padding: 0px 0px 0px 15px;
+  border: $sportify-semidark-blue 1px solid;
   color: $sportify-neutral-dark-light;
   font-size: $font-size-base;
   background: $white;
@@ -20,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: unset;
 }
 
 input {
@@ -30,8 +32,6 @@ input {
 .btn-search {
   width: 2.5em;
   border-radius: 50%;
-  height: 2.5em;
-  margin-right: 0.5px;
 }
 
 #slider-map{
