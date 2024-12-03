@@ -1,27 +1,54 @@
-<%= simple_form_for [@event] do |f| %>
-  <div class="d-flex flex-column justify-content-center ">
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="col-10">
+<div class="my-3">
 
-      <%= f.input :name,
-      label: 'Le nom de votre événement:',
-      error: 'Merci de nommer votre event',
-      required: true
-      %>
-    </div>
+  <p>Commencez par choisir votre événement</p>
+  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit"}) do %>
+    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-8 rounded-3 p-2" %>
+    <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
+  <% end %>
 
-      <%= f.input :description,
-      label: "Description de votre événement",
-      error: 'Décrivez votre événement:'
-      %>
+</div>
 
-      <%= f.input :playground_id,
-        label: "Choisissez un sport parmis la liste:",
-        error: 'Choisissez parmis les sports & lieux de la liste',
-        collection: @playgrounds.map { |playground| [playground.name, playground.id] }
-      %>
+<% if params[:sport_name] %>
+
+  <%= simple_form_for [@event] do |f| %>
+
+    <div class="d-flex flex-column justify-content-center ">
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="col-10">
+
+        <%= f.input :name,
+        label: 'Le nom de votre événement:',
+        error: 'Merci de nommer votre event',
+        required: true
+        %>
+      </div>
+
+        <%= f.input :description,
+        label: "Description de votre événement",
+        error: 'Décrivez votre événement:'
+        %>
+
+        <%# # playgrounds_names_and_ids = []
+        # @playgrounds.each do |pg|
+        #   playgrounds_names_and_ids << [playground.name, playground.id]
+        # end %>
+
+
+        <%# Faireu n controller qui encadre les 2 inputs %>
+
+        <%# Faire un data-action sur le frerot (change ou sleect) %>
+
+          <%# Data target sur lui %>
+          <%= turbo_frame_tag "location_list" do %>
+            <% f.input :playground_id,
+              label: "Choisissez un sport parmis la liste:",
+              error: 'Choisissez parmis les sports & lieux de la liste',
+              collection: @playgrounds.map { |playground| [playground.name, playground.id] }
+            %>
+          <% end %>
 
       <label for="event_event_date" class="my-3 mx-3">
         Date de l'évènement
@@ -62,9 +89,15 @@
         %>
       </div>
 
-        <%= f.button :submit, "C'est parti!", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
-      </div>
 
+
+      <div class="d-flex justify-content-center mt-2">
+          <%= f.button :submit, "C'est parti!", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
+        </div>
+
+    </div>
+
+  <% end %>
 
   </div>
 <% end %>
