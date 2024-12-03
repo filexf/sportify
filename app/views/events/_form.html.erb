@@ -3,10 +3,14 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+    <div class="col-10">
+
       <%= f.input :name,
       label: 'Le nom de votre événement:',
       error: 'Merci de nommer votre event',
-      required: true %>
+      required: true
+      %>
+    </div>
 
       <%= f.input :description,
       label: "Description de votre événement",
@@ -37,27 +41,29 @@
         <input type="date" id="end-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
       </div>
       </form> %>
+
+      <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
+      <%# <%= f.input :end_at, as: :datetime %>
+
+
       <div class="d-flex flex-column justify-content-center mb-3">
 
 
-        <label for="event_start_at" class="my-3">Début:</label>
-        <input
+        <label for="event_start_at" class="my-3 mx-3">Début:</label>
+        <input class="border rounded-4 p-2"
           id="event_start_at"
           type="datetime-local"
           name="event[start_at]"/>
 
-        <label for="event_end_at" class="my-3">Fin:</label>
-        <input
+        <label for="event_end_at" class="my-3 mx-3">Fin:</label>
+        <input class="border rounded-4 p-2"
           id="event_end_at"
           type="datetime-local"
           name="event[end_at]"/>
-
       </div>
-      <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
-      <%# <%= f.input :end_at, as: :datetime %>
       <div class="d-flex justify-content-center mt-2">
 
-        <%= f.button :submit, "Publier", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
+        <%= f.button :submit, "C'est parti!", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
       </div>
 
   </div>
