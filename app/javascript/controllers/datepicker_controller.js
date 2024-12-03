@@ -4,6 +4,11 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 export default class extends Controller {
   connect() {
     console.log("controller datepickr connecté")
+    flatpickr(this.element, {
+        dateFormat: "d-m-Y",
+        minDate: "today",
+        maxDate: new Date().fp_incr(30) // On peut pas faire d'event dans plus d'un mois
+      })
   }
 
   open_as_calendar(){
