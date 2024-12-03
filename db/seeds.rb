@@ -484,25 +484,13 @@ Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Basketball")
 )
 Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Tir à la mouette")
 )
 
 puts "#{Publication.count} publications created"
