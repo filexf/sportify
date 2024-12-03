@@ -7,17 +7,13 @@ export default class extends Controller {
     console.log("on est au toggler")
   }
 
-  list(event){
+  list(){
     console.log("liste");
     document.getElementById("list").checked = true;
-    document.getElementById("map-view").classList.add("d-none");
-    document.getElementById("list-view").classList.remove("d-none");
   }
 
-  map(event){
+  map(){
     console.log("carte");
     document.getElementById("map").checked = true;
-    document.getElementById("list-view").classList.add("d-none");
-    document.getElementById("map-view").classList.remove("d-none");
   }
 }

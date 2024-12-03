@@ -10,12 +10,12 @@
       <%= render "search_bar" %>
     </div>
 
-    <div data-controller="toggle">
+    <div id="toggle">
         <%= render "toggle_map_list", state:params[:state] %>
     </div>
 
     <%= turbo_frame_tag :results do %>
-      <% if params[:mode] == "map" %>
+      <% if params[:toggle] == "map" %>
         <div id="map-view">
           <%= render "map_with_slider", markers: @markers, user:current_user, near_events:@near_events %>
         </div>
@@ -27,8 +27,3 @@
     <% end %>
 
 </div>
-
-
-<!--
-
--->

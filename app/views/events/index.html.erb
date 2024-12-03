@@ -1,42 +1,29 @@
+<div class="position-relative d-flex flex-column align-items-center">
 
-<div class="pt-4 px-2">
-<h1 class="text-center"> On joue à quoi ? </h1>
-
-<div>
-  <%= render "search_bar" %>
-</div>
-
-  <div class="pills">
-    <div class="pills-card">Basketball</div>
-    <div class="pills-card">Padel</div>
-    <div class="pills-card">Tennis</div>
-    <div class="pills-card">Palet</div>
-    <div class="pills-card">Lancer de mouettes</div>
-    <div class="pills-card">Tir à la mouette</div>
-  </div>
-
-<%# calendrier dates %>
-
-  <% if @search_message %>
-    <p>
-      <%= @search_message %>
+    <div>
+      <p class="event-title-font">
+        On joue à quoi ?
       </p>
-    <h2>
-      Nos évènements
-    </h2>
-    <div class="horizontal-scroll-wrapper card-grid my-3">
-      <% @events.each do |event| %>
-        <%= render "event_card", event:event  %>
-      <% end %>
     </div>
-  <% else %>
-    <h2>
-      Pour vous
-    </h2>
-      <div class="horizontal-scroll-wrapper card-grid my-3">
-        <% @events.each do |event| %>
-          <%= render "event_card", event:event  %>
-        <% end %>
-      </div>
-  <% end %>
+
+    <div id="search-bar">
+      <%= render "search_bar" %>
+    </div>
+
+    <div id="toggle">
+        <%= render "toggle_map_list", state:params[:state] %>
+    </div>
+
+    <%= turbo_frame_tag :results do %>
+      <% if params[:toggle] == "map" %>
+        <div id="map-view">
+          <%= render "map_with_slider", markers: @markers, user:current_user, near_events:@near_events %>
+        </div>
+      <% else %>
+        <div id="list-view">
+          <%= render "index_with_pills_and_cards", search_message:@search_message, events:@events %>
+        </div>
+      <% end %>
+    <% end %>
+
 </div>

@@ -23,7 +23,7 @@ body {
 }
 
 #slider-map {
-  width: 100%;
+  width: 70%;
   margin-left: unset;
   z-index: 5;
   position: absolute;
@@ -34,9 +34,6 @@ body {
     scroll-snap-align: center;
   }
 }
-
-
-
 
 
 h2{
@@ -51,7 +48,7 @@ h2{
   align-items: start;
 }
 
-#toggle-map-list{
+#toggle{
   display: flex;
   flex-direction: row;
   width: 100%;
