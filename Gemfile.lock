@@ -277,10 +277,6 @@ GEM
     rake (13.2.1)
     rdoc (6.8.1)
       psych (>= 4.0.0)
-    redis (5.3.0)
-      redis-client (>= 0.22.0)
-    redis-client (0.22.2)
-      connection_pool
     regexp_parser (2.9.2)
     reline (0.5.11)
       io-console (~> 0.5)
@@ -320,6 +316,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solid_cable (1.0.3)
+      rails (< 9)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -400,10 +398,10 @@ DEPENDENCIES
   pg_search
   puma (>= 5.0)
   rails (~> 7.1.5)
-  redis (>= 4.0.1)
   sassc-rails
   selenium-webdriver
   simple_form!
+  solid_cable
   sprockets-rails
   standard
   stimulus-rails

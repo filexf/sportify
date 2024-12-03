@@ -173,23 +173,13 @@ puts ""
 # 3. Create the UserSport
 puts "Creating UserSport ..."
 UserSport.create!(
-  user: User.first,
-  sport: Sport.first
+  user: User.find_by(username: "Mouettion"),
+  sport: Sport.find_by(name: "Tir à la mouette")
 )
 
 UserSport.create!(
-  user: User.first,
-  sport: Sport.last
-)
-
-UserSport.create!(
-  user: User.last,
-  sport: Sport.first
-)
-
-UserSport.create!(
-  user: User.first,
-  sport: Sport.first
+  user: User.find_by(username: "Mouettion"),
+  sport: Sport.find_by(name: "Lancer de mouettes")
 )
 
 UserSport.create!(
@@ -208,7 +198,7 @@ UserSport.create!(
 )
 
 UserSport.create!(
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "LaGouelle"),
   sport: Sport.find_by(name: "Padel")
 )
 
@@ -494,25 +484,13 @@ Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Basketball")
 )
 Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Tir à la mouette")
 )
 
 puts "#{Publication.count} publications created"
