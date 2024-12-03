@@ -11,9 +11,11 @@
             <%= turbo_stream_from "publications" %>
             <ul id="publications" class="list-group list-group-dividered list-group-full">
               <% @publications.order(created_at: :desc).each do |publication| %>
-                <%= render "publication", publication: publication %>
-                <%= render "comments", comments: @comments %>
-                <%= render "form_comment", comment: @comment %>
+                <div data-controller="display-comments">
+                  <%= render "publication", publication: publication %>
+                  <%= render "comments", publication: publication %>
+                </div>
+                <%# <%= render "form_comment", comment: @comment %>
               <% end %>
             </ul>
             <span class="text-info">1 sportif connecté</span>
