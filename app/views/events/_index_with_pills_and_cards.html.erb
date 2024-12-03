@@ -1,11 +1,11 @@
-  <div id="index">
+  <div id="index" data-controller="pills">
     <div class="pills">
-        <div class="pills-card">Basketball</div>
-        <div class="pills-card">Padel</div>
-        <div class="pills-card">Tennis</div>
-        <div class="pills-card">Palet</div>
-        <div class="pills-card">Lancer de mouettes</div>
-        <div class="pills-card">Tir à la mouette</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Basketball</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Padel</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Tennis</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Palet</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Lancer de mouettes</div>
+        <div class="pills-card btn btn-primary" data-action="click->pills#filter">Tir à la mouette</div>
     </div>
 
     <% if search_message %>

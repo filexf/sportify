@@ -1,70 +1,96 @@
-<%= simple_form_for [@event] do |f| %>
-  <div class="d-flex flex-column justify-content-center ">
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="col-10">
+<div class="my-3">
 
-      <%= f.input :name,
-      label: 'Le nom de votre événement:',
-      error: 'Merci de nommer votre event',
-      required: true
-      %>
+  <p>Commencez par choisir votre événement</p>
+  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit"}) do %>
+    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-8 rounded-3 p-2" %>
+    <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
+  <% end %>
+
+</div>
+
+<% if params[:sport_name] %>
+
+  <%= simple_form_for [@event] do |f| %>
+
+    <div class="d-flex flex-column justify-content-center ">
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="col-10">
+
+        <%= f.input :name,
+        label: 'Le nom de votre événement:',
+        error: 'Merci de nommer votre event',
+        required: true
+        %>
+      </div>
+
+        <%= f.input :description,
+        label: "Description de votre événement",
+        error: 'Décrivez votre événement:'
+        %>
+
+        <%# # playgrounds_names_and_ids = []
+        # @playgrounds.each do |pg|
+        #   playgrounds_names_and_ids << [playground.name, playground.id]
+        # end %>
+
+
+
+        <%# Faireu n controller qui encadre les 2 inputs %>
+
+        <%# Faire un data-action sur le frerot (change ou sleect) %>
+
+          <%# Data target sur lui %>
+          <%= turbo_frame_tag "location_list" do %>
+            <% f.input :playground_id,
+              label: "Choisissez un sport parmis la liste:",
+              error: 'Choisissez parmis les sports & lieux de la liste',
+              collection: @playgrounds.map { |playground| [playground.name, playground.id] }
+            %>
+          <% end %>
+
+
+
+
+        <%# <form action="" class="d-flex justify-content-around mb-5">
+        <div>
+          <label for="start" class="text-center"><strong>Date de début:</strong></label>
+          <input type="date" id="start-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
+        </div>
+        <div>
+          <label for="start" class="text-center"><strong>Date de fin:</strong></label>
+          <input type="date" id="end-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
+        </div>
+        </form> %>
+
+        <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
+        <%# <%= f.input :end_at, as: :datetime %>
+
+
+        <div class="d-flex flex-column justify-content-center mb-3">
+
+
+          <label for="event_start_at" class="my-3 mx-3">Début:</label>
+          <input class="border rounded-4 p-2"
+            id="event_start_at"
+            type="datetime-local"
+            name="event[start_at]"/>
+
+          <label for="event_end_at" class="my-3 mx-3">Fin:</label>
+          <input class="border rounded-4 p-2"
+            id="event_end_at"
+            type="datetime-local"
+            name="event[end_at]"/>
+        </div>
+
+        <div class="d-flex justify-content-center mt-2">
+          <%= f.button :submit, "C'est parti!", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
+        </div>
+
     </div>
 
-      <%= f.input :description,
-      label: "Description de votre événement",
-      error: 'Décrivez votre événement:'
-      %>
+  <% end %>
 
-      <%# # playgrounds_names_and_ids = []
-      # @playgrounds.each do |pg|
-      #   playgrounds_names_and_ids << [playground.name, playground.id]
-      # end %>
-
-      <%= f.input :playground_id,
-        label: "Choisissez un sport parmis la liste:",
-        error: 'Choisissez parmis les sports & lieux de la liste',
-        collection: @playgrounds.map { |playground| [playground.name, playground.id] }
-      %>
-
-
-
-
-      <%# <form action="" class="d-flex justify-content-around mb-5">
-      <div>
-        <label for="start" class="text-center"><strong>Date de début:</strong></label>
-        <input type="date" id="start-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
-      </div>
-      <div>
-        <label for="start" class="text-center"><strong>Date de fin:</strong></label>
-        <input type="date" id="end-wanted-date" name="trip-start" value= Date.today min="2024-11-28" max="2028-12-31" />
-      </div>
-      </form> %>
-
-      <%# <%= f.input :start_at, as: :datetime, class: "form_date" %>
-      <%# <%= f.input :end_at, as: :datetime %>
-
-
-      <div class="d-flex flex-column justify-content-center mb-3">
-
-
-        <label for="event_start_at" class="my-3 mx-3">Début:</label>
-        <input class="border rounded-4 p-2"
-          id="event_start_at"
-          type="datetime-local"
-          name="event[start_at]"/>
-
-        <label for="event_end_at" class="my-3 mx-3">Fin:</label>
-        <input class="border rounded-4 p-2"
-          id="event_end_at"
-          type="datetime-local"
-          name="event[end_at]"/>
-      </div>
-      <div class="d-flex justify-content-center mt-2">
-
-        <%= f.button :submit, "C'est parti!", class: "btn btn-secondary col-3 mx-auto my-3 text-center text-justify" %>
-      </div>
-
-  </div>
 <% end %>
