@@ -1,61 +1,71 @@
-<nav class="new-navbar">
-
-  <%# La forme incurvée de la navbar ci-dessous %>
-  <div class="inner-navbar-dimensions">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-100 h-100" viewBox="0 0 360 75" fill="none">
-      <path d="M360 75H0V0H91.1266C151.21 1.01729e-08 133.185 29.6544 179.75 29.891C226.314 30.1276 208.79 0 270.501 0H360V75Z" fill="#151515"/>
-    </svg>
-  </div>
+<div class="navbar-sportify d-flex justify-content-between align-items-center m-0 px-3 ">
 
 
-  <%# La liste de icones que l'on vient placer sur la forme au-dessus %>
-  <div class="list-navbar-icons ">
+  <%# Utiliser l'autre navbar %>
 
     <div class="d-flex flex-column gap-1 justify-content-center ">
-      <%= link_to root_path do %>
-          <div class="icon ">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25" class="<%= current_page?(root_path) ? "nav-link-active" : "nav-link" %>">
-                <path d="M2.94292 24.25C2.20434 24.25 1.57231 23.9872 1.0468 23.4617C0.520402 22.9353 0.257202 22.3029 0.257202 21.5643V9.47857C0.257202 9.05333 0.352545 8.65048 0.54323 8.27C0.733021 7.88952 0.995774 7.57619 1.33149 7.33L9.38863 1.28714C9.63482 1.1081 9.8922 0.973809 10.1608 0.884286C10.4293 0.794762 10.7091 0.75 11.0001 0.75C11.291 0.75 11.5708 0.794762 11.8393 0.884286C12.1079 0.973809 12.3653 1.1081 12.6115 1.28714L20.6686 7.33C21.0043 7.57619 21.2675 7.88952 21.4582 8.27C21.648 8.65048 21.7429 9.05333 21.7429 9.47857V21.5643C21.7429 22.3029 21.4802 22.9353 20.9547 23.4617C20.4283 23.9872 19.7958 24.25 19.0572 24.25H13.6858V14.85H8.31434V24.25H2.94292Z"/>
-            </svg>
-          </div>
+      <div class="icon icon-home">
+        <%= link_to root_path do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25" class="<%= current_page?(root_path) ? "nav-link-active" : "nav-link" %>">
+              <path d="M2.94292 24.25C2.20434 24.25 1.57231 23.9872 1.0468 23.4617C0.520402 22.9353 0.257202 22.3029 0.257202 21.5643V9.47857C0.257202 9.05333 0.352545 8.65048 0.54323 8.27C0.733021 7.88952 0.995774 7.57619 1.33149 7.33L9.38863 1.28714C9.63482 1.1081 9.8922 0.973809 10.1608 0.884286C10.4293 0.794762 10.7091 0.75 11.0001 0.75C11.291 0.75 11.5708 0.794762 11.8393 0.884286C12.1079 0.973809 12.3653 1.1081 12.6115 1.28714L20.6686 7.33C21.0043 7.57619 21.2675 7.88952 21.4582 8.27C21.648 8.65048 21.7429 9.05333 21.7429 9.47857V21.5643C21.7429 22.3029 21.4802 22.9353 20.9547 23.4617C20.4283 23.9872 19.7958 24.25 19.0572 24.25H13.6858V14.85H8.31434V24.25H2.94292Z"/>
+          </svg>
         <% end %>
+      </div>
       <div class="<%= current_page?(root_path) ? "nav-link-active" : "nav-link" %> text-icons"> Accueil </div>
     </div>
 
-    <div class="d-flex flex-column mb-1 gap-1 justify-content-center">
-      <%= link_to search_path do %>
-        <div class="icon ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 20 29" class="<%= current_page?(search_path) ? "nav-link-active" : "nav-link" %>">
+    <div class="d-flex flex-column gap-1 justify-content-center">
+      <div class="icon icon-map">
+        <%= link_to search_path do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="29" viewBox="0 0 20 29" class="<%= current_page?(search_path) ? "nav-link-active" : "nav-link" %>">
             <path d="M2.48059 16.9331L2.48045 16.9328C1.24813 14.9422 0.572651 12.738 0.572651 10.3862C0.572651 5.17415 4.78792 0.958882 9.99999 0.958882C15.2121 0.958882 19.4273 5.17415 19.4273 10.3862C19.4273 12.738 18.7519 14.9418 17.5063 16.9321L17.5054 16.9335C16.8596 17.9872 16.1109 18.9642 15.3544 19.9454C15.3331 19.9731 15.3117 20.0007 15.2904 20.0284C14.5566 20.98 13.8179 21.938 13.1732 22.9655L13.1732 22.9655C12.5222 24.0043 12.0658 24.9731 11.5581 26.0844L11.558 26.0847C11.4974 26.2181 11.4374 26.3705 11.3767 26.5249C11.3497 26.5937 11.3225 26.6629 11.295 26.731C11.2037 26.9572 11.1056 27.1808 10.9875 27.3791C10.7518 27.7745 10.455 28.041 9.99999 28.041C9.54492 28.041 9.24807 27.7745 9.01054 27.3786C8.89144 27.1801 8.79211 26.9564 8.69872 26.7298C8.67363 26.6689 8.64875 26.6073 8.62396 26.5459C8.55875 26.3843 8.49419 26.2243 8.42805 26.0842C7.93326 24.971 7.46348 24.0034 6.81331 22.9659C6.15765 21.9141 5.4048 20.9376 4.6586 19.9698L4.63188 19.9352C3.87519 18.9537 3.1265 17.9801 2.48059 16.9331ZM6.40046 10.729C6.40046 12.716 8.013 14.3286 9.99999 14.3286C11.987 14.3286 13.5995 12.716 13.5995 10.729C13.5995 8.74204 11.987 7.1295 9.99999 7.1295C8.013 7.1295 6.40046 8.74204 6.40046 10.729Z"
             stroke="black" stroke-width="0.342812"/>
           </svg>
-        </div>
         <% end %>
+      </div>
       <div class="text-icons <%= current_page?(search_path) ? "nav-link-active" : "nav-link" %>"> Carte </div>
     </div>
 
-    <%# Des div pour mettre plus d'espace entre les icones %>
-    <div>
-    </div>
-    <div>
-    </div>
+  <%# La div est là pour faire en sorte que les icons de la navbar soient biens espacés! %>
+  <div class="w-80">
+  </div>
+
+
+  <div class="icon-plus-sign">
+    <%= link_to new_event_path do %>
+      <div class="white-circle">
+        <div class="plus-sign">
+            <svg width="60" viewBox="0 0 60 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Plus sign ">
+            <ellipse id="Ellipse 2" cx="30" cy="28.9096" rx="30" ry="28.9096" fill="#071952"/>
+            <path id="Line 1" d="M18 28.9097H43" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path id="Line 2" d="M30 40.4735V16.3822" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            </svg>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
 
     <div class="d-flex flex-column gap-1 justify-content-center ml-3">
-      <%= link_to my_events_path do %>
-        <div class="icon icon-calendar">
+      <div class="icon icon-calendar">
+        <%= link_to my_events_path do %>
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
             <rect x="1.3667" y="1" width="23.2667" height="25" stroke="black"/>
             <path d="M22.4371 3.1H21.0889V0.5H18.3926V3.1H7.60744V0.5H4.91114V3.1H3.563C2.06655 3.1 0.880181 4.27 0.880181 5.7L0.866699 23.9C0.866699 25.33 2.06655 26.5 3.563 26.5H22.4371C23.92 26.5 25.1334 25.33 25.1334 23.9V5.7C25.1334 4.27 23.92 3.1 22.4371 3.1ZM22.4371 23.9H3.563V10.9H22.4371V23.9ZM8.95559 16.1H6.25929V13.5H8.95559V16.1ZM14.3482 16.1H11.6519V13.5H14.3482V16.1ZM19.7408 16.1H17.0445V13.5H19.7408V16.1ZM8.95559 21.3H6.25929V18.7H8.95559V21.3ZM14.3482 21.3H11.6519V18.7H14.3482V21.3ZM19.7408 21.3H17.0445V18.7H19.7408V21.3Z"
             class="<%= current_page?(my_events_path) ? "nav-link-active" : "nav-link" %>"/>
           </svg>
-        </div>
         <% end %>
+      </div>
       <div class="text-icons <%= current_page?(my_events_path) ? "nav-link-active" : "nav-link" %>"> Events </div>
     </div>
 
     <div class="d-flex flex-column gap-1 justify-content-center">
-      <%= link_to root_path do %>
-        <div class="icon icon-profile">
+      <div class="icon icon-profile">
+        <%= link_to root_path do %>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="nav-link">
             <g clip-path="url(#clip0_405_3923)">
             <path d="M17.1148 14.3302C20.909 13.7145 23.4858 10.1395 22.8701 6.34523C22.2544 2.55095 18.6794 -0.025793 14.8852 0.5899C11.0909 1.20559 8.51413 4.78058 9.12983 8.57485C9.74552 12.3691 13.3205 14.9459 17.1148 14.3302Z"/>
@@ -67,24 +77,11 @@
             </clipPath>
             </defs>
           </svg>
-        </div>
         <% end %>
-      <div class="text-icons nav-link"> Profil</div>
+      </div>
+      <div class="text-icons nav-link"> Profil </div>
     </div>
 
-  </div>
 
 
-  <%# Le signe plus mit à la fin  %>
-  <%= link_to new_event_path, class: "plus-sign-navbar" do %>
-    <svg width="60" viewBox="0 0 60 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g id="Plus sign ">
-      <ellipse id="Ellipse 2" cx="30" cy="28.9096" rx="30" ry="28.9096" fill="#071952"/>
-      <path id="Line 1" d="M18 28.9097H43" stroke="white" stroke-width="3" stroke-linecap="round"/>
-      <path id="Line 2" d="M30 40.4735V16.3822" stroke="white" stroke-width="3" stroke-linecap="round"/>
-      </g>
-    </svg>
-  <% end %>
-
-
-</nav>
+</div>

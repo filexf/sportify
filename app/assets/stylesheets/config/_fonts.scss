@@ -6,12 +6,12 @@
 
 // La font d'avant était
 // $body-font: "Work-Sans", "Helvetica", "sans-serif";
-$body-font: "Manrope", "Helvetica", "sans-serif";
+$body-font: "Noto Sans", "Manrope", "sans-serif";
 
 
 // La font d'avant était
 // $headers-font: "Nunito", "Helvetica", "sans-serif";
-$headers-font: "Montserrat", "Helvetica", "sans-serif";
+$headers-font: "Inter", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -32,6 +32,7 @@ $headers-font: "Montserrat", "Helvetica", "sans-serif";
   line-height: normal;
 }
 
+
 h1, h2, h3 {
   font-family: $headers-font;
 }
@@ -41,8 +42,13 @@ body {
   // font-weight: 250;
 }
 
+.home-title{
+  font-family: "Inter";
+  font-weight: 700;
+}
+
 .description-font{
-  font-family: "Manrope", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;

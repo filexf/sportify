@@ -18,9 +18,9 @@
   </div>
   <div class="card-content position-relative">
     <div class="title mb-1">
-      <%= event.name %>
+      <b><%= event.name %> </b>
     </div>
-    <div class="details mb-3">
+    <div class="details my-3">
       <p class="mb-1"><%= event.location.address %></p>
       <p class="mb-1">Le <%= I18n.l(event.start_at, format: "%d %B %Y") %> de <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.end_at, format: "%R") %></p>
     </div>
