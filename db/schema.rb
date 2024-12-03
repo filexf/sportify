@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_03_094813) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_03_123849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,11 +106,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_094813) do
 
   create_table "publications", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "sport"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sport_id"
+    t.index ["sport_id"], name: "index_publications_on_sport_id"
     t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
@@ -171,6 +172,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_094813) do
   add_foreign_key "participations", "users"
   add_foreign_key "playgrounds", "locations"
   add_foreign_key "playgrounds", "sports"
+  add_foreign_key "publications", "sports"
   add_foreign_key "publications", "users"
   add_foreign_key "user_sports", "sports"
   add_foreign_key "user_sports", "users"
