@@ -10,8 +10,8 @@
       <%= render "search_bar" %>
     </div>
 
-    <div id="toggle">
-        <%= render "toggle_map_list", state:params[:state] %>
+    <div id="toggle" data-controller="toggle">
+        <%= render "toggle_map_list" %>
     </div>
 
     <%= turbo_frame_tag :results do %>

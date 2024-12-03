@@ -66,11 +66,15 @@
   padding: 6px 12px;
   border-radius: 12px;
   font-size: $font-size-base;
+}
 
-  :checked{
-    background-color: $sportify-lightblue;
-    color: $white;
-  }
+.toggle-active {
+  background-color: $sportify-lightblue;
+  color: $white;
+}
+
+.icon-active{
+    background-color: $sportify-semidark-blue;
 }
 
 .unset-btn{

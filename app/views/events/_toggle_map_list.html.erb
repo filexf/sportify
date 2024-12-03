@@ -6,22 +6,25 @@
       controller: "auto-submit",
       action: "input->auto-submit#submit",
     }) do |f| %>
-  <label for="list" style="border:1px solid red;">
-    <input id="list" value="list" type="radio" name="toggle">
-    <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/>
-    </svg>
-    <span>
-        Liste
-    </span>
-  </label>
-  <label for="map" style="border:1px solid red;">
-    <input id="map" value="map" type="radio" name="toggle" checked>
-    <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-      <path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/>
-    </svg>
-    <span>
-      Carte
-    </span>
-  </label>
+  <div class="toggle-container">
+    <label for="list" class="btn-toggle" data-action="click->toggle#list">
+      <input id="list" value="list" type="radio" name="toggle">
+      <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/>
+      </svg>
+      <span>
+          Liste
+      </span>
+    </label>
+    <div class="separator"></div>
+    <label for="map" class="btn-toggle toggle-active" data-action="click->toggle#map">
+      <input id="map" value="map" type="radio" name="toggle">
+      <svg class="icon-btn icon-active" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/>
+      </svg>
+      <span>
+        Carte
+      </span>
+    </label>
+  </div>
 <% end %>
