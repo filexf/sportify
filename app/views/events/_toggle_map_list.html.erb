@@ -6,7 +6,7 @@
       controller: "auto-submit",
       action: "input->auto-submit#submit",
     }) do |f| %>
-  <div class="toggle-container">
+  <div class="toggle-container" data-controller="toggle">
     <label for="list" class="btn-toggle" data-action="click->toggle#list">
       <input id="list" value="list" type="radio" name="toggle">
       <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
