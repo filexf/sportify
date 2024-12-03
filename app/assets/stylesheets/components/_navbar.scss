@@ -67,8 +67,14 @@
 .plus-sign-navbar{
   left:50%;
   transform: translateX(-50%);
-  top: -50%;
+  top: -55%;
   z-index: 5;
   position: absolute;
   border-radius: 50%;
+}
+
+
+// Pour enlever le text-decoration des liens du texte des icones
+a{
+  text-decoration: unset;
 }
