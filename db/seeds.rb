@@ -173,23 +173,13 @@ puts ""
 # 3. Create the UserSport
 puts "Creating UserSport ..."
 UserSport.create!(
-  user: User.first,
-  sport: Sport.first
+  user: User.find_by(username: "Mouettion"),
+  sport: Sport.find_by(name: "Tir à la mouette")
 )
 
 UserSport.create!(
-  user: User.first,
-  sport: Sport.last
-)
-
-UserSport.create!(
-  user: User.last,
-  sport: Sport.first
-)
-
-UserSport.create!(
-  user: User.first,
-  sport: Sport.first
+  user: User.find_by(username: "Mouettion"),
+  sport: Sport.find_by(name: "Lancer de mouettes")
 )
 
 UserSport.create!(
@@ -208,7 +198,7 @@ UserSport.create!(
 )
 
 UserSport.create!(
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "LaGouelle"),
   sport: Sport.find_by(name: "Padel")
 )
 
@@ -304,6 +294,11 @@ playground_gayeulles = Playground.create!(
   sport: Sport.find_by(name: "Tennis")
 )
 
+tir_gayeulles = Playground.create!(
+  location: gayeulles,
+  sport: Sport.find_by(name: "Tir à la mouette")
+)
+
 playground_thabor = Playground.create!(
   location: thabor,
   sport: Sport.find_by(name: "Lancer de mouettes")
@@ -331,7 +326,7 @@ Event.create!(
   description: "Amoureux du tir à la mouette, je souhaite vous réunir pour tirer de la mouette",
   start_at: "15/12/2024 14h00",
   end_at: "15/12/2024 16h30",
-  playground: playground_gayeulles,
+  playground: tir_gayeulles,
   organisator: User.find_by(username: "Mouettion")
 )
 
@@ -489,25 +484,13 @@ Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Basketball")
 )
 Publication.create!(
   user: User.find_by(username: "Mouettion"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
-)
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: "Basketball"
+  sport: Sport.find_by(name:"Tir à la mouette")
 )
 
 puts "#{Publication.count} publications created"

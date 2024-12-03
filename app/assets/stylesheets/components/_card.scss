@@ -1,8 +1,10 @@
 .horizontal-scroll-wrapper {
-  width: 100%;
+  width: 360px;
   height: fit-content;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  scroll-snap-align: center;
   overflow-y: hidden;
 }
 
@@ -13,11 +15,27 @@
   gap: 1rem;
 }
 
+.card-big:first-of-type{
+  margin-left:1em;
+}
+
+.card-big:last-of-type {
+  margin-right: 3em;
+}
+
+.card_light:first-of-type {
+  margin-left: 0.5em;
+}
+
+.card_light:last-of-type {
+  margin-right: 3em;
+}
+
 .card-big {
+  scroll-snap-align: center;
   width: 19rem;
   background-color: $sportify-neutral-light-light;
   border-radius: 1rem;
-  scroll-snap-align: start;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -69,6 +87,7 @@
 }
 
 .card_light {
+  scroll-snap-align: center;
   position: relative;
   background-color: $white;
   border-radius: 1rem;
@@ -77,7 +96,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: 0.5rem;
   flex-shrink: 0;
   padding: 1rem;
   gap:1rem;

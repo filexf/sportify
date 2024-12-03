@@ -1,14 +1,5 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
-    return unless params[:query] # Early return
-
-    search_results = Event.global_search(params[:query])
-    if search_results.any?
-      @events = search_results
-    else
-      @search_message = "Désolé, nous n'avons pas trouvé de résultat avec #{params[:query]}"
-    end
 
   end
 
@@ -53,9 +44,6 @@ class EventsController < ApplicationController
   end
 
   def search
-    # # Mes events
-    # @my_events = current_user.events_as_organiser + current_user.events_as_player
-
     # Render all events near current user
     @near_events = Location
       .near(current_user, 2) # le 10 devrait être variabilisé ?

@@ -1,5 +1,12 @@
-<div class="form-group" id="publications-<%= publication.id %>">
-  <%= simple_form_for publication do |f| %>
+<div class="form-group" id="publication-<%= publication.id %>">
+  <%= simple_form_for publication, html: {
+    class: "d-flex flex-column",
+    data: {
+      controller: "reset-form",
+      action: "turbo:submit-end->reset-form#reset"
+      }
+    }  do |f| %>
+
   <%= f.input :content, class:"form-control",
       label: 'Contenu',
       placeholder: "C'est ici que tu publies...",
@@ -7,9 +14,9 @@
   %>
   <%= f.input :photo, as: :file,
       error: "Ajoute une photo" %>
-  <%= f.input :sport,
+  <%= f.input :sport_id,
       label: "Choisissez un sport",
-      collection: Publication::SPORTS
+      collection: Sport.all.map { |sport| [sport.name, sport.id] }
   %>
   <%= f.button :submit, "Kish'", class:"btn btn-primary btn-sm mt-2 text-center" %>
   <% end %>
