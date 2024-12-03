@@ -10,20 +10,21 @@ class PublicationsController < ApplicationController
   def create
     @publication = Publication.new(publication_params)
     @publication.user = current_user
+    @publication.save
     # @publication.save
     # redirect_to publications_path
-    if @publication.save
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/publication",
-            target: "publications",
-            locals: { publication: @publication })
-        end
-        format.html { redirect_to publications_path }
-      end
-    else
-      render "publications/index", status: :unprocessable_entity
-    end
+    # if @publication.save
+    #   respond_to do |format|
+    #     format.turbo_stream do
+    #       render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/publication",
+    #         target: "publications",
+    #         locals: { publication: @publication })
+    #     end
+    #     format.html { redirect_to publications_path }
+    #   end
+    # else
+    #   render "publications/index", status: :unprocessable_entity
+    # end
   end
 
   private
@@ -33,7 +34,7 @@ class PublicationsController < ApplicationController
       :title,
       :content,
       :sport,
-      :photo
+      :photo, as: :file
     )
   end
 end
