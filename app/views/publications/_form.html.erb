@@ -1,6 +1,13 @@
 <div class="form-group" id="publications-<%= publication.id %>">
-  <%= simple_form_for publication do |f| %>
-  <%= f.input :content, class:"form-control",
+  <%= simple_form_for publication, html: {
+    class: "d-flex flex-column",
+    data: {
+      controller: "reset-form",
+      action: "turbo:submit-end->reset-form#reset"
+      }
+    }  do |f| %>
+
+  <%= f.input:content, class:"form-control",
       label: 'Contenu',
       placeholder: "C'est ici que tu publies...",
       error: "Ecrivez votre publication"
