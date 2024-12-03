@@ -23,6 +23,12 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @playgrounds = Playground.all
+    @sports = Sport.all
+    return if params[:sport_name].nil?
+
+    @playgrounds = @playgrounds.select do |playground|
+      playground.sport.name == params[:sport_name]
+    end
   end
 
   def create
