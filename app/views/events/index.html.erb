@@ -30,7 +30,7 @@
       <% end %>
     </div>
   <% else %>
-    <h2 class="my-2">
+    <h2 class="my-2 px-3">
       Pour vous
     </h2>
       <div class="horizontal-scroll-wrapper card-grid my-3">
@@ -42,4 +42,4 @@
 </div>
 
 
-<%=link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class:"d-flex justify-content-center"%>
+<%=link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class:"d-flex justify-content-center btn btn-primary col-4"%>
