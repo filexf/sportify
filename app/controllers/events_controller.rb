@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
   def index
-
   end
 
   def my_events
     @my_events = current_user.events_as_organiser
     @events_i_join = current_user.events_as_player
   end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -17,13 +17,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    # @sport = Sport.find(params[:sport_id])
-    # @location = Location.find(params[:location_id])
     @event = Event.new(event_params)
     @event.organisator = current_user
 
-    # Event.find(params[:id])
-    # @event.participation = current_user
     if @event.save
       Participation.create!(
         user: current_user,
@@ -40,27 +36,30 @@ class EventsController < ApplicationController
   def search
     # Render all events near current user
     @near_events = Location
-      .near(current_user, 2) # le 10 devrait être variabilisé ?
-      # .flat_map { |location| location.events } idem que ligne suivante, marche pour tous les ittérateurs
-      .flat_map(&:events)
+                   .near(current_user, 2) # le 10 devrait être variabilisé ?
+                   # .flat_map { |location| location.events } idem que ligne suivante, marche pour tous les ittérateurs
+                   .flat_map(&:events)
 
-    @near_event_markers = @near_events.map { |event| {
+    @near_event_markers = @near_events.map do |event|
+      {
         name: event.name,
         coordinates: event.coordinates,
-        info_event_html: render_to_string(partial: "info_event", locals: {event: event}),
-        marker_html: render_to_string(partial: "marker", locals: {event: event}),
+        info_event_html: render_to_string(partial: "info_event", locals: { event: event }),
+        marker_html: render_to_string(partial: "marker", locals: { event: event }),
         event_id: event.id
-      }}
-
-      @me_marker = {
-        name: current_user.username,
-        coordinates: {
-          lat: current_user.latitude,
-          lng: current_user.longitude },
-        marker_html: render_to_string(partial: "me_marker")
       }
+    end
 
-      @markers = @near_event_markers + [@me_marker]
+    @me_marker = {
+      name: current_user.username,
+      coordinates: {
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      },
+      marker_html: render_to_string(partial: "me_marker")
+    }
+
+    @markers = @near_event_markers + [@me_marker]
 
     @events = Event.all
     return unless params[:query] # Early return
@@ -78,11 +77,11 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :name,
-      :start_at,
-      :end_at,
+      :event_date,
+      :start_time,
+      :end_time,
       :description,
       :playground_id
     )
   end
-
 end
