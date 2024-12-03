@@ -7,9 +7,14 @@
           <small>Il y a <%= time_ago_in_words(publication.created_at) %></small>
             <%# <%= I18n.l(publication.created_at,format: "%d %B %Y %R") %>
         </div>
-      <div class="">
+      <div>
         <%= publication.content %>
       </div>
+      <% if publication.photo.attached? %>
+        <div class="publication-img" style="mw-100">
+        <%= cl_image_tag publication.photo.key, width: 200 %>
+      </div>
+      <% end %>
       </div>
   </div>
 </li>
