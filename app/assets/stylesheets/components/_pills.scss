@@ -9,9 +9,6 @@
   overflow-y: hidden;
 }
 
-// border green, text green, fond blanc
-// mettre les pills dans une grid ?
-
 .pills-card {
   display: flex;
   width: fit-content;
@@ -29,6 +26,14 @@
   color: $secondary;
   white-space: nowrap;
   font-family: $body-font;
+}
+
+.pills-card:first-of-type {
+  margin-left: 1em;
+}
+
+.pills-card:last-of-type {
+  margin-right: 3em;
 }
 
 .pill-participants{
@@ -49,6 +54,17 @@
   width: fit-content;
   color: $white;
   background-color: $sportify-semidark-blue;
+}
+
+.pill-participant-on-card {
+  top: 1rem;
+  right: 0;
+  padding: 0 0.8em;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+  width: fit-content;
+  color: $white;
+  background-color: $sportify-lightblue;
 }
 
 .pill-avatar{
