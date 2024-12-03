@@ -42,8 +42,8 @@ class Event < ApplicationRecord
     return unless @start_time.present? && @end_time.present? && @event_date.present?
 
     start_hours, start_minutes = @start_time.split(":")
-    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.hours + start_minutes.minutes
+    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.to_i.hours + start_minutes.to_i.minutes
     start_hours, start_minutes = @start_time.split(":")
-    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.hours + start_minutes.minutes
+    self.start_at = DateTime.parse(@event_date).beginning_of_day + start_hours.to_i.hours + start_minutes.to_i.minutes
   end
 end
