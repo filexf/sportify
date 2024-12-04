@@ -9,6 +9,7 @@ export default class extends Controller {
   like(){
     // console.log(this.likeTarget);
     this.likeTarget.setAttribute('style','fill:red');
+    this.likeTarget.setAttribute('')
     // this.likeTarget.setAttribute('style','fill:none')
   }
 }
