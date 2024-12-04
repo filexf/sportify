@@ -606,9 +606,11 @@ publi_a = Publication.new(
   kind_of: "player_creation"
 )
 
-cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/.jpg"
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_rfacaj.jpg"
 file = URI.parse(cloudinary_url).open
-publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
+publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "image/png")
+
+publi_a.save!
 
 publi_b = Publication.new(
   user: User.find_by(username: "LaGouelle"),
@@ -618,9 +620,11 @@ publi_b = Publication.new(
   kind_of: "player_creation"
 )
 
-cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/.jpg"
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_720_lfgh7s.jpg"
 file = URI.parse(cloudinary_url).open
 publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
+
+publi_b.save!
 
 puts "#{Publication.count} publications created"
 
