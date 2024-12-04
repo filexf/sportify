@@ -1,23 +1,31 @@
-<div class="form-group" id="publication-<%= publication.id %>">
+<div class="form-group d-flex flex-column" id="publication-<%= publication.id %>">
+  <button class="btn btn-primary">Publier</button>
   <%= simple_form_for publication, html: {
-    class: "d-flex flex-column",
+    class: "d-none d-flex flex-column justify-content-center align-items-center",
     data: {
       controller: "reset-form",
       action: "turbo:submit-end->reset-form#reset"
       }
     }  do |f| %>
 
-  <%= f.input :content, class:"form-control",
-      label: 'Contenu',
-      placeholder: "C'est ici que tu publies...",
-      error: "Ecrivez votre publication"
-  %>
-  <%= f.input :photo, as: :file,
-      error: "Ajoute une photo" %>
-  <%= f.input :sport_id,
-      label: "Choisissez un sport",
-      collection: Sport.all.map { |sport| [sport.name, sport.id] }
-  %>
-  <%= f.button :submit, "Kish'", class:"btn btn-primary btn-sm mt-2 text-center" %>
+            <%= f.input :content, class:"form-control",
+                label: 'Contenu',
+                placeholder: "C'est ici que tu publies...",
+                error: "Ecrivez votre publication"
+            %>
+    <div class="row gap-5">
+
+      <div class="col-5">
+            <%= f.input :photo, as: :file,
+                error: "Ajoute une photo" %>
+      </div>
+      <div class="col-5">
+            <%= f.input :sport_id,
+                label: "Choisissez un sport",
+                collection: Sport.all.map { |sport| [sport.name, sport.id] }
+            %>
+      </div>
+    </div>
+      <%= f.button :submit, "Kish'", class:"btn btn-primary btn-sm mt-2 text-center" %>
   <% end %>
 </div>

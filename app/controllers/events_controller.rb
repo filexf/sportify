@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  
+
   def index
   end
 
@@ -32,13 +34,22 @@ class EventsController < ApplicationController
     @event.end_time = params[:event][:end_time]
 
     @event.organisator = current_user
-    
+
     if @event.save
       Participation.create!(
         user: current_user,
         event: @event,
         status: :accepted
       )
+
+      @publication = Publication.new
+      @publication.user = current_user
+      @publication.title = @event.name
+      @publication.content = @event.description
+      @publication.sport = @event.sport
+      @publication.kind_of = 'event_creation'
+      # @publication.photo.attach(params[:photo])
+      @publication.save
       flash[:notice] = "Événement créé avec succès!"
       redirect_to event_path(@event)
     else
@@ -53,6 +64,32 @@ class EventsController < ApplicationController
                    # .flat_map { |location| location.events } idem que ligne suivante, marche pour tous les ittérateurs
                    .flat_map(&:events)
 
+
+
+    # @events = Event.all
+    params[:sports_list] = params.fetch(:sports_list){ [] }
+    # ajouter sport name dans sports_list
+    if params[:sport_name] && params[:sports_list].include?(params[:sport_name])
+      params[:sports_list].delete(params[:sport_name])
+    elsif params[:sport_name]
+      params[:sports_list] << params[:sport_name]
+    end
+
+    if params[:sports_list].any?
+      @events = Event.all.select do |event|
+        params[:sports_list].include?(event.sport.name)
+      end
+      @near_events = @near_events.select do |event|
+        params[:sports_list].include?(event.sport.name)
+      end
+    else
+      @events = Event.all
+    end
+    puts "-----------------------------------------------------------"
+    puts @near_events.map(&:sport).map(&:name)
+    puts "-----------------------------------------------------------"
+    puts params
+    puts "-----------------------------------------------------------"
     @near_event_markers = @near_events.map do |event|
       {
         name: event.name,
@@ -73,8 +110,6 @@ class EventsController < ApplicationController
     }
 
     @markers = @near_event_markers + [@me_marker]
-
-    @events = Event.all
     return unless params[:query] # Early return
 
     search_results = Event.global_search(params[:query])
