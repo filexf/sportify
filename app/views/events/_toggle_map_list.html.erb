@@ -10,7 +10,7 @@
 <% params[:sports_list].each do |sport| %>
   <%= hidden_field_tag "sports_list[]", value: sport %>
 <% end %>
-<%= console %>
+<%#= console %>
 
   <div class="toggle-container" data-controller="toggle">
     <label for="list" class="btn-toggle" data-action="click->toggle#list">
