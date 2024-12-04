@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+<% content_for :meta_image, cl_image_path(@event..playground.sport.photo.key) %>
+
 
 <div class="col-12">
 
@@ -21,10 +25,6 @@
     <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
 
     <div class="col-12 px-4">
-
-
-
-
 
     <div class="d-flex justify-content-center position-relative mb-5">
       <div class="pill-participants position-absolute top-0 start-50 translate-middle d-flex flex-reverse justify-content-center align-items-center px-2 mb-4">
