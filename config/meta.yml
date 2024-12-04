@@ -1,0 +1,5 @@
+meta_product_name: "Sportify"
+meta_title: "Sportify - Trouve tes partenaires de sport sur Rennes en un clic"
+meta_description: "Une application qui permet de trouver des partenaires de sport sur Rennes (Padel, Tennis, Palet ...) facilement pour construire une vraie communauté autour de votre sport"
+meta_image: "sportify-cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
