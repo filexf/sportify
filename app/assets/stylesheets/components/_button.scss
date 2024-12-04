@@ -85,3 +85,19 @@
   width: unset;
   height: unset;
 }
+
+#back-btn{
+  position: absolute;
+  background-color:none;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  top : 15px;
+  left: 20px;
+}
+
+#user-btn{
+  position: absolute;
+  background-color: none;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  top: 15px;
+  right: 20px;
+}
