@@ -9,6 +9,11 @@ export default class extends Controller {
   }
 
   display() {
-    this.commentTarget.classList.toggle("d-none");
+    console.log("clickéééééé");
+    this.commentTargets.foreach((element) => {
+      element.currentTarget.classList.toggle("d-none");
+    }
+  )
+
   }
 }
