@@ -3,13 +3,12 @@
 
   <p>Commencez par choisir votre activité :</p>
   <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit" , action:"change->auto-submit#submit"}) do %>
-    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-12 rounded-3 p-2" %>
+    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-12 rounded-3 p-2", placeholder: "Choisissez un sport" %>
     <%# <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
   <% end %>
 
 </div>
 
-<% if params[:sport_name] %>
 
   <%= simple_form_for [@event] do |f| %>
 
@@ -21,17 +20,23 @@
       <div class="col-11 ml-2 justify-content-start">
 
         <%= f.input :name,
-        label: 'Le nom de votre événement:',
+        label: false,
         error: 'Merci de nommer votre event',
         class: "margin-0",
-        required: true
+        required: true,
+        input_html: {
+          placeholder: "Le nom de votre événement"
+        }
         %>
       </div>
 
 
         <%= f.input :description,
-        label: "Description de votre événement",
-        error: 'Décrivez votre événement:'
+        label: false,
+        error: 'Décrivez votre événement:',
+        input_html: {
+          placeholder: "Détaillez votre événement "
+        }
         %>
 
         <%# # playgrounds_names_and_ids = []
@@ -44,20 +49,26 @@
 
         <%# Faire un data-action sur le frerot (change ou sleect) %>
 
+      <% if params[:sport_name] %>
           <%# Data target sur lui %>
-          <%= turbo_frame_tag "location_list" do %>
-            <% f.input :playground_id,
-              label: "Choisissez un lieu parmi la liste:",
-              error: 'Choisissez parmi les lieux de la liste',
-              collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }
-            %>
-          <% end %>
-
+        <%= turbo_frame_tag "location_list" do %>
+          <% f.input :playground_id,
+            label: false,
+            input_html: {
+              value: "Enter your name",
+              readonly: true,
+              onfocus: "this.value=''; this.removeAttribute('readonly');"
+            },
+            error: 'Choisissez parmi les lieux de la liste',
+            collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }
+          %>
+        <% end %>
+      <% end %>
       <label for="event_event_date" class="my-3">
         Date de l'évènement
       </label>
       <div class="border rounded-4 fake-input-date">
-        <input type="date" id="event_event_date" name="event[event_date]" class="datepicker-input">
+        <input type="date" id="event_event_date" name="event[event_date]" class="datepicker-input" placeholder="">
         <%# <span>Choisir la date</span> %>
       </div>
 
@@ -65,16 +76,14 @@
         <div class="col-4 mx-3">
           <%= f.input :start_time,
               as: :string,
+              label: false,
               input_html: {
+                placeholder: "Début",
                 data: {
                   controller: "datepicker",
                   action: "click->datepicker#open_as_time_picker"
                 },
                 class: "border rounded-4 p-2 mx-2 col-4"
-              },
-              label:"Début",
-              label_html:{
-                class: "mx-2",
               }
           %>
         </div>
@@ -82,16 +91,14 @@
         <div class="col-4 mx-3">
           <%= f.input :end_time,
               as: :string,
+              label: false,
               input_html: {
+                placeholder: "Fin",
                 data: {
                   controller: "datepicker",
                   action: "click->datepicker#open_as_time_picker"
                 },
                 class: "border rounded-4 p-2 mx-2"
-              },
-              label:"Fin",
-              label_html:{
-                class: "mx-2",
               }
           %>
         </div>
@@ -104,8 +111,6 @@
         </div>
 
     </div>
-
-  <% end %>
 
   </div>
 <% end %>
