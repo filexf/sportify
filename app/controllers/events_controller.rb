@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       @publication.title = @event.name
       @publication.content = @event.description
       @publication.sport = @event.sport
-      @publication.photo.attach(params[:photo])
+      # @publication.photo.attach(params[:photo])
       @publication.save
       flash[:notice] = "Événement créé avec succès!"
       redirect_to event_path(@event)
