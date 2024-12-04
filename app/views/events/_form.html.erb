@@ -47,8 +47,8 @@
           <%# Data target sur lui %>
           <%= turbo_frame_tag "location_list" do %>
             <% f.input :playground_id,
-              label: "Choisissez un lieu parmis la liste:",
-              error: 'Choisissez parmis les lieux de la liste',
+              label: "Choisissez un lieu parmi la liste:",
+              error: 'Choisissez parmi les lieux de la liste',
               collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }
             %>
           <% end %>
