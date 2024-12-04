@@ -37,8 +37,18 @@
   </head>
 
   <body>
+    <%= link_to 'javascript:history.back()' do %>
+      <div id="back-btn" class="icon-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+    <% end%>
+    <%= link_to edit_user_registration_path do %>
+      <div id="user-btn" class="icon-btn">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    <% end%>
     <%= render "shared/flashes" %>
-    <div style="margin-bottom: 115px">
+    <div style="margin-bottom: 115px;">
       <%= yield %>
     </div>
     <%= render "shared/navbar"%>
