@@ -61,7 +61,7 @@
   color: $white;
   border: unset;
   box-shadow: unset;
-  gap: 8px;
+  gap: 0px;
   align-items: center;
   padding: 6px 12px;
   border-radius: 12px;
@@ -78,7 +78,7 @@
 }
 
 .icon-unactive {
-  background-color: #ddd;
+  background-color: $sportify-neutral-dark-light;
 }
 
 .unset-btn{
