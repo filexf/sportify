@@ -92,7 +92,7 @@ puts ""
 # 3. Create the sports
 
 sports_photos = [
-  'Palets_usny3s',
+  'dall__e_2024-12-03_19.14.15_-_a_playful_illustration_of_seagulls_playing_the_traditional_breton_game_of_palet._the_scene_features_three_seagulls__one_is_actively_tossing_a_flat__ro_720_welgxf',
   'th_utmxc6',
   'th_jtlasg',
   'th_lzz6hw',
