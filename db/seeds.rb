@@ -304,6 +304,16 @@ playground_thabor = Playground.create!(
   sport: Sport.find_by(name: "Lancer de mouettes")
 )
 
+playground_noyal_mouette = Playground.create!(
+  location: noyal,
+  sport: Sport.find_by(name: "Lancer de mouettes")
+)
+
+playground_paillette_mouette = Playground.create!(
+  location: paillette,
+  sport: Sport.find_by(name: "Lancer de mouettes")
+)
+
 playground_noyal = Playground.create!(
   location: noyal,
   sport: Sport.find_by(name: "Tennis")
@@ -364,6 +374,24 @@ Event.create!(
   end_at: "13/12/2024 16h00",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
+)
+
+Event.create!(
+  name: "Apprendre à lancer les mouettes",
+  description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
+  start_at: "28/12/2024 16h00",
+  end_at: "28/12/2024 18h00",
+  playground: playground_noyal_mouette,
+  organisator: User.find_by(username: "LaGouelle")
+)
+
+Event.create!(
+  name: "Déjeuner - lancé de mouettes",
+  description: "Entre deux réunions, venez lancer des mouettes avec nous sur la pause déjeuner. Venir avec son déjeuner et ses mouettes",
+  start_at: "17/12/2024 12h30",
+  end_at: "17/12/2024 13h30",
+  playground: playground_paillette_mouette,
+  organisator: User.find_by(username: "LaGouelle")
 )
 
 Event.create!(
