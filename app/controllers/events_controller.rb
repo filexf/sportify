@@ -45,7 +45,7 @@ class EventsController < ApplicationController
       @publication.title = @event.name
       @publication.content = @event.description
       @publication.sport = @event.sport
-      @publication.kind_of = `#{@event_id}_creation`
+      @publication.kind_of = 'event_creation'
       # @publication.photo.attach(params[:photo])
       @publication.save
       flash[:notice] = "Événement créé avec succès!"
