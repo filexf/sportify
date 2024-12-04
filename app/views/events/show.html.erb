@@ -29,7 +29,7 @@
 
 
 
-    <h1 class="event-title-font my-1 p-3"><%= @event.name %></h1>
+    <h1 class="event-title-font"><%= @event.name %></h1>
 
     <div class="mx-4 gap-3">
 
@@ -75,7 +75,7 @@
           </svg>
           </div>
           <div class="d-flex align-items-center mx-1 text-start">
-            Encore <%= participants_left %> joueur
+            <strong> Encore <%= participants_left %> joueur </strong>
           </div>
         <% elsif participants_left > 0 %>
           <div class="mx-1">
@@ -84,7 +84,7 @@
           </svg>
           </div>
           <div class="d-flex align-items-center mx-1 text-start">
-            Encore <%= participants_left %> joueurs
+            <strong> Encore <%= participants_left %> joueurs </strong>
           </div>
         <% else %>
           <div class="mx-1">
