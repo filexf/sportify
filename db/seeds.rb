@@ -329,9 +329,9 @@ puts ""
 
 
 # 5. Create the Events
-puts "Creating Events ..."
+puts "Creating Events and publications associated for feed ..."
 
-Event.create!(
+event_1 = Event.create!(
   name: "Shooter tireur d'élite",
   description: "Amoureux du tir à la mouette, je souhaite vous réunir pour tirer de la mouette",
   start_at: "15/12/2024 14h00",
@@ -340,7 +340,16 @@ Event.create!(
   organisator: User.find_by(username: "Mouettion")
 )
 
-Event.create!(
+publi_1 = Publication.create!(
+  title: event_1.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "Mouettion").id,
+  sport_id: event_1.sport.id,
+  created_at: event_1.created_at,
+  content: event_1.description
+)
+
+event_2 = Event.create!(
   name: "Pas de Palais ?",
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
   start_at: "28/11/2024 14h00",
@@ -349,7 +358,16 @@ Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Event.create!(
+publi_2 = Publication.create!(
+  title: event_2.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "Filex").id,
+  sport_id: event_2.sport.id,
+  created_at: event_2.created_at,
+  content: event_2.description
+)
+
+event_3 = Event.create!(
   name: "Space Jam",
   description: "Match avec MJ!",
   start_at: "29/11/2024 11h00",
@@ -358,7 +376,16 @@ Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Event.create!(
+publi_3 = Publication.create!(
+  title: event_3.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "LaGouelle").id,
+  sport_id: event_3.sport.id,
+  created_at: event_3.created_at,
+  content: event_3.description
+)
+
+event_4 = Event.create!(
   name: "Open de Noyal",
   description: "Match pour niveau 30/1",
   start_at: "07/12/2024 13h00",
@@ -367,7 +394,16 @@ Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Event.create!(
+publi_4 = Publication.create!(
+  title: event_4.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "LaGouelle").id,
+  sport_id: event_4.sport.id,
+  created_at: event_4.created_at,
+  content: event_4.description
+)
+
+event_5 = Event.create!(
   name: "Mouetting 2024",
   description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
   start_at: "13/12/2024 14h00",
@@ -376,7 +412,16 @@ Event.create!(
   organisator: User.find_by(username: "CaroCBD")
 )
 
-Event.create!(
+publi_5 = Publication.create!(
+  title: event_5.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "CaroCBD").id,
+  sport_id: event_5.sport.id,
+  created_at: event_5.created_at,
+  content: event_5.description
+)
+
+event_6 = Event.create!(
   name: "Apprendre à lancer les mouettes",
   description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
   start_at: "28/12/2024 16h00",
@@ -385,7 +430,16 @@ Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Event.create!(
+publi_6 = Publication.create!(
+  title: event_6.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "LaGouelle").id,
+  sport_id: event_6.sport.id,
+  created_at: event_6.created_at,
+  content: event_6.description
+)
+
+event_7 = Event.create!(
   name: "Déjeuner - lancé de mouettes",
   description: "Entre deux réunions, venez lancer des mouettes avec nous sur la pause déjeuner. Venir avec son déjeuner et ses mouettes",
   start_at: "17/12/2024 12h30",
@@ -394,7 +448,16 @@ Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Event.create!(
+publi_7 = Publication.create!(
+  title: event_7.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "LaGouelle").id,
+  sport_id: event_7.sport.id,
+  created_at: event_7.created_at,
+  content: event_7.description
+)
+
+event_8 = Event.create!(
   name: "Partie de fléchettes pour débutants",
   description: "Partie for fun au Tyf !",
   start_at: "10/12/2024 19h00",
@@ -403,7 +466,16 @@ Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Event.create!(
+publi_8 = Publication.create!(
+  title: event_8.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "Filex").id,
+  sport_id: event_8.sport.id,
+  created_at: event_8.created_at,
+  content: event_8.description
+)
+
+event_9 = Event.create!(
   name: "Ca flèche fort!",
   description: "Celui qui perd paye sa pinte !!",
   start_at: "07/12/2024 19h00",
@@ -412,13 +484,31 @@ Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Event.create!(
+publi_9 = Publication.create!(
+  title: event_9.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "Filex").id,
+  sport_id: event_9.sport.id,
+  created_at: event_9.created_at,
+  content: event_9.description
+)
+
+event_10 = Event.create!(
   name: "Spécial Cupidon",
   description: "Pour la Saint Valentin, soirée de love !",
   start_at: "14/02/2024 19h00",
   end_at: "14/02/2024 23h00",
   playground: playground_beje,
   organisator: User.find_by(username: "Mouettion")
+)
+
+publi_10 = Publication.create!(
+  title: event_10.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "Mouettion").id,
+  sport_id: event_10.sport.id,
+  created_at: event_10.created_at,
+  content: event_10.description
 )
 
 puts "#{Event.count} events created"
@@ -505,22 +595,39 @@ puts ""
 puts "Done!"
 puts ""
 
-# Create publications
-puts "Create publications"
+# Create publications from user about Lancer de Mouettes
+# puts "Create publications"
 
-Publication.create!(
+publi_a = Publication.new(
   user: User.find_by(username: "Mouettion"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: Sport.find_by(name:"Basketball"),
+  title: "Retour sur l'initiation d'hier",
+  content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
+  sport: Sport.find_by(name:"Lancer de mouettes"),
   kind_of: "player_creation"
 )
-Publication.create!(
-  user: User.find_by(username: "Mouettion"),
+
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_rfacaj.jpg"
+file = URI.parse(cloudinary_url).open
+publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "image/png")
+
+publi_a.save!
+
+publi_b = Publication.new(
+  user: User.find_by(username: "LaGouelle"),
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
   sport: Sport.find_by(name:"Tir à la mouette"),
   kind_of: "player_creation"
 )
 
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_720_lfgh7s.jpg"
+file = URI.parse(cloudinary_url).open
+publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
+
+publi_b.save!
+
 puts "#{Publication.count} publications created"
+
+
+# Create comments on publications
+#
