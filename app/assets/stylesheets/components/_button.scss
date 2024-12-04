@@ -61,7 +61,7 @@
   color: $white;
   border: unset;
   box-shadow: unset;
-  gap: 8px;
+  gap: 0px;
   align-items: center;
   padding: 6px 12px;
   border-radius: 12px;
@@ -77,7 +77,27 @@
     background-color: $sportify-semidark-blue;
 }
 
+.icon-unactive {
+  background-color: $sportify-neutral-dark-light;
+}
+
 .unset-btn{
   width: unset;
   height: unset;
+}
+
+#back-btn{
+  position: absolute;
+  background-color:none;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  top : 15px;
+  left: 20px;
+}
+
+#user-btn{
+  position: absolute;
+  background-color: none;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  top: 15px;
+  right: 20px;
 }

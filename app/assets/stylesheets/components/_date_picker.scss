@@ -34,3 +34,8 @@
   flex: row;
   gap:1em;
 }
+
+// Important ! C'est pour cacher la div du champ de date qu ise met là par défaut!
+#new_event > div > input.time-pickers {
+  display: none !important;
+}
