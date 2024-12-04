@@ -1,6 +1,6 @@
-<li class="list-group-item w-95 my-2">
+<li class="list-group-item w-95 mb-1">
   <div class="d-flex flex-column">
-    <div class="d-flex flex-row align-items-center mx-1">
+    <div class="d-flex flex-row justify-content-center align-items-center mx-1">
 
       <%= cl_image_tag publication.user.photo.key, class:"avatar m-2" %>
 
@@ -14,7 +14,7 @@
             <%# <%= I18n.l(publication.created_at,format: "%d %B %Y %R") %>
         </div>
     </div>
-    <div class="card-feed mb-3" data-event-id="4">
+    <div class="card-feed mb-1 py-0 d-flex mx-auto" data-event-id="4">
         <%= cl_image_tag publication.sport.photo.key, crop: :thumb %>
       <div class="card_content">
         <div class="title">
