@@ -14,10 +14,14 @@ class PublicationsController < ApplicationController
     @publication = Publication.new(publication_params)
     @publication.user = current_user
     # @publication.comments = @comments
-    @publication.save
+    # @publication.save
     # @publication.save
     # redirect_to publications_path
-    # if @publication.save
+    if @publication.save
+      redirect_to publications_path
+    else
+      render "publications/index", status: :unprocessable_entity
+    end
     #   respond_to do |format|
     #     format.turbo_stream do
     #       render turbo_stream: turbo_stream.prepend(:publications, partial: "publications/publication",
