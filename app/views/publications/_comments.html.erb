@@ -1,4 +1,7 @@
-<% publication.comments.each do |c| %>
-  <%= c.user.name %>
-  <%= c.content %>
-<% end %>
+<div >
+  ici s'affichent les commentaires
+  <% publication.comments.each do |c| %>
+    <%= c.user.name %>
+    <%= c.content %>
+  <% end %>
+</div>
