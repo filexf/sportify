@@ -23,8 +23,8 @@
         <%= f.input :name,
         label: 'Le nom de votre événement:',
         error: 'Merci de nommer votre event',
-        required: true,
-        class: "input"
+        class: "margin-0",
+        required: true
         %>
       </div>
 
@@ -58,7 +58,7 @@
       </label>
       <div class="border rounded-4 fake-input-date">
         <input type="date" id="event_event_date" name="event[event_date]" class="datepicker-input">
-        <span>Choisir la date</span>
+        <%# <span>Choisir la date</span> %>
       </div>
 
       <div data-controller="datepicker" class="time-pickers col-10 mt-4 d-flex justify-content-center">
