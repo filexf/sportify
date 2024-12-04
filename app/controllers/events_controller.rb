@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  
+
   def index
   end
 
@@ -29,7 +31,7 @@ class EventsController < ApplicationController
     @event.end_time = params[:event][:end_time]
 
     @event.organisator = current_user
-    
+
     if @event.save
       Participation.create!(
         user: current_user,

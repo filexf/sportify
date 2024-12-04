@@ -1,10 +1,10 @@
 
 <div class="my-3">
 
-  <p>Commencez par choisir votre événement</p>
-  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit"}) do %>
-    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-8 rounded-3 p-2" %>
-    <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
+  <p>Commencez par choisir votre activité :</p>
+  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit" , action:"change->auto-submit#submit"}) do %>
+    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-12 rounded-3 p-2" %>
+    <%# <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
   <% end %>
 
 </div>
@@ -17,7 +17,8 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <div class="col-10">
+
+      <div class="col-11 ml-2 justify-content-start">
 
         <%= f.input :name,
         label: 'Le nom de votre événement:',
@@ -25,6 +26,7 @@
         required: true
         %>
       </div>
+
 
         <%= f.input :description,
         label: "Description de votre événement",
@@ -44,13 +46,13 @@
           <%# Data target sur lui %>
           <%= turbo_frame_tag "location_list" do %>
             <% f.input :playground_id,
-              label: "Choisissez un sport parmis la liste:",
-              error: 'Choisissez parmis les sports & lieux de la liste',
-              collection: @playgrounds.map { |playground| [playground.name, playground.id] }
+              label: "Choisissez un lieu parmis la liste:",
+              error: 'Choisissez parmis les lieux de la liste',
+              collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }
             %>
           <% end %>
 
-      <label for="event_event_date" class="my-3 mx-3">
+      <label for="event_event_date" class="my-3">
         Date de l'évènement
       </label>
       <div class="border rounded-4 fake-input-date">
@@ -58,35 +60,40 @@
         <span>Choisir la date</span>
       </div>
 
-      <div data-controller="datepicker" class="time-pickers">
-        <%= f.input :start_time,
-            as: :string,
-            input_html: {
-              data: {
-                controller: "datepicker",
-                action: "click->datepicker#open_as_time_picker"
+      <div data-controller="datepicker" class="time-pickers col-10 mt-4 d-flex justify-content-center">
+        <div class="col-4 mx-3">
+          <%= f.input :start_time,
+              as: :string,
+              input_html: {
+                data: {
+                  controller: "datepicker",
+                  action: "click->datepicker#open_as_time_picker"
+                },
+                class: "border rounded-4 p-2 mx-2 col-4"
               },
-              class: "border rounded-4 p-2"
-            },
-            label:"Début",
-            label_html:{
-              class: "my-3 mx-3",
-            }
-        %>
-        <%= f.input :end_time,
-            as: :string,
-            input_html: {
-              data: {
-                controller: "datepicker",
-                action: "click->datepicker#open_as_time_picker"
+              label:"Début",
+              label_html:{
+                class: "mx-2",
+              }
+          %>
+        </div>
+
+        <div class="col-4 mx-3">
+          <%= f.input :end_time,
+              as: :string,
+              input_html: {
+                data: {
+                  controller: "datepicker",
+                  action: "click->datepicker#open_as_time_picker"
+                },
+                class: "border rounded-4 p-2 mx-2"
               },
-              class: "border rounded-4 p-2"
-            },
-            label:"Fin",
-            label_html:{
-              class: "my-3 mx-3",
-            }
-        %>
+              label:"Fin",
+              label_html:{
+                class: "mx-2",
+              }
+          %>
+        </div>
       </div>
 
 
