@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-  SPORT = ["padel","palet"]
 
   include PgSearch::Model
 
@@ -10,6 +9,7 @@ class Event < ApplicationRecord
   has_one :location, through: :playground
   has_many :participations
   has_many :players, through: :participations, source: :user
+
 
   attr_accessor :event_date, :start_time, :end_time
 
