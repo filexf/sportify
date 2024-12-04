@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     @event.end_time = params[:event][:end_time]
 
     @event.organisator = current_user
-    
+
     if @event.save
       Participation.create!(
         user: current_user,
@@ -42,6 +42,7 @@ class EventsController < ApplicationController
       @publication.title = @event.name
       @publication.content = @event.description
       @publication.sport = @event.sport
+      @publication.kind_of = `#{@event_id}_creation`
       # @publication.photo.attach(params[:photo])
       @publication.save
       flash[:notice] = "Événement créé avec succès!"
