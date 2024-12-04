@@ -1,7 +1,10 @@
-<div class="pt-4 px-2 d-flex flex-column gap-4">
-  <h1 class="d-flex justify-content-center"> Les évènements </h1>
+<div class="pt-4 px-2 d-flex flex-column gap-3">
+  <h1 class="d-flex justify-content-center"> Mes évènements </h1>
 
-  <h2> En tant qu'organisateur </h2>
+  <h2 class="d-flex align-items-center ms-2 mb-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#0B666A" d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2"/></svg>
+    <span>J'organise</span>
+  </h2>
 
   <div class="card_light_grid gap-3">
         <% @my_events.each do |event| %>
@@ -9,7 +12,10 @@
         <% end %>
   </div>
 
-  <h2> En tant que participant </h2>
+  <h2 class="d-flex align-items-center ms-2 mb-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#0B666A" d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2m-3.6 13.9l1-4.4l2.1 2v6h2v-7.5l-2.1-2l.6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1c-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7l-1.6 8.1l-4.9-1l-.4 2z"/></svg>
+    <span>J'y vais !</span>
+  </h2>
 
   <div class="card_light_grid">
         <% @events_i_join.each do |event| %>
