@@ -8,8 +8,10 @@
     }) do %>
     <%#= hidden_field_tag :sports_list, value: params[:sports_list] %>
 <% params[:sports_list].each do |sport| %>
-  <%= hidden_field_tag "sports_list[]", sport %>
+  <%= hidden_field_tag "sports_list[]", value: sport %>
 <% end %>
+<%= console %>
+
   <div class="toggle-container" data-controller="toggle">
     <label for="list" class="btn-toggle" data-action="click->toggle#list">
       <input id="list" value="list" type="radio" name="toggle">
