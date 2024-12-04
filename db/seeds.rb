@@ -329,7 +329,7 @@ puts ""
 
 
 # 5. Create the Events
-puts "Creating Events ..."
+puts "Creating Events and publications associated for feed ..."
 
 event_1 = Event.create!(
   name: "Shooter tireur d'élite",
@@ -340,7 +340,7 @@ event_1 = Event.create!(
   organisator: User.find_by(username: "Mouettion")
 )
 
-Publication.create!(
+publi_1 = Publication.create!(
   title: event_1.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
@@ -358,7 +358,7 @@ event_2 = Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Publication.create!(
+publi_2 = Publication.create!(
   title: event_2.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -376,7 +376,7 @@ event_3 = Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Publication.create!(
+publi_3 = Publication.create!(
   title: event_3.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -394,7 +394,7 @@ event_4 = Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Publication.create!(
+publi_4 = Publication.create!(
   title: event_4.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -412,7 +412,7 @@ event_5 = Event.create!(
   organisator: User.find_by(username: "CaroCBD")
 )
 
-Publication.create!(
+publi_5 = Publication.create!(
   title: event_5.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
@@ -430,7 +430,7 @@ event_6 = Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Publication.create!(
+publi_6 = Publication.create!(
   title: event_6.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -448,7 +448,7 @@ event_7 = Event.create!(
   organisator: User.find_by(username: "LaGouelle")
 )
 
-Publication.create!(
+publi_7 = Publication.create!(
   title: event_7.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -466,7 +466,7 @@ event_8 = Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Publication.create!(
+publi_8 = Publication.create!(
   title: event_8.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -484,7 +484,7 @@ event_9 = Event.create!(
   organisator: User.find_by(username: "Filex")
 )
 
-Publication.create!(
+publi_9 = Publication.create!(
   title: event_9.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -502,7 +502,7 @@ event_10 = Event.create!(
   organisator: User.find_by(username: "Mouettion")
 )
 
-Publication.create!(
+publi_10 = Publication.create!(
   title: event_10.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
@@ -598,23 +598,32 @@ puts ""
 # Create publications from user about Lancer de Mouettes
 # puts "Create publications"
 
-# Publication.create!(
-#   title:
-#   user: User.find_by(username: "Mouettion"),
-#   title: "OKISH",
-#   content: "Trop de la bombe! On est okish !!!",
-#   sport: Sport.find_by(name:"Basketball"),
-#   kind_of: "player_creation"
-# )
-# Publication.create!(
-#   title:
-#   user: User.find_by(username: "Mouettion"),
-#   title: "OKISH",
-#   content: "Trop de la bombe! On est okish !!!",
-#   sport: Sport.find_by(name:"Tir à la mouette"),
-#   kind_of: "player_creation"
-# )
+publi_a = Publication.new(
+  user: User.find_by(username: "Mouettion"),
+  title: "Retour sur l'initiation d'hier",
+  content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
+  sport: Sport.find_by(name:"Lancer de mouettes"),
+  kind_of: "player_creation"
+)
 
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/.jpg"
+file = URI.parse(cloudinary_url).open
+publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
 
+publi_b = Publication.new(
+  user: User.find_by(username: "LaGouelle"),
+  title: "OKISH",
+  content: "Trop de la bombe! On est okish !!!",
+  sport: Sport.find_by(name:"Tir à la mouette"),
+  kind_of: "player_creation"
+)
+
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/.jpg"
+file = URI.parse(cloudinary_url).open
+publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
 
 puts "#{Publication.count} publications created"
+
+
+# Create comments on publications
+#
