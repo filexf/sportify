@@ -5,8 +5,12 @@ class EventsController < ApplicationController
 
   def my_events
     @my_events = current_user.events_as_organiser
-    @events_i_join = current_user.events_as_player
+    events_i_join_and_organise = current_user.events_as_player
+    @events_i_join = events_i_join_and_organise.reject do |event|
+      event.organisator == current_user
+    end
   end
+
   def show
     @event = Event.find(params[:id])
   end
