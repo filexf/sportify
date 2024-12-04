@@ -15,6 +15,9 @@
 body {
   margin: 0;
   position: relative;
+  background: linear-gradient(169deg, #8FB5B6 -93.43%, #FFF 185.09%);
+  background-blend-mode: plus-lighter;
+  // backdrop-filter: blur(2.5px);
 }
 
 ::-webkit-scrollbar {
