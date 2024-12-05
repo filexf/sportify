@@ -1,7 +1,7 @@
 class Publication < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_many :likes
+  # has_many :likes
   belongs_to :sport
 
   has_one_attached :photo
@@ -14,9 +14,8 @@ class Publication < ApplicationRecord
 
   def broadcast_publication
     broadcast_prepend_to "publications",
-    partial: "publications/publication",
-    target:"publications",
-    locals: { publication: self }
+                         partial: "publications/publication",
+                         target: "publications",
+                         locals: { publication: self }
   end
-
 end

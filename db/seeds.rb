@@ -345,7 +345,7 @@ publi_1 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_1.sport.id,
-  created_at: event_1.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_1.description
 )
 
@@ -363,7 +363,7 @@ publi_2 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_2.sport.id,
-  created_at: event_2.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_2.description
 )
 
@@ -381,15 +381,15 @@ publi_3 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_3.sport.id,
-  created_at: event_3.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_3.description
 )
 
 event_4 = Event.create!(
   name: "Open de Noyal",
   description: "Match pour niveau 30/1",
-  start_at: "07/12/2024 13h00",
-  end_at: "07/12/2024 15h30",
+  start_at: "14/12/2024 10h00",
+  end_at: "14/12/2024 10h30",
   playground: playground_noyal,
   organisator: User.find_by(username: "LaGouelle")
 )
@@ -399,7 +399,7 @@ publi_4 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_4.sport.id,
-  created_at: event_4.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_4.description
 )
 
@@ -417,7 +417,7 @@ publi_5 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  created_at: event_5.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_5.description
 )
 
@@ -435,7 +435,7 @@ publi_6 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_6.sport.id,
-  created_at: event_6.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_6.description
 )
 
@@ -453,7 +453,7 @@ publi_7 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_7.sport.id,
-  created_at: event_7.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_7.description
 )
 
@@ -471,7 +471,7 @@ publi_8 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_8.sport.id,
-  created_at: event_8.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_8.description
 )
 
@@ -489,7 +489,7 @@ publi_9 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_9.sport.id,
-  created_at: event_9.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_9.description
 )
 
@@ -507,8 +507,44 @@ publi_10 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_10.sport.id,
-  created_at: event_10.created_at,
+  posted_at: rand(1.month).seconds.from_now,
   content: event_10.description
+)
+
+event_11 = Event.create!(
+  name: "Rennes Lan Garros",
+  description: "Match pour débutants, sur terre battue",
+  start_at: "15/12/2024 19h00",
+  end_at: "15/12/2024 20h30",
+  playground: playground_gayeulles,
+  organisator: User.find_by(username: "CaroCBD")
+)
+
+publi_11 = Publication.create!(
+  title: event_11.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "CaroCBD").id,
+  sport_id: event_11.sport.id,
+  posted_at: rand(1.month).seconds.from_now,
+  content: event_11.description
+)
+
+event_12 = Event.create!(
+  name: "Open de Roazhon",
+  description: "Tournoi, niveau demandé entre 15 et 15/5",
+  start_at: "21/12/2024 10h00",
+  end_at: "21/12/2024 11h30",
+  playground: playground_gayeulles,
+  organisator: User.find_by(username: "LaGouelle")
+)
+
+publi_12 = Publication.create!(
+  title: event_12.name,
+  kind_of: "event_creation",
+  user_id: User.find_by(username: "LaGouelle").id,
+  sport_id: event_12.sport.id,
+  posted_at: rand(1.month).seconds.from_now,
+  content: event_12.description
 )
 
 puts "#{Event.count} events created"
@@ -603,7 +639,8 @@ publi_a = Publication.new(
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
   sport: Sport.find_by(name:"Lancer de mouettes"),
-  kind_of: "player_creation"
+  kind_of: "player_creation",
+  posted_at: rand(1.day).seconds.ago
 )
 
 cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_rfacaj.jpg"
@@ -617,7 +654,8 @@ publi_b = Publication.new(
   title: "OKISH",
   content: "Trop de la bombe! On est okish !!!",
   sport: Sport.find_by(name:"Tir à la mouette"),
-  kind_of: "player_creation"
+  kind_of: "player_creation",
+  posted_at: rand(1.day).seconds.ago
 )
 
 cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_720_lfgh7s.jpg"

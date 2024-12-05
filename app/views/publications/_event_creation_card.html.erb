@@ -9,7 +9,7 @@
             @<%= publication.user.username %> a créé un évènement de <%= publication.sport.name %>
           </div>
           <div class="d-flex fst-italic">
-            <small>Il y a <%= time_ago_in_words(publication.created_at) %></small>
+            <small>Il y a <%= time_ago_in_words(publication.posted_at) %></small>
           </div>
             <%# <%= I18n.l(publication.created_at,format: "%d %B %Y %R") %>
         </div>
