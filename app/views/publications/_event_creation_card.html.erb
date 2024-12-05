@@ -7,7 +7,7 @@
       </div>
       <div class="d-flex flex-column mr-2">
         <div class="d-flex flex-row card-details align-items-center text-center fst-italic mr-4 ml-3">
-          <small class="ml-1">Il y a <%= time_ago_in_words(publication.created_at) %></small>
+          <small class="ml-1">Il y a <%= time_ago_in_words(publication.posted_at) %></small>
         </div>
         <div class="card-details-avatar">
           <strong> @<%= publication.user.username %> </strong> a créé un évènement de <%= publication.sport.name %> </small>

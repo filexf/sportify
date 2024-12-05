@@ -106,10 +106,10 @@
 .card-publi-photo{
   background-color: $white;
   border-radius: 1rem;
-  margin: auto;
+  margin-right: 10px;
   img {
-    width:90%;
-    margin: auto;
+    width:15.5rem;
+    border-radius: 0.5rem;
   }
 }
 
@@ -187,13 +187,6 @@
     gap: 0.2rem;
   }
 }
-
-
-
-
-
-
-
 
 .card_content_feed{
   display: flex;

@@ -632,6 +632,12 @@ puts ""
 puts "Creating Participations ..."
 
 Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Déjeuner - lancé de mouettes"),
+  status: :accepted
+)
+
+Participation.create!(
   user: User.find_by(username: "CaroCBD"),
   event: Event.find_by(name: "Mouetting 2024"),
   status: :accepted
