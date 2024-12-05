@@ -1,10 +1,15 @@
-  <h1 class="event-title-font d-flex justify-content-center"> Événements </h1>
+<div class="position-relative d-flex flex-column align-items-center">
+  <div class="pt-3 pb-0">
+    <h1 class="event-title-font text-center mt-3">
+      Événements
+    </h1>
+  </div>
 
-<div class="px-2 d-flex flex-column gap-3">
-  <h2 class="d-flex align-items-center ms-2 mb-0">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#0B666A" d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2"/></svg>
-    <span>J'organise</span>
-  </h2>
+  <div class="px-2 d-flex flex-column gap-3">
+    <h2 class="d-flex align-items-center ms-2 mb-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#0B666A" d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2s-2 .9-2 2s.9 2 2 2"/></svg>
+      <span>J'organise</span>
+    </h2>
 
   <div class="card_light_grid gap-3">
         <% @my_events.each do |event| %>
@@ -22,4 +27,5 @@
           <%= render "event_card_light", event:event  %>
         <% end %>
   </div>
+</div>
 </div>
