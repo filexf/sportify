@@ -7,12 +7,13 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   overflow-y: hidden;
+  margin-left: 1em;
 }
 
 .pills-card {
   display: flex;
   width: fit-content;
-  height: 23px;
+  height: 30px;
   padding: 7px 45px 7px 45px;
   justify-content: center;
   align-items: center;
@@ -41,19 +42,20 @@
   height: 60px;
   flex-shrink: 0;
   border-radius: 30px;
-  background: #FEFEFF;
+  background: #ffffff;
   box-shadow: 0px 20px 20px 0px rgba(90, 90, 90, 0.10);
   backdrop-filter: blur(10.873126983642578px);
 }
 
 .pill-semidark-blue {
-  top: 1rem;
-  right: 1rem;
-  padding: 0 0.5em;
-  border-radius: 1rem;
+  top: 70px;
+  right: 0rem;
+  padding: 0.2em 0.8em;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
   width: fit-content;
   color: $white;
-  background-color: $sportify-semidark-blue;
+  background-color: $sportify-lightblue;
 }
 
 .pill-participant-on-card {

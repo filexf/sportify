@@ -8,20 +8,6 @@
   <div class="row text-center position relative">
 
     <%= cl_image_tag @event.playground.sport.photo.key, class: "w-100 h-30 unset-padding", crop: :thumb %>
-    <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
-    <% if participants_left == 1 %>
-      <div class="pill-semidark-blue position-absolute">
-        Encore <%= participants_left %> joueur
-      </div>
-    <% elsif participants_left > 0 %>
-      <div class="pill-semidark-blue position-absolute">
-        Encore <%= participants_left %> joueurs
-      </div>
-    <% else %>
-      <div class="pill-semidark-blue position-absolute">
-        Evènement complet
-      </div>
-    <% end %>
     <%# <img src="https://res.cloudinary.com/dcipyz0mn/image/upload/v1732709394/th_lzz6hw.jpg" alt="" class="img-fluid mx-auto shadow my-3" style=" width:300px; height:300px"> %>
 
     <div class="col-12 px-4">
@@ -43,7 +29,7 @@
 
 
 
-    <h1 class="event-title-font my-1 p-3"><%= @event.name %></h1>
+    <h1 class="event-title-font"><%= @event.name %></h1>
 
     <div class="mx-4 gap-3">
 
@@ -80,7 +66,39 @@
         <div class="d-flex align-items-center mx-1 text-start"><%= @event.description %> </div>
       </div>
 
+    <div class="d-flex flex-row my-4">
+        <% participants_left = (@event.sport.number_of_players_max - @event.participations.count).to_i %>
+        <% if participants_left == 1 %>
+          <div class="mx-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <path fill="#35A29F" d="M12 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m-3.5 8c0-1.152.433-2.204 1.146-3H6a3 3 0 0 0-3 3v3.5a1 1 0 0 0 1 1h4.5zm15 0a4.48 4.48 0 0 0-1.146-3H26a3 3 0 0 1 3 3v3.5a1 1 0 0 1-1 1h-4.5zM3 23.5A1.5 1.5 0 0 1 4.5 22h23a1.5 1.5 0 0 1 1.5 1.5a4.5 4.5 0 0 1-4.5 4.5h-17A4.5 4.5 0 0 1 3 23.5m1-15a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m17 0a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0M10 16a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4.5H10z"></path>
+          </svg>
+          </div>
+          <div class="d-flex align-items-center mx-1 text-start">
+            <strong> Encore <%= participants_left %> joueur </strong>
+          </div>
+        <% elsif participants_left > 0 %>
+          <div class="mx-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <path fill="#35A29F" d="M12 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m-3.5 8c0-1.152.433-2.204 1.146-3H6a3 3 0 0 0-3 3v3.5a1 1 0 0 0 1 1h4.5zm15 0a4.48 4.48 0 0 0-1.146-3H26a3 3 0 0 1 3 3v3.5a1 1 0 0 1-1 1h-4.5zM3 23.5A1.5 1.5 0 0 1 4.5 22h23a1.5 1.5 0 0 1 1.5 1.5a4.5 4.5 0 0 1-4.5 4.5h-17A4.5 4.5 0 0 1 3 23.5m1-15a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m17 0a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0M10 16a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4.5H10z"></path>
+          </svg>
+          </div>
+          <div class="d-flex align-items-center mx-1 text-start">
+            <strong> Encore <%= participants_left %> joueurs </strong>
+          </div>
+        <% else %>
+          <div class="mx-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+            <path fill="#35A29F" d="M12 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m-3.5 8c0-1.152.433-2.204 1.146-3H6a3 3 0 0 0-3 3v3.5a1 1 0 0 0 1 1h4.5zm15 0a4.48 4.48 0 0 0-1.146-3H26a3 3 0 0 1 3 3v3.5a1 1 0 0 1-1 1h-4.5zM3 23.5A1.5 1.5 0 0 1 4.5 22h23a1.5 1.5 0 0 1 1.5 1.5a4.5 4.5 0 0 1-4.5 4.5h-17A4.5 4.5 0 0 1 3 23.5m1-15a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m17 0a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0M10 16a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4.5H10z"></path>
+          </svg>
+          </div>
+          <div class="d-flex align-items-center mx-1 text-start">
+            <strong>Evènement complet</strong>
+          </div>
+        <% end %>
     </div>
+    </div>
+
 
 
     <% if participants_left > 0 %>
