@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  
+
 
   def index
   end
@@ -64,8 +64,6 @@ class EventsController < ApplicationController
                    # .flat_map { |location| location.events } idem que ligne suivante, marche pour tous les ittérateurs
                    .flat_map(&:events)
 
-
-
     # @events = Event.all
     params[:sports_list] = params.fetch(:sports_list){ [] }
     # ajouter sport name dans sports_list
@@ -82,6 +80,9 @@ class EventsController < ApplicationController
       @near_events = @near_events.select do |event|
         params[:sports_list].include?(event.sport.name)
       end
+    elsif params[:query]
+      @events = Event.global_search(params[:query])
+      @near_events = Event.global_search(params[:query])
     else
       @events = Event.all
     end
@@ -115,6 +116,7 @@ class EventsController < ApplicationController
     search_results = Event.global_search(params[:query])
     if search_results.any?
       @events = search_results
+
     else
       @search_message = "Désolé, nous n'avons pas trouvé de résultat avec #{params[:query]}"
     end

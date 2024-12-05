@@ -271,7 +271,7 @@ brequigny = Location.create!(
 
 noyal = Location.create!(
   name: "Salle de Noyal",
-  address: "14 Rue de la Bintinais",
+  address: "14 Rue de la Bintinais, 35230 Noyal",
   category: :club_with_licence
 )
 
