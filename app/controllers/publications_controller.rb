@@ -5,6 +5,7 @@ class PublicationsController < ApplicationController
     @publication = Publication.new
     @comments = Comment.all
     @comment = Comment.new
+    raise
 
   end
 

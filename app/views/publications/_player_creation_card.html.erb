@@ -1,8 +1,8 @@
 <% if publication.photo.attached? %>
   <div class="publi-with-photo">
-    <li class="p-0 card-publi-feed my-3 pt-3">
+    <li class="d-flex flex-column justify-content-start align-items-center">
       <div class="card-sans-avatar d-flex flex-column">
-        <div class="intro-publi-photo d-flex align-items-center ustify-content-start">
+        <div class="intro-publi-photo d-flex align-items-center justify-content-start">
           <div class="ms-0 ">
             <%= cl_image_tag publication.user.photo.key, class:"avatar" %>
           </div>
