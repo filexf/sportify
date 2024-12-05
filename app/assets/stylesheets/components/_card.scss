@@ -107,10 +107,16 @@
   background-color: $white;
   border-radius: 1rem;
   margin-right: 10px;
+  width: 85%;
   img {
     width:15.5rem;
     border-radius: 0.5rem;
   }
+}
+
+.texte-publi{
+  width: 100%;
+  object-fit: contain;
 }
 
 .card-publi-feed{
@@ -138,8 +144,8 @@
 
 .publication-img{
     width: 15rem;
-    align-self: stretch;
-    margin: 1rem;
+    // align-self: stretch;
+    margin: 10px;
   }
 
 // .card-add-picture{
