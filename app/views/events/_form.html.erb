@@ -1,12 +1,12 @@
 
 <div class="my-3">
 
-  <p>Commencez par choisir votre activité :</p>
-  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit" , action:"change->auto-submit#submit"}) do %>
-    <%= select_tag :sport_name, options_for_select(@sports.map(&:name), params[:sport_name]), data: {turbo_frame: "location_list"}, class:"col-12 rounded-3 p-2", placeholder: "Choisissez un sport" %>
-    <%# <%= submit_tag "Submit", class:"border rounded-4 p-2" %>
-  <% end %>
+  <h5 class="mb-4">Je créé mon activité:</h5>
 
+
+  <%= form_with(url: new_event_path, method: :get, data: {controller: "auto-submit" , action:"change->auto-submit#submit"}) do %>
+    <%= select_tag :sport_name, options_for_select(@sports.map(&:name).unshift(["Je choisis mon sport", "" , { disabled: true, selected: params[:sport_name].nil?}]), params[:sport_name]), class:"col-12 rounded-4 p-2 form-stylized" %>
+  <% end %>
 </div>
 
 
@@ -17,26 +17,27 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
-      <div class="col-11 ml-2 justify-content-start">
+      <div class="col-11 ml-2 justify-content-start gap-2">
 
         <%= f.input :name,
-        label: false,
-        error: 'Merci de nommer votre event',
-        class: "margin-0",
-        required: true,
-        input_html: {
-          placeholder: "Le nom de votre événement"
-        }
+          label: false,
+          error: 'Merci de nommer votre event',
+          required: true,
+          input_html: {
+            placeholder: "J'écris le nom de mon événement",
+            class: "rounded-4 form-stylized my-2"
+          }
         %>
       </div>
 
 
         <%= f.input :description,
-        label: false,
-        error: 'Décrivez votre événement:',
-        input_html: {
-          placeholder: "Détaillez votre événement "
-        }
+          label: false,
+          error: 'Décrivez votre événement:',
+          input_html: {
+            placeholder: "Je détaille mon événement...",
+            class: "rounded-4 form-stylized my-2"
+          }
         %>
 
         <%# # playgrounds_names_and_ids = []
@@ -51,28 +52,30 @@
 
       <% if params[:sport_name] %>
           <%# Data target sur lui %>
+
         <%= turbo_frame_tag "location_list" do %>
           <% f.input :playground_id,
             label: false,
+            error: 'Choisissez parmis les sports & lieux de la liste',
             input_html: {
-              value: "Enter your name",
-              readonly: true,
-              onfocus: "this.value=''; this.removeAttribute('readonly');"
+              placeholder: "Je détaille mon événement",
+              class: "rounded-4 form-stylized my-2"
             },
-            error: 'Choisissez parmi les lieux de la liste',
-            collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }
+            collection: @playgrounds.map { |playground| [playground.location.name, playground.id] }.unshift(["Je choisis un lieu", { disabled: true, selected: params[:sport_playground].nil? }])
           %>
         <% end %>
+
+
+
       <% end %>
-      <label for="event_event_date" class="my-3">
-        Date de l'évènement
-      </label>
-      <div class="border rounded-4 fake-input-date">
-        <input type="date" id="event_event_date" name="event[event_date]" class="datepicker-input" placeholder="">
+      <%# <label for="event_event_date" class="my-3"> %>
+      <%# </label> %>
+      <div class="border rounded-4 fake-input-date my-2">
+        <input type="date" id="event_event_date" name="event[event_date]" class="datepicker-input form-stylized" placeholder="Choisissez la date">
         <%# <span>Choisir la date</span> %>
       </div>
 
-      <div data-controller="datepicker" class="time-pickers col-10 mt-4 d-flex justify-content-center">
+      <div data-controller="datepicker" class="time-pickers col-10 mt-4 mr-2 d-flex justify-content-center">
         <div class="col-4 mx-3">
           <%= f.input :start_time,
               as: :string,
@@ -83,7 +86,7 @@
                   controller: "datepicker",
                   action: "click->datepicker#open_as_time_picker"
                 },
-                class: "border rounded-4 p-2 mx-2 col-4"
+                class: "rounded-4 p-2 mx-2 col-4 text-center form-stylized"
               }
           %>
         </div>
@@ -94,11 +97,11 @@
               label: false,
               input_html: {
                 placeholder: "Fin",
+                class: "rounded-4 p-2 mx-2 text-center form-stylized",
                 data: {
                   controller: "datepicker",
                   action: "click->datepicker#open_as_time_picker"
-                },
-                class: "border rounded-4 p-2 mx-2"
+                }
               }
           %>
         </div>
