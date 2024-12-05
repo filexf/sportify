@@ -12,7 +12,7 @@
             <%= turbo_stream_from "publications" %>
             <ul id="publications" class="list-group list-group-dividered list-group-full">
               <% @publications.order(created_at: :desc).each do |publication| %>
-                <div data-controller="like-button display-comments" class="mx-2 d-flex justify-content-center publi-div"%>
+                <div data-controller="like-button display-comments" class="d-flex justify-content-center publi-div"%>
                   <%# <%= render `#{publication.kind_of}_card`%>
                   <% if publication.kind_of == "player_creation" %>
                     <%= render "player_creation_card", publication: publication %>
