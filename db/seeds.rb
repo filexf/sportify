@@ -8,6 +8,7 @@ puts ""
 UserSport.destroy_all
 Participation.destroy_all
 Event.destroy_all
+Comment.destroy_all
 Publication.destroy_all
 User.destroy_all
 Playground.destroy_all
@@ -18,10 +19,13 @@ Location.destroy_all
 puts "Creating users..."
 
 users_photos = [
-  'Mouette_boxeuse_snsbx5',
-  'Groupe_Niquetamouette_wil8gj',
+  'image_720_kc6kvy',
+  'image_720_cys4z5',
   'Categorie_Factrice_hbhzxn',
-  'Categorie_Sprinteuse_cv2kr8'
+  'image_720_zxxgmo',
+  'image_720_bpwgmz',
+  'im6dubmcf6psnwl24n576cfn3ms1_720_dccthv',
+  '67sprsnk445kybi1dpdktk7oxj88_720_n1qktc'
 ]
 
 users_array = [
@@ -59,6 +63,33 @@ users_array = [
     email: "felix.orain@gmail.com",
     password: "123456",
     address: "Boulevard Marbeuf 35000 Rennes",
+    photo: ""
+  },
+  {
+    first_name: "Lomig",
+    last_name: "Enfroy",
+    username: "Lomig",
+    email: "lomig@gmail.com",
+    password: "123456",
+    address: "6 rue de la liberté 35000 Rennes",
+    photo: ""
+  },
+  {
+    first_name: "Jerôme",
+    last_name: "Tan",
+    username: "Jérômouette",
+    email: "tanj9@gmail.com",
+    password: "123456",
+    address: "12 rue Vanneau 35000 Rennes",
+    photo: ""
+  },
+  {
+    first_name: "Deva",
+    last_name: "Sou",
+    username: "DevaMouette",
+    email: "deva@gmail.com",
+    password: "123456",
+    address: "7 route de Lorient 35000 Rennes",
     photo: ""
   }
 ]
@@ -341,6 +372,7 @@ event_1 = Event.create!(
 )
 
 publi_1 = Publication.create!(
+  likes:rand(1..50),
   title: event_1.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
@@ -359,6 +391,7 @@ event_2 = Event.create!(
 )
 
 publi_2 = Publication.create!(
+  likes:rand(1..50),
   title: event_2.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -377,6 +410,7 @@ event_3 = Event.create!(
 )
 
 publi_3 = Publication.create!(
+  likes:rand(1..50),
   title: event_3.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -395,6 +429,7 @@ event_4 = Event.create!(
 )
 
 publi_4 = Publication.create!(
+  likes:rand(1..50),
   title: event_4.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -413,6 +448,7 @@ event_5 = Event.create!(
 )
 
 publi_5 = Publication.create!(
+  likes:rand(1..50),
   title: event_5.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
@@ -431,6 +467,7 @@ event_6 = Event.create!(
 )
 
 publi_6 = Publication.create!(
+  likes:rand(1..50),
   title: event_6.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -449,6 +486,7 @@ event_7 = Event.create!(
 )
 
 publi_7 = Publication.create!(
+  likes:rand(1..50),
   title: event_7.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -467,6 +505,7 @@ event_8 = Event.create!(
 )
 
 publi_8 = Publication.create!(
+  likes:rand(1..50),
   title: event_8.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -485,6 +524,7 @@ event_9 = Event.create!(
 )
 
 publi_9 = Publication.create!(
+  likes:rand(1..50),
   title: event_9.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
@@ -503,6 +543,7 @@ event_10 = Event.create!(
 )
 
 publi_10 = Publication.create!(
+  likes:rand(1..50),
   title: event_10.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
@@ -521,6 +562,7 @@ event_11 = Event.create!(
 )
 
 publi_11 = Publication.create!(
+  likes:rand(1..50),
   title: event_11.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
@@ -539,6 +581,7 @@ event_12 = Event.create!(
 )
 
 publi_12 = Publication.create!(
+  likes:rand(1..50),
   title: event_12.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
@@ -628,11 +671,10 @@ Participation.create!(
 puts "#{Participation.count} participations created"
 puts ""
 
-puts "Done!"
-puts ""
+
 
 # Create publications from user about Lancer de Mouettes
-# puts "Create publications"
+puts "Create publications"
 
 publi_a = Publication.new(
   user: User.find_by(username: "Mouettion"),
@@ -643,29 +685,49 @@ publi_a = Publication.new(
   posted_at: rand(1.day).seconds.ago
 )
 
-cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_rfacaj.jpg"
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/image_720_p75atn.jpg"
 file = URI.parse(cloudinary_url).open
 publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "image/png")
 
 publi_a.save!
 
 publi_b = Publication.new(
-  user: User.find_by(username: "LaGouelle"),
-  title: "OKISH",
-  content: "Trop de la bombe! On est okish !!!",
-  sport: Sport.find_by(name:"Tir à la mouette"),
+  user: User.find_by(username: "Jérômouette"),
+  title: "",
+  content: "Super match hier soir, les Mouettes ont battu les Hermines 82-65. Hâte de programmer la revanche",
+  sport: Sport.find_by(name:"Basketball"),
   kind_of: "player_creation",
   posted_at: rand(1.day).seconds.ago
 )
 
-cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/th_720_lfgh7s.jpg"
+cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/image_720_ud6bla.jpg"
 file = URI.parse(cloudinary_url).open
 publi_b.photo.attach(io: file, filename: "#{publi_b.title}.png", content_type: "image/png")
 
 publi_b.save!
 
+puts 'add comment'
+
+comment_lomig = Comment.create!(
+  user: User.find_by(username: "Lomig"),
+  publication: publi_5,
+  content: "Le Mouetting 2024 commence dans 1 heure !",
+)
+
+comment_jeromouette = Comment.create!(
+  user: User.find_by(username: "Jérômouette"),
+  publication: publi_a,
+  content: "Super ça donne envie d'essayer, ça doit être marrant",
+)
+
+comment_jeromouette = Comment.create!(
+  user: User.find_by(username: "DevaMouette"),
+  publication: publi_a,
+  content: "@Jérômouette, viens on s'inscrit à la prochaine session",
+)
+
 puts "#{Publication.count} publications created"
 
 
-# Create comments on publications
-#
+puts "Done!"
+puts ""
