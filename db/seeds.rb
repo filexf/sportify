@@ -293,6 +293,12 @@ roazhon = Location.create!(
   category: :bar
 )
 
+jacques = Location.create!(
+  name: "Tennis Club Saint Jacques",
+  address: "3 Pl. Salvador Allendé, 35136 Saint-Jacques-de-la-Lande",
+  category: :club_with_licence
+)
+
 puts "#{Location.count} locations created"
 puts ""
 
@@ -347,6 +353,11 @@ playground_paillette_mouette = Playground.create!(
 
 playground_noyal = Playground.create!(
   location: noyal,
+  sport: Sport.find_by(name: "Tennis")
+)
+
+playground_jacques = Playground.create!(
+  location: jacques,
   sport: Sport.find_by(name: "Tennis")
 )
 
@@ -572,11 +583,11 @@ publi_11 = Publication.create!(
 )
 
 event_12 = Event.create!(
-  name: "Open de Roazhon",
+  name: "Open de Saint Jaques",
   description: "Tournoi, niveau demandé entre 15 et 15/5",
   start_at: "21/12/2024 10h00",
   end_at: "21/12/2024 11h30",
-  playground: playground_gayeulles,
+  playground: playground_jacques,
   organisator: User.find_by(username: "LaGouelle")
 )
 
