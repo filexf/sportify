@@ -1,5 +1,10 @@
-<% publication.comments.each do |comment| %>
-  <%= comment.user.username %>
-  <%= comment.content %>
-  <%= comment.created_at %>
-<% end %>
+<div class="d-none"  >
+  <% publication.comments.each do |comment| %>
+  <div class="data-display-comments-target="comment">
+
+    <%= comment.user.username %>
+    <%= comment.content %>
+    <%= comment.created_at %>
+  </div>
+  <% end %>
+</div>
