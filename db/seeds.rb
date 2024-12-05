@@ -469,7 +469,7 @@ publi_5 = Publication.create!(
 )
 
 event_6 = Event.create!(
-  name: "Apprendre à lancer les mouettes",
+  name: "Initiation - lancer de mouettes",
   description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
   start_at: "28/12/2024 16h00",
   end_at: "28/12/2024 18h00",
@@ -507,7 +507,7 @@ publi_7 = Publication.create!(
 )
 
 event_8 = Event.create!(
-  name: "Partie de fléchettes pour débutants",
+  name: "Fléchettes pour débutants",
   description: "Partie for fun au Tyf !",
   start_at: "10/12/2024 19h00",
   end_at: "10/12/2024 23h00",
@@ -628,7 +628,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "Filex"),
-  event: Event.find_by(name: "Partie de fléchettes pour débutants"),
+  event: Event.find_by(name: "Fléchettes pour débutants"),
   status: :accepted
 )
 
@@ -688,6 +688,7 @@ puts ""
 puts "Create publications"
 
 publi_a = Publication.new(
+  likes:1,
   user: User.find_by(username: "Mouettion"),
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
@@ -703,8 +704,9 @@ publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "
 publi_a.save!
 
 publi_b = Publication.new(
+  likes:2,
   user: User.find_by(username: "Jérômouette"),
-  title: "",
+  title: "Photo du match d'hier",
   content: "Super match hier soir, les Mouettes ont battu les Hermines 82-65. Hâte de programmer la revanche",
   sport: Sport.find_by(name:"Basketball"),
   kind_of: "player_creation",
