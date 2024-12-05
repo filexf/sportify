@@ -11,7 +11,7 @@
             <hr class="margin-bottom-10">
             <%= turbo_stream_from "publications" %>
             <ul id="publications" class="list-group list-group-dividered list-group-full">
-              <% @publications.order(created_at: :desc).each do |publication| %>
+              <% @publications.order(posted_at: :desc).each do |publication| %>
                 <div data-controller="like-button display-comments" class="d-flex justify-content-center publi-div"%>
                   <%# <%= render `#{publication.kind_of}_card`%>
                   <% if publication.kind_of == "player_creation" %>
@@ -23,10 +23,10 @@
                   <% elsif publication.kind_of == "event_creation"%>
                     <% if publication.sport.name == "Lancer de mouettes" || publication.sport.name == "Tennis" %>
                     <%= render "event_creation_card", publication: publication %>
-                  <div class="" >
-                    <%= render "comments", publication: publication %>
+                  <%# <div class="" > %>
+                    <%# <%= render "comments", publication: publication %>
                     <%# <%= render "form_comment", comment: @comment %>
-                  </div>
+                  <%# </div> %>
                     <% end %>
                   <% end %>
                 </div>

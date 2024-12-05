@@ -8,7 +8,7 @@
           </div>
           <div class="name-and-time-ago d-flex flex-column align-items-start ms-1">
             <div class="d-flex justify-content-start fst-italic">
-              <small>Il y a <%= time_ago_in_words(publication.created_at) %></small>
+              <small>Il y a <%= time_ago_in_words(publication.posted_at) %></small>
             </div>
             <div class="">
               <b>@<%= publication.user.username%></b> a ajouté une photo
