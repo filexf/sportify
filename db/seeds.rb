@@ -388,7 +388,7 @@ publi_1 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_1.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_1.description
 )
 
@@ -407,7 +407,7 @@ publi_2 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_2.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_2.description
 )
 
@@ -426,7 +426,7 @@ publi_3 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_3.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_3.description
 )
 
@@ -445,7 +445,7 @@ publi_4 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_4.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_4.description
 )
 
@@ -464,7 +464,7 @@ publi_5 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_5.description
 )
 
@@ -483,7 +483,7 @@ publi_6 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_6.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_6.description
 )
 
@@ -502,7 +502,7 @@ publi_7 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_7.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_7.description
 )
 
@@ -521,7 +521,7 @@ publi_8 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_8.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_8.description
 )
 
@@ -540,7 +540,7 @@ publi_9 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_9.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_9.description
 )
 
@@ -559,7 +559,7 @@ publi_10 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_10.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_10.description
 )
 
@@ -578,7 +578,7 @@ publi_11 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_11.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_11.description
 )
 
@@ -597,7 +597,7 @@ publi_12 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_12.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_12.description
 )
 
@@ -731,7 +731,7 @@ comment_jeromouette = Comment.create!(
   content: "Super ça donne envie d'essayer, ça doit être marrant",
 )
 
-comment_jeromouette = Comment.create!(
+comment_devamouette = Comment.create!(
   user: User.find_by(username: "DevaMouette"),
   publication: publi_a,
   content: "@Jérômouette, viens on s'inscrit à la prochaine session",
