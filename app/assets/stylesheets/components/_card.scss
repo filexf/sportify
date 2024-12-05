@@ -98,6 +98,18 @@
   }
 }
 
+.name-and-time-ago {
+  font-size: 0.8rem;
+}
+
+.card-publi-photo{
+  background-color: $white;
+  border-radius: 1rem;
+  img {
+    width:13rem;
+  }
+}
+
 .card-publi-feed{
   width: 95%;
   // background-color: rgba(255, 255, 255, 0.7);
@@ -113,11 +125,19 @@
   list-style: none;
 }
 
+.publi-div li{
+  list-style: none;
+}
+
 .publication-img{
     width: 15rem;
     align-self: stretch;
     margin: 1rem;
   }
+
+.card-add-picture{
+
+}
 
 .card_light {
   scroll-snap-align: center;
