@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5 ms-0">
   <div class="row">
       <div class="col-md-6 col-xs-12 col-md-offset-3">
         <div class="panel">
@@ -11,23 +11,25 @@
             <hr class="margin-bottom-10">
             <%= turbo_stream_from "publications" %>
             <ul id="publications" class="list-group list-group-dividered list-group-full">
-              <% @publications.order(posted_at: :desc).each do |publication| %>
-                <div data-controller="display-comments like-button"%>
+              <% @publications.order(created_at: :desc).each do |publication| %>
+                <div data-controller="like-button display-comments" class="mx-2 d-flex justify-content-center"%>
                   <%# <%= render `#{publication.kind_of}_card`%>
                   <% if publication.kind_of == "player_creation" %>
                     <%= render "player_creation_card", publication: publication %>
-                  <% elsif publication.kind_of == "event_creation" %>
-                    <%= render "event_creation_card", publication: publication %>
-                  <% end %>
-                  <%# <%= render "publication", publication: publication%>
-                  <div class="d-none" data-display-comments-target="comment">
+                    <div class="" >
                     <%= render "comments", publication: publication %>
                     <%# <%= render "form_comment", comment: @comment %>
                   </div>
+                  <% elsif publication.kind_of == "event_creation" %>
+                    <%= render "event_creation_card", publication: publication %>
+                  <div class="" >
+                    <%= render "comments", publication: publication %>
+                    <%# <%= render "form_comment", comment: @comment %>
+                  </div>
+                  <% end %>
                 </div>
               <% end %>
               <div class="d-flex justify-content-center">
-
                 <%= render "form", publication: @publication %>
               </div>
             </ul>
