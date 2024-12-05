@@ -7,9 +7,9 @@ puts ""
 
 UserSport.destroy_all
 Participation.destroy_all
-Event.destroy_all
 Comment.destroy_all
 Publication.destroy_all
+Event.destroy_all
 User.destroy_all
 Playground.destroy_all
 Sport.destroy_all
@@ -21,11 +21,12 @@ puts "Creating users..."
 users_photos = [
   'image_720_kc6kvy',
   'image_720_cys4z5',
-  'Categorie_Factrice_hbhzxn',
+  'image_720_txydtf',
   'image_720_zxxgmo',
   'image_720_bpwgmz',
   'im6dubmcf6psnwl24n576cfn3ms1_720_dccthv',
-  '67sprsnk445kybi1dpdktk7oxj88_720_n1qktc'
+  '67sprsnk445kybi1dpdktk7oxj88_720_n1qktc',
+  'a_bigger_seagull_with_a_cap_on_720_lxuxil'
 ]
 
 users_array = [
@@ -91,7 +92,17 @@ users_array = [
     password: "123456",
     address: "7 route de Lorient 35000 Rennes",
     photo: ""
+  },
+  {
+    first_name: "Kévin",
+    last_name: "Tchadieu",
+    username: "Kémouette",
+    email: "kemouette@gmail.com",
+    password: "123456",
+    address: "8 Rue de Rennes 35346 Vezin le Coquet",
+    photo: ""
   }
+
 ]
 
 users_array.each_with_index do |user, index|
@@ -379,7 +390,7 @@ event_1 = Event.create!(
   start_at: "15/12/2024 14h00",
   end_at: "15/12/2024 16h30",
   playground: tir_gayeulles,
-  organisator: User.find_by(username: "Mouettion")
+  organisator: User.find_by(username: "Kémouette")
 )
 
 publi_1 = Publication.create!(
@@ -387,7 +398,7 @@ publi_1 = Publication.create!(
   likes:rand(1..50),
   title: event_1.name,
   kind_of: "event_creation",
-  user_id: User.find_by(username: "Mouettion").id,
+  user_id: User.find_by(username: "Kémouette").id,
   sport_id: event_1.sport.id,
   posted_at: rand(1.week).seconds.ago,
   content: event_1.description
@@ -396,8 +407,8 @@ publi_1 = Publication.create!(
 event_2 = Event.create!(
   name: "Pas de Palais ?",
   description: "Plusieurs parties accompagnées de bières et de gal'sauce !",
-  start_at: "28/11/2024 14h00",
-  end_at: "28/11/2024 23h30",
+  start_at: "21/12/2024 14h00",
+  end_at: "21/12/2024 23h30",
   playground: playground_piste,
   organisator: User.find_by(username: "Filex")
 )
@@ -416,10 +427,10 @@ publi_2 = Publication.create!(
 event_3 = Event.create!(
   name: "Space Jam",
   description: "Match avec MJ!",
-  start_at: "29/11/2024 11h00",
-  end_at: "29/11/2024 15h30",
+  start_at: "11/12/2024 19h00",
+  end_at: "11/12/2024 22h00",
   playground: playground_paillette,
-  organisator: User.find_by(username: "LaGouelle")
+  organisator: User.find_by(username: "Jérômouette")
 )
 
 publi_3 = Publication.create!(
@@ -427,7 +438,7 @@ publi_3 = Publication.create!(
   likes:rand(1..50),
   title: event_3.name,
   kind_of: "event_creation",
-  user_id: User.find_by(username: "LaGouelle").id,
+  user_id: User.find_by(username: "Jérômouette").id,
   sport_id: event_3.sport.id,
   posted_at: rand(1.week).seconds.ago,
   content: event_3.description
@@ -437,9 +448,9 @@ event_4 = Event.create!(
   name: "Open de Noyal",
   description: "Match pour niveau 30/1",
   start_at: "14/12/2024 10h00",
-  end_at: "14/12/2024 10h30",
+  end_at: "14/12/2024 12h00",
   playground: playground_noyal,
-  organisator: User.find_by(username: "LaGouelle")
+  organisator: User.find_by(username: "DevaMouette")
 )
 
 publi_4 = Publication.create!(
@@ -447,7 +458,7 @@ publi_4 = Publication.create!(
   likes:rand(1..50),
   title: event_4.name,
   kind_of: "event_creation",
-  user_id: User.find_by(username: "LaGouelle").id,
+  user_id: User.find_by(username: "DevaMouette").id,
   sport_id: event_4.sport.id,
   posted_at: rand(1.week).seconds.ago,
   content: event_4.description
@@ -456,20 +467,20 @@ publi_4 = Publication.create!(
 event_5 = Event.create!(
   name: "Mouetting 2024",
   description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
-  start_at: "13/12/2024 14h00",
-  end_at: "13/12/2024 16h00",
+  start_at: "06/12/2024 13h30",
+  end_at: "06/12/2024 17h30",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
 )
 
 publi_5 = Publication.create!(
   event: event_5,
-  likes:rand(1..50),
+  likes: rand(1..50),
   title: event_5.name,
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "05/12/2024 10h30",
   content: event_5.description
 )
 
@@ -479,7 +490,7 @@ event_6 = Event.create!(
   start_at: "28/12/2024 16h00",
   end_at: "28/12/2024 18h00",
   playground: playground_noyal_mouette,
-  organisator: User.find_by(username: "LaGouelle")
+  organisator: User.find_by(username: "Kémouette")
 )
 
 publi_6 = Publication.create!(
@@ -487,7 +498,7 @@ publi_6 = Publication.create!(
   likes:rand(1..50),
   title: event_6.name,
   kind_of: "event_creation",
-  user_id: User.find_by(username: "LaGouelle").id,
+  user_id: User.find_by(username: "Kémouette").id,
   sport_id: event_6.sport.id,
   posted_at: rand(1.week).seconds.ago,
   content: event_6.description
@@ -539,7 +550,7 @@ event_9 = Event.create!(
   start_at: "07/12/2024 19h00",
   end_at: "07/12/2024 23h00",
   playground: playground_roazhon,
-  organisator: User.find_by(username: "Filex")
+  organisator: User.find_by(username: "Lomig")
 )
 
 publi_9 = Publication.create!(
@@ -547,7 +558,7 @@ publi_9 = Publication.create!(
   likes:rand(1..50),
   title: event_9.name,
   kind_of: "event_creation",
-  user_id: User.find_by(username: "Filex").id,
+  user_id: User.find_by(username: "Lomig").id,
   sport_id: event_9.sport.id,
   posted_at: rand(1.week).seconds.ago,
   content: event_9.description
@@ -556,8 +567,8 @@ publi_9 = Publication.create!(
 event_10 = Event.create!(
   name: "Spécial Cupidon",
   description: "Pour la Saint Valentin, soirée de love !",
-  start_at: "14/02/2024 19h00",
-  end_at: "14/02/2024 23h00",
+  start_at: "14/02/2025 19h00",
+  end_at: "14/02/2025 23h00",
   playground: playground_beje,
   organisator: User.find_by(username: "Mouettion")
 )
@@ -594,7 +605,7 @@ publi_11 = Publication.create!(
 )
 
 event_12 = Event.create!(
-  name: "Open de Saint Jaques",
+  name: "Open de Saint Jacques",
   description: "Tournoi, niveau demandé entre 15 et 15/5",
   start_at: "21/12/2024 10h00",
   end_at: "21/12/2024 11h30",
@@ -645,7 +656,7 @@ Participation.create!(
 )
 
 Participation.create!(
-  user: User.find_by(username: "Filex"),
+  user: User.find_by(username: "Lomig"),
   event: Event.find_by(name: "Ca flèche fort!"),
   status: :accepted
 )
@@ -663,8 +674,14 @@ Participation.create!(
 )
 
 Participation.create!(
-  user: User.find_by(username: "LaGouelle"),
+  user: User.find_by(username: "Jérômouette"),
   event: Event.find_by(name: "Space Jam"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "Mouettion"),
+  event: Event.find_by(name: "Spécial Cupidon"),
   status: :accepted
 )
 
@@ -675,22 +692,35 @@ Participation.create!(
 )
 
 Participation.create!(
-  user: User.find_by(username: "Mouettion"),
-  event: Event.find_by(name: "Spécial Cupidon"),
-  status: :accepted
-)
-
-Participation.create!(
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "Kémouette"),
   event: Event.find_by(name: "Shooter tireur d'élite"),
   status: :accepted
 )
 
 Participation.create!(
-  user: User.find_by(username: "LaGouelle"),
+  user: User.find_by(username: "DevaMouette"),
   event: Event.find_by(name: "Open de Noyal"),
   status: :accepted
 )
+
+Participation.create!(
+  user: User.find_by(username: "CaroCBD"),
+  event: Event.find_by(name: "Rennes Lan Garros"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Open de Saint Jacques"),
+  status: :accepted
+)
+
+Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Open de Saint Jacques"),
+  status: :accepted
+)
+
 puts "#{Participation.count} participations created"
 puts ""
 
