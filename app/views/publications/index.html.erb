@@ -17,13 +17,13 @@
                   <% if publication.kind_of == "player_creation" %>
                     <%= render "player_creation_card", publication: publication %>
                     <div class="" >
-                    <%= render "comments", publication: publication %>
-                    <%# <%= render "form_comment", comment: @comment %>
-                  </div>
+                      <%# <%= render "comments", publication: publication %>
+                      <%# <%= render "form_comment", comment: @comment %>
+                    </div>
                   <% elsif publication.kind_of == "event_creation" %>
                     <%= render "event_creation_card", publication: publication %>
                   <div class="" >
-                    <%= render "comments", publication: publication %>
+                    <%# <%= render "comments", publication: publication %>
                     <%# <%= render "form_comment", comment: @comment %>
                   </div>
                   <% end %>
