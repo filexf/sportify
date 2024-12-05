@@ -388,7 +388,7 @@ publi_1 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_1.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_1.description
 )
 
@@ -407,7 +407,7 @@ publi_2 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_2.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_2.description
 )
 
@@ -426,7 +426,7 @@ publi_3 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_3.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_3.description
 )
 
@@ -445,7 +445,7 @@ publi_4 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_4.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_4.description
 )
 
@@ -464,12 +464,12 @@ publi_5 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_5.description
 )
 
 event_6 = Event.create!(
-  name: "Apprendre à lancer les mouettes",
+  name: "Initiation - lancer de mouettes",
   description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
   start_at: "28/12/2024 16h00",
   end_at: "28/12/2024 18h00",
@@ -483,7 +483,7 @@ publi_6 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_6.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_6.description
 )
 
@@ -502,12 +502,12 @@ publi_7 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_7.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_7.description
 )
 
 event_8 = Event.create!(
-  name: "Partie de fléchettes pour débutants",
+  name: "Fléchettes pour débutants",
   description: "Partie for fun au Tyf !",
   start_at: "10/12/2024 19h00",
   end_at: "10/12/2024 23h00",
@@ -521,7 +521,7 @@ publi_8 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_8.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_8.description
 )
 
@@ -540,7 +540,7 @@ publi_9 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_9.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_9.description
 )
 
@@ -559,7 +559,7 @@ publi_10 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_10.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_10.description
 )
 
@@ -578,7 +578,7 @@ publi_11 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_11.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_11.description
 )
 
@@ -597,7 +597,7 @@ publi_12 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_12.sport.id,
-  posted_at: rand(1.month).seconds.from_now,
+  posted_at: rand(1.week).seconds.ago,
   content: event_12.description
 )
 
@@ -628,7 +628,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "Filex"),
-  event: Event.find_by(name: "Partie de fléchettes pour débutants"),
+  event: Event.find_by(name: "Fléchettes pour débutants"),
   status: :accepted
 )
 
@@ -688,6 +688,7 @@ puts ""
 puts "Create publications"
 
 publi_a = Publication.new(
+  likes:1,
   user: User.find_by(username: "Mouettion"),
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
@@ -703,8 +704,9 @@ publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "
 publi_a.save!
 
 publi_b = Publication.new(
+  likes:2,
   user: User.find_by(username: "Jérômouette"),
-  title: "",
+  title: "Photo du match d'hier",
   content: "Super match hier soir, les Mouettes ont battu les Hermines 82-65. Hâte de programmer la revanche",
   sport: Sport.find_by(name:"Basketball"),
   kind_of: "player_creation",
@@ -731,7 +733,7 @@ comment_jeromouette = Comment.create!(
   content: "Super ça donne envie d'essayer, ça doit être marrant",
 )
 
-comment_jeromouette = Comment.create!(
+comment_devamouette = Comment.create!(
   user: User.find_by(username: "DevaMouette"),
   publication: publi_a,
   content: "@Jérômouette, viens on s'inscrit à la prochaine session",
