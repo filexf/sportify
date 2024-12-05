@@ -19,6 +19,9 @@
           <div class="publication-img w-100">
             <%= cl_image_tag publication.photo.key, width: 200 %>
           </div>
+          <div class="publication-img w-100">
+            <%= publication.content %>
+          </div>
           <div class="icones mb-2">
 
             <div class="d-flex justify-content-center mx-4 gap-2 align-items-center" >

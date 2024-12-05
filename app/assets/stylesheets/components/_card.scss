@@ -105,8 +105,10 @@
 .card-publi-photo{
   background-color: $white;
   border-radius: 1rem;
+  margin: auto;
   img {
-    width:15rem;
+    width:90%;
+    margin: auto;
   }
 }
 
