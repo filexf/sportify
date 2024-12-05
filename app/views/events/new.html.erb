@@ -1,6 +1,9 @@
-<div class="container d-flex flex-column h-100vh p-2 p-4 mb-4">
-  <h1 class=" my-4 d-flex justify-content-center">
-    <strong class="mt-4">Nouvel événement </strong>
+<div class="position-relative d-flex flex-column align-items-center">
+  <div class="container mt-3">
+  <h1 class="event-title-font text-center">
+    Nouvel événement
   </h1>
+  <hr class="margin-bottom-10">
     <%= render "form", event: @event %>
+</div>
 </div>
