@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   has_one :location, through: :playground
   has_many :participations
   has_many :players, through: :participations, source: :user
-
+  has_one :publication, dependent: :destroy
 
   attr_accessor :event_date, :start_time, :end_time
 

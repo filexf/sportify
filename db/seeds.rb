@@ -383,6 +383,7 @@ event_1 = Event.create!(
 )
 
 publi_1 = Publication.create!(
+  event: event_1,
   likes:rand(1..50),
   title: event_1.name,
   kind_of: "event_creation",
@@ -402,6 +403,7 @@ event_2 = Event.create!(
 )
 
 publi_2 = Publication.create!(
+  event: event_2,
   likes:rand(1..50),
   title: event_2.name,
   kind_of: "event_creation",
@@ -421,6 +423,7 @@ event_3 = Event.create!(
 )
 
 publi_3 = Publication.create!(
+  event: event_3,
   likes:rand(1..50),
   title: event_3.name,
   kind_of: "event_creation",
@@ -440,6 +443,7 @@ event_4 = Event.create!(
 )
 
 publi_4 = Publication.create!(
+  event: event_4,
   likes:rand(1..50),
   title: event_4.name,
   kind_of: "event_creation",
@@ -459,6 +463,7 @@ event_5 = Event.create!(
 )
 
 publi_5 = Publication.create!(
+  event: event_5,
   likes:rand(1..50),
   title: event_5.name,
   kind_of: "event_creation",
@@ -478,6 +483,7 @@ event_6 = Event.create!(
 )
 
 publi_6 = Publication.create!(
+  event: event_6,
   likes:rand(1..50),
   title: event_6.name,
   kind_of: "event_creation",
@@ -497,6 +503,7 @@ event_7 = Event.create!(
 )
 
 publi_7 = Publication.create!(
+  event: event_7,
   likes:rand(1..50),
   title: event_7.name,
   kind_of: "event_creation",
@@ -516,6 +523,7 @@ event_8 = Event.create!(
 )
 
 publi_8 = Publication.create!(
+  event: event_8,
   likes:rand(1..50),
   title: event_8.name,
   kind_of: "event_creation",
@@ -535,6 +543,7 @@ event_9 = Event.create!(
 )
 
 publi_9 = Publication.create!(
+  event: event_9,
   likes:rand(1..50),
   title: event_9.name,
   kind_of: "event_creation",
@@ -554,6 +563,7 @@ event_10 = Event.create!(
 )
 
 publi_10 = Publication.create!(
+  event: event_10,
   likes:rand(1..50),
   title: event_10.name,
   kind_of: "event_creation",
@@ -573,6 +583,7 @@ event_11 = Event.create!(
 )
 
 publi_11 = Publication.create!(
+  event: event_11,
   likes:rand(1..50),
   title: event_11.name,
   kind_of: "event_creation",
@@ -592,6 +603,7 @@ event_12 = Event.create!(
 )
 
 publi_12 = Publication.create!(
+  event: event_12,
   likes:rand(1..50),
   title: event_12.name,
   kind_of: "event_creation",

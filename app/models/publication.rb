@@ -3,6 +3,7 @@ class Publication < ApplicationRecord
   has_many :comments
   # has_many :likes
   belongs_to :sport
+  belongs_to :event, optional: true
 
   has_one_attached :photo
 
