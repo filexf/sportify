@@ -106,9 +106,17 @@
 .card-publi-photo{
   background-color: $white;
   border-radius: 1rem;
+  margin-right: 10px;
+  width: 85%;
   img {
-    width:15rem;
+    width:15.5rem;
+    border-radius: 0.5rem;
   }
+}
+
+.texte-publi{
+  width: 100%;
+  object-fit: contain;
 }
 
 .card-publi-feed{
@@ -136,8 +144,9 @@
 
 .publication-img{
     width: 15rem;
-    align-self: stretch;
-    margin: 1rem;
+    // align-self: stretch;
+    margin: 10px;
+    font-size:0.8rem
   }
 
 // .card-add-picture{
@@ -164,18 +173,26 @@
   }
 }
 
-.card_content{
+
+
+.card_content_feed{
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.5rem;
+}
+
+  .card_content{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.8rem;
 
   .title{
     font-size: $font-size-base * 0.9 ;
     line-height: $font-size-base * 0.8;
     font-weight: 400;
   }
-
   .details{
     color: $sportify-neutral-dark-light;
     font-size: 0.75 * $font-size-base;
@@ -185,13 +202,6 @@
     gap: 0.2rem;
   }
 }
-
-
-
-
-
-
-
 
 .card_content_feed{
   display: flex;

@@ -632,6 +632,12 @@ puts ""
 puts "Creating Participations ..."
 
 Participation.create!(
+  user: User.find_by(username: "LaGouelle"),
+  event: Event.find_by(name: "Déjeuner - lancé de mouettes"),
+  status: :accepted
+)
+
+Participation.create!(
   user: User.find_by(username: "CaroCBD"),
   event: Event.find_by(name: "Mouetting 2024"),
   status: :accepted
@@ -730,7 +736,7 @@ puts ""
 puts "Create publications"
 
 publi_a = Publication.new(
-  likes:1,
+  likes: 1,
   user: User.find_by(username: "Mouettion"),
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
@@ -746,7 +752,7 @@ publi_a.photo.attach(io: file, filename: "#{publi_a.title}.png", content_type: "
 publi_a.save!
 
 publi_b = Publication.new(
-  likes:2,
+  likes: 2,
   user: User.find_by(username: "Jérômouette"),
   title: "Photo du match d'hier",
   content: "Super match hier soir, les Mouettes ont battu les Hermines 82-65. Hâte de programmer la revanche",
