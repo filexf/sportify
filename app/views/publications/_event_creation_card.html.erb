@@ -1,5 +1,5 @@
-<li class="w-95 my-2 d-flex justify-content-start">
-  <div class="d-flex flex-column justify-content-start align-items-center">
+<li class="w-100 my-2 d-flex justify-content-start">
+  <div class="d-flex flex-column justify-content-start align-items-start w-100">
     <div class="d-flex flex-row align-items-start gap-2 ">
 
       <div>
@@ -20,22 +20,22 @@
 
     </div>
 
-    <div class="d-flex flex-column align-items-end mt-3">
+    <div class="d-flex flex-column justify-content-end align-items-end mt-3 w-100">
 
       <div class="card-feed mb-1" data-event-id="4">
           <%= cl_image_tag publication.sport.photo.key, crop: :thumb %>
         <div class="card_content_feed mt-2">
 
 
-          <div class="title mb-2 fs-6 lh-sm">
-            <strong> <%= publication.title%> </strong>
+          <div class="title mb-2 fs-6 lh-sm text-break" >
+            <b> <%= publication.event.name%> </b>
           </div>
 
 
           <div class="d-flex flex-row gap-1">
             <i class="fa-solid fa-calendar" style="color:#35A29F"></i>
             <div class="mb-1 card-details-event">
-              <strong>4 décembre 2024 - 16h à 20h </strong>
+              <b> <%=I18n.l(publication.event.start_at, format: "%d %B %Y %R")%> </b>
             </div>
           </div>
 
