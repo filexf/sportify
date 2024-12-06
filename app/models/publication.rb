@@ -7,11 +7,19 @@ class Publication < ApplicationRecord
 
   has_one_attached :photo
 
+  after_save :publi_posted_at
+
   after_create_commit :broadcast_publication
 
   SPORTS = %w[Basketball Palet Padel Fléchettes Lancer\ de\ mouettes Tir\ à\ la\ mouette Tennis]
 
   private
+
+  def publi_posted_at
+    if self.posted_at.nil?
+        self.update(posted_at: created_at)
+    end
+  end
 
   def broadcast_publication
     if self.event.present?

@@ -400,7 +400,7 @@ publi_1 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Kémouette").id,
   sport_id: event_1.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "01/12/2024 23h30",
   content: event_1.description
 )
 
@@ -420,7 +420,7 @@ publi_2 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_2.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "01/12/2024 23h30",
   content: event_2.description
 )
 
@@ -440,7 +440,7 @@ publi_3 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Jérômouette").id,
   sport_id: event_3.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "01/12/2024 23h30",
   content: event_3.description
 )
 
@@ -460,15 +460,15 @@ publi_4 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "DevaMouette").id,
   sport_id: event_4.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "03/12/2024 22h30",
   content: event_4.description
 )
 
 event_5 = Event.create!(
-  name: "Mouetting 2024",
+  name: "Mouetting débutants",
   description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
-  start_at: "06/12/2024 13h30",
-  end_at: "06/12/2024 17h30",
+  start_at: "14/12/2024 13h30",
+  end_at: "14/12/2024 17h30",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
 )
@@ -480,15 +480,15 @@ publi_5 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  posted_at: "05/12/2024 10h30",
+  posted_at: "06/12/2024 08h30",
   content: event_5.description
 )
 
 event_6 = Event.create!(
   name: "Initiation - lancer de mouettes",
   description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
-  start_at: "28/12/2024 16h00",
-  end_at: "28/12/2024 18h00",
+  start_at: "08/12/2024 13h00",
+  end_at: "08/12/2024 18h00",
   playground: playground_noyal_mouette,
   organisator: User.find_by(username: "Kémouette")
 )
@@ -500,7 +500,7 @@ publi_6 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Kémouette").id,
   sport_id: event_6.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "06/12/2024 10h30",
   content: event_6.description
 )
 
@@ -520,7 +520,7 @@ publi_7 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_7.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "30/11/2024 23h30",
   content: event_7.description
 )
 
@@ -540,7 +540,7 @@ publi_8 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Filex").id,
   sport_id: event_8.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "01/12/2024 23h30",
   content: event_8.description
 )
 
@@ -580,7 +580,7 @@ publi_10 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Mouettion").id,
   sport_id: event_10.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "01/12/2024 09h30",
   content: event_10.description
 )
 
@@ -600,7 +600,7 @@ publi_11 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_11.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "04/12/2024 10h30",
   content: event_11.description
 )
 
@@ -620,7 +620,7 @@ publi_12 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "LaGouelle").id,
   sport_id: event_12.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "02/12/2024 10h30",
   content: event_12.description
 )
 
@@ -639,7 +639,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "CaroCBD"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -651,7 +651,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "Filex"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -669,7 +669,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "LaGouelle"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -737,12 +737,12 @@ puts "Create publications"
 
 publi_a = Publication.new(
   likes: 1,
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "Lomig"),
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
   sport: Sport.find_by(name:"Lancer de mouettes"),
   kind_of: "player_creation",
-  posted_at: rand(1.day).seconds.ago
+  posted_at: "06/12/2024 09h30"
 )
 
 cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/image_720_p75atn.jpg"
@@ -758,7 +758,7 @@ publi_b = Publication.new(
   content: "Super match hier soir, les Mouettes ont battu les Hermines 82-65. Hâte de programmer la revanche",
   sport: Sport.find_by(name:"Basketball"),
   kind_of: "player_creation",
-  posted_at: rand(1.day).seconds.ago
+  posted_at: "05/12/2024 23h30"
 )
 
 cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/image_720_ud6bla.jpg"
@@ -772,7 +772,7 @@ puts 'add comment'
 comment_lomig = Comment.create!(
   user: User.find_by(username: "Lomig"),
   publication: publi_5,
-  content: "Le Mouetting 2024 commence dans 1 heure !",
+  content: "Le Mouetting débutants commence dans 1 heure !",
 )
 
 comment_jeromouette = Comment.create!(

@@ -48,9 +48,11 @@ class EventsController < ApplicationController
       @publication.content = @event.description
       @publication.sport = @event.sport
       @publication.kind_of = 'event_creation'
+      @publication.event_id = @event.id
       # @publication.photo.attach(params[:photo])
       @publication.save
       flash[:notice] = "Événement créé avec succès!"
+      
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity
