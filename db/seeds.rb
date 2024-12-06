@@ -465,10 +465,10 @@ publi_4 = Publication.create!(
 )
 
 event_5 = Event.create!(
-  name: "Mouetting 2024",
+  name: "Mouetting débutants",
   description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
-  start_at: "06/12/2024 13h30",
-  end_at: "06/12/2024 17h30",
+  start_at: "13/12/2024 13h30",
+  end_at: "13/12/2024 17h30",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
 )
@@ -639,7 +639,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "CaroCBD"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -651,7 +651,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "Filex"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -669,7 +669,7 @@ Participation.create!(
 
 Participation.create!(
   user: User.find_by(username: "LaGouelle"),
-  event: Event.find_by(name: "Mouetting 2024"),
+  event: Event.find_by(name: "Mouetting débutants"),
   status: :accepted
 )
 
@@ -772,7 +772,7 @@ puts 'add comment'
 comment_lomig = Comment.create!(
   user: User.find_by(username: "Lomig"),
   publication: publi_5,
-  content: "Le Mouetting 2024 commence dans 1 heure !",
+  content: "Le Mouetting débutants commence dans 1 heure !",
 )
 
 comment_jeromouette = Comment.create!(
