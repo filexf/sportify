@@ -22,7 +22,9 @@
                       <%# <%= render "form_comment", comment: @comment %>
                     </div>
                   <% elsif publication.kind_of == "event_creation" %>
-                    <%= render "event_creation_card", publication: publication %>
+                      <% if publication.event.sport.name == "Tennis" || publication.event.sport.name == "Lancer de mouettes" %></p>
+                        <%= render "event_creation_card", publication: publication %>
+                      <% end %>
                   <%# <div class="" > %>
                     <%# <%= render "comments", publication: publication %>
                     <%# <%= render "form_comment", comment: @comment %>
