@@ -50,7 +50,7 @@ class EventsController < ApplicationController
       @publication.kind_of = 'event_creation'
       @publication.event_id = @event.id
       # @publication.photo.attach(params[:photo])
-        if @publication.posted_at == nil
+        if @publication.posted_at.nil?
           @publication.posted_at = @publication.created_at
         end
       @publication.save

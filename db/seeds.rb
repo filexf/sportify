@@ -500,7 +500,7 @@ publi_6 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "Kémouette").id,
   sport_id: event_6.sport.id,
-  posted_at: rand(1.week).seconds.ago,
+  posted_at: "05/12/2024 11h30",
   content: event_6.description
 )
 
@@ -737,7 +737,7 @@ puts "Create publications"
 
 publi_a = Publication.new(
   likes: 1,
-  user: User.find_by(username: "Mouettion"),
+  user: User.find_by(username: "Lomig"),
   title: "Retour sur l'initiation d'hier",
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
   sport: Sport.find_by(name:"Lancer de mouettes"),
