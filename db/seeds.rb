@@ -467,8 +467,8 @@ publi_4 = Publication.create!(
 event_5 = Event.create!(
   name: "Mouetting débutants",
   description: "Partie de lancer de mouettes dans la bonne humeur, tout le monde est le bienvenu! Mouette universelle pour tout niveau Mouette mouette 🕊",
-  start_at: "13/12/2024 13h30",
-  end_at: "13/12/2024 17h30",
+  start_at: "14/12/2024 13h30",
+  end_at: "14/12/2024 17h30",
   playground: playground_thabor,
   organisator: User.find_by(username: "CaroCBD")
 )
@@ -480,15 +480,15 @@ publi_5 = Publication.create!(
   kind_of: "event_creation",
   user_id: User.find_by(username: "CaroCBD").id,
   sport_id: event_5.sport.id,
-  posted_at: "05/12/2024 10h30",
+  posted_at: "06/12/2024 10h20",
   content: event_5.description
 )
 
 event_6 = Event.create!(
   name: "Initiation - lancer de mouettes",
   description: "Session d'entraînement de lancer de mouettes. Niveau intermédiaire requis afin de profiter au mieux de l'entraînement 💪 - Venir avec ses mouettes personnelles",
-  start_at: "28/12/2024 16h00",
-  end_at: "28/12/2024 18h00",
+  start_at: "08/12/2024 13h00",
+  end_at: "08/12/2024 18h00",
   playground: playground_noyal_mouette,
   organisator: User.find_by(username: "Kémouette")
 )
@@ -742,7 +742,7 @@ publi_a = Publication.new(
   content: "Hier, 7 nouveaux adeptes ont rejoint la communauté",
   sport: Sport.find_by(name:"Lancer de mouettes"),
   kind_of: "player_creation",
-  posted_at: rand(1.day).seconds.ago
+  posted_at: "06/12/2024 10h00"
 )
 
 cloudinary_url = "https://res.cloudinary.com/#{ENV["CLOUDINARY_CLOUD_NAME"]}/image/upload/image_720_p75atn.jpg"
